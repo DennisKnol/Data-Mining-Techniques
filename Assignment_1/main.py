@@ -1,11 +1,16 @@
 import csv
 
 
+ODI = "ODI-2019-csv.csv"
+
+
 def read_data(data):
     with open(data, 'rt') as f:
-        data = [row for row in csv.reader(f.read().splitlines())]
-        return print(data)
+        csv_reader = csv.reader(f)
 
+        for row in csv_reader:
+            print(row)
+    return
 
-ODI = "ODI-2019-csv.csv"
-read_data(ODI)
+df=read_data(ODI)
+
