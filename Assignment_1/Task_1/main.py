@@ -1,7 +1,7 @@
 import csv
 
 
-ODI = "ODI-2019-csv.csv"
+ODI = "/Users/DennisK/PycharmProjects/Data-Mining-Techniques/Assignment_1/Task_1/ODI-2019-csv.csv"
 
 
 def read_data(data):
@@ -12,5 +12,5 @@ def read_data(data):
             print(row)
     return
 
-df=read_data(ODI)
+df = read_data(ODI)
 
