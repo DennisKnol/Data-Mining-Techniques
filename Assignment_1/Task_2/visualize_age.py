@@ -39,3 +39,7 @@ plt.legend(["Third class"])
 plt.title("Density plot Age wrt Third Class of Travel")
 
 plt.show()
+
+# to conclude:
+# no a clear relation between age and survived
+# However, we see that the average age increase from the third class to the first class
