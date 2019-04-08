@@ -2,27 +2,53 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-# read in data
 train_data = pd.read_csv("train.csv")
 test_data = pd.read_csv("test.csv")
 
-print(train_data.count())
-# missing values for Age, 714 (out of 891) are known
-# missing values for Cabin, 204 (out of 891) are known
+titanic_data = pd.concat([train_data, test_data], sort=False)
 
-print(test_data.count())
-# missing values for Age, 332 (out of 418) are known
-# missing values for Cabin, 91 (out of 418) are known
-# and 1 missing value for Fare
 
-# Data exploration
-plt.subplot2grid((2, 1), (0, 0))
-train_data.Fare.value_counts().sort_index().plot(kind="bar", alpha=0.5)
-plt.xticks([])
-plt.title("Fare")
+def missing_values_count(data):
+    total = len(data)
+    missing = (total - (data.count()[data.count() < total]))
+    return missing
 
-plt.subplot2grid((2, 1), (1, 0))
-train_data.Embarked.value_counts().sort_index().plot(kind="bar", alpha=0.5)
-plt.title("Embarked")
 
-plt.show()
+print("Missing data in train set\n", missing_values_count(train_data), "\n")
+print("Missing data in test set \n", missing_values_count(test_data))
+
+
+# Mean fare per class
+print(test_data.groupby("Pclass")["Fare"].mean())
+
+
+def prep_data(data):
+    data.Fare = data.Fare.fillna()
+
+
+
+
+
+#
+#
+# # Data exploration
+# plt.subplot2grid((3, 2), (0, 0), colspan=2)
+# train_data.Fare.value_counts().sort_index().plot(kind="bar", alpha=0.5)
+# plt.xticks([])
+# plt.title("Fare")
+#
+# plt.subplot2grid((3, 2), (1, 0), colspan=2)
+# train_data.Embarked.value_counts().sort_index().plot(kind="bar", alpha=0.5)
+# plt.title("Embarked")
+#
+# plt.subplot2grid((3, 2), (2, 0), colspan=2)
+# # [train_data.Survived[train_data.Parch == i].value_counts().sort_index().plot.kde(bw_method=0.3) for i in [0, 1, 2, 3, 4, 5, 6]]
+# [train_data.Survived[train_data.Parch == i].plot.kde(bw_method=0.3) for i in [0, 1, 2, 3, 5]]
+# plt.legend(["0", "1", "2", "3", "5"])
+# plt.title("Density plot")
+#
+# plt.show()
+#
+# print(max(train_data.Parch))
+#
+# print(train_data.Parch.value_counts().sort_index())
