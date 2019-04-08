@@ -16,32 +16,13 @@ print(test_data.count())
 # and 1 missing value for Fare
 
 # Data exploration
-plt.subplot2grid((3, 2), (0, 0))
-train_data.Survived.value_counts().plot(kind="bar", alpha=0.5)
-plt.title("Survived")
-
-plt.subplot2grid((3, 2), (0, 1))
-train_data.Pclass.value_counts().sort_index().plot(kind="bar", alpha=0.5)
-plt.title("Class of Travel")
-
-plt.subplot2grid((3, 2), (1, 0))
-train_data.Sex.value_counts().plot(kind="bar", alpha=0.5)
-plt.title("Gender")
-
-plt.subplot2grid((3, 2), (1, 1))
+plt.subplot2grid((2, 1), (0, 0))
 train_data.Fare.value_counts().sort_index().plot(kind="bar", alpha=0.5)
 plt.xticks([])
 plt.title("Fare")
 
-plt.subplot2grid((3, 2), (2, 0))
+plt.subplot2grid((2, 1), (1, 0))
 train_data.Embarked.value_counts().sort_index().plot(kind="bar", alpha=0.5)
 plt.title("Embarked")
 
 plt.show()
-
-
-
-
-
-
-
