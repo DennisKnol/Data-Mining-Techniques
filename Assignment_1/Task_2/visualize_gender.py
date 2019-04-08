@@ -52,4 +52,4 @@ plt.show()
 
 # to conclude:
 # We see that the rate of survival is much higher for women
-# Problably due to the fact that women and children evacuate first
+# Probably due to the fact that women and children evacuate first
