@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 
 train_data = pd.read_csv("train.csv")
@@ -21,16 +20,9 @@ plt.ylabel("Age")
 plt.title("Survived vs Age")
 
 plt.subplot2grid((3, 2), (1, 0), colspan=2)
-train_data.Age.value_counts().sort_index().plot(kind="bar", alpha=0.6)
-plt.ylabel("Count")
-plt.title("Age")
-
-plt.subplot2grid((3, 2), (2, 0), colspan=2)
 [train_data.Age[train_data.Pclass == i].plot.kde(bw_method=0.3) for i in [1, 2, 3]]
 plt.legend(["First class", "Second class", "Third class"])
 plt.title("Density plot Age wrt Class of Travel")
-
-plt.show()
 
 # Consider Age categories instead of specific ages
 train_data.Age = train_data.Age.fillna(-0.5)
@@ -47,6 +39,7 @@ survival_rate_per_category = (
         train_data.AgeCategories[train_data.Survived == 0].value_counts(normalize=True).sort_index()
 )
 
+plt.subplot2grid((3, 2), (2, 0), colspan=2)
 survival_rate_per_category.plot(kind="bar", alpha=0.6)
 plt.ylabel("survival rate")
 plt.title("Survival Rate per Age Category")
