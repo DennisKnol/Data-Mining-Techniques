@@ -10,7 +10,7 @@ test_data = pd.read_csv("test.csv")
 plt.figure(figsize=(14,14))
 
 plt.subplot2grid((3, 2), (0, 0))
-train_data.Age.value_counts().sort_index().plot(kind="bar", alpha=0.5)
+train_data.Age.value_counts().sort_index().plot(kind="bar", alpha=0.6)
 plt.xticks([])
 plt.ylabel("Count")
 plt.title("Age")
@@ -21,7 +21,7 @@ plt.ylabel("Age")
 plt.title("Survived vs Age")
 
 plt.subplot2grid((3, 2), (1, 0), colspan=2)
-train_data.Age.value_counts().sort_index().plot(kind="bar", alpha=0.5)
+train_data.Age.value_counts().sort_index().plot(kind="bar", alpha=0.6)
 plt.ylabel("Count")
 plt.title("Age")
 
@@ -47,7 +47,7 @@ survival_rate_per_category = (
         train_data.AgeCategories[train_data.Survived == 0].value_counts(normalize=True).sort_index()
 )
 
-survival_rate_per_category.plot(kind="bar", alpha=0.7)
+survival_rate_per_category.plot(kind="bar", alpha=0.6)
 plt.ylabel("survival rate")
 plt.title("Survival Rate per Age Category")
 plt.show()
