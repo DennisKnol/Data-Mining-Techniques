@@ -15,56 +15,27 @@ def missing_values_count(data):
     return missing
 
 
-print("Missing data in train set\n", missing_values_count(train_data), "\n")
-print("Missing data in test set \n", missing_values_count(test_data))
-
-
-# Mean fare per class
-mean_fare_per_class = titanic_data.groupby("Pclass")["Fare"].mean()
-print(mean_fare_per_class[3])
-
-print(test_data.Pclass[test_data.Fare.isnull()])
-
 def prep_data(data):
+    # convert sex to binary
+    data['Sex'].replace([0, 1], ['Male', 'female'], inplace=True)
+
+    # fill empty Fare with mean Fare is the corresponding Pclass
     mean_fare_per_class = titanic_data.groupby("Pclass")["Fare"].mean()
-    # for i in [test_data.Pclass[test_data.Fare.isnull()]:
-        # data.Fare = data.Fare.fillna()
+    data["Fare"] = data[['Fare', 'Pclass']].apply(
+        lambda x: mean_fare_per_class[x['Pclass']] if pd.isnull(x['Fare']) else x['Fare'], axis=1
+    )
+
+    # fill empty Cabin with "unknown"
+    data.Cabin = data.Cabin.fillna("unknown")
+
+    # fill empty Embarked with value that appears most often
+    data.Embarked = data.Embarked.fillna(data.Embarked.mode()[0])
+
+    return data
 
 
+prep_data(train_data)
+prep_data(test_data)
 
-
-
-# def cleanData(data):
-#   # If fare data is missing, replace it with the average from that class
-#   data.Fare = data.Fare.map(lambda x: np.nan if x==0 else x)
-#   classmeans = data.pivot_table('Fare', rows='Pclass', aggfunc='mean')
-#   data.Fare = data[['Fare', 'Pclass']].apply(lambda x: classmeans[x['Pclass']] if pd.isnull(x['Fare']) else x['Fare'], axis=1 )
-#
-#
-#   # Covert sex into a numberic value
-#   data.Sex = data.Sex.apply(lambda sex: 0 if sex == "male" else 1)
-#
-#   return data
-
-
-# # Data exploration
-# plt.subplot2grid((3, 2), (0, 0), colspan=2)
-# train_data.Fare.value_counts().sort_index().plot(kind="bar", alpha=0.5)
-# plt.xticks([])
-# plt.title("Fare")
-#
-# plt.subplot2grid((3, 2), (1, 0), colspan=2)
-# train_data.Embarked.value_counts().sort_index().plot(kind="bar", alpha=0.5)
-# plt.title("Embarked")
-#
-# plt.subplot2grid((3, 2), (2, 0), colspan=2)
-# # [train_data.Survived[train_data.Parch == i].value_counts().sort_index().plot.kde(bw_method=0.3) for i in [0, 1, 2, 3, 4, 5, 6]]
-# [train_data.Survived[train_data.Parch == i].plot.kde(bw_method=0.3) for i in [0, 1, 2, 3, 5]]
-# plt.legend(["0", "1", "2", "3", "5"])
-# plt.title("Density plot")
-#
-# plt.show()
-#
-# print(max(train_data.Parch))
-#
-# print(train_data.Parch.value_counts().sort_index())
+print("Missing data in train set\n", missing_values_count(train_data), "\n")
+print("Missing data in test set \n", missing_values_count(test_data), "\n")
