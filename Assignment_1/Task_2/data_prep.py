@@ -40,6 +40,18 @@ def prep_data(data):
     # TODO: think of a way to fill unknown Ages, also the title of a passenger is correlated with ones survival
 
     data["Title"] = data.Name.apply(lambda x: x.split('.')[0].split(',')[1].strip())
+    data.loc[data["Title"] == "Ms", "Title"] = "Miss"
+    data.loc[data["Title"] == "Mlle", "Title"] = "Miss"
+    data.loc[data["Title"] == "Mme", "Title"] = "Mrs"
+
+    titles_list = np.unique(train_data.Title.values)
+    title_mapping = {}
+    for i in range(len(titles_list)):
+        title_mapping[i] = titles_list[i]
+
+    print(title_mapping)
+
+    # data["Title"] = data.Title.map(title_mapping)
 
     return data
 
@@ -52,6 +64,9 @@ print("Missing data in test set \n", missing_values_count(test_data), "\n")
 
 
 # Test area:
+print(train_data["Title"])
+
+title_list = np.unique(train_data.Title.values)
 
 print(train_data.Title.value_counts())
 print(pd.crosstab(train_data["Title"], train_data["Sex"]))
