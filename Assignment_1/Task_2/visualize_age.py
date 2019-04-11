@@ -1,5 +1,8 @@
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
+
 
 train_data = pd.read_csv("train.csv")
 test_data = pd.read_csv("test.csv")
@@ -29,6 +32,29 @@ plt.title("Density plot Age wrt Class of Travel")
 
 plt.show()
 
+# Consider Age categories instead of specific ages
+train_data.Age = train_data.Age.fillna(-0.5)
+test_data.Age = test_data.Age.fillna(-0.5)
+
+labels = ['Unknown', 'Baby', 'Children', 'Youth', 'Adults', 'Seniors']
+bins = [-1, 0, 5, 15, 24, 65, np.inf]
+
+train_data['AgeCategories'] = pd.cut(train_data["Age"], bins, labels=labels)
+test_data['AgeCategories'] = pd.cut(test_data["Age"], bins, labels=labels)
+
+survival_rate_per_category = (
+        train_data.AgeCategories[train_data.Survived == 1].value_counts(normalize=True).sort_index()/
+        train_data.AgeCategories[train_data.Survived == 0].value_counts(normalize=True).sort_index()
+)
+
+survival_rate_per_category.plot(kind="bar", alpha=0.7)
+plt.ylabel("survival rate")
+plt.title("Survival Rate per Age Category")
+plt.show()
+
+
 # to conclude:
-# no a clear relation between age and survived
-# However, we see that the average age increase from the third class to the first class
+# no a clear relation between age and survived when considering the scatter plot
+# However, when considering age categories we find that babies are most likely to survive and seniors least likely.
+#
+# Also, we see that the average age increase from the third class to the first class
