@@ -12,32 +12,17 @@ odi[["day", "time"]] = odi['Timestamp'].str.split(" ", expand=True)
 
 # Rename
 odi["birthday"] = odi.iloc[:, 8]
-odi["number_of_neighbors"] = odi.iloc[:, 9]
 odi["deserve_money"] = odi.iloc[:, 11]
 odi["random_number"] = odi.iloc[:, 12]
 odi["bedtimes"] = odi.iloc[:, 13]
 
-
-
-
-# clean birthdays
-# print
-#
-# odi["clean_birthday"] = odi["birthday"].apply(lambda x: pd.to_datetime(x).strftime('%m/%d/%Y')[0])
-# print(odi["clean_birthday"])
-
-# clean stress level
-
-odi["stress_level"].apply(lambda x: x.str.replace(',','.'))
+# stress level
 odi["stress_level"] = odi.iloc[:, 16]
-odi["stress_level"] = odi["stress_level"].apply(pd.to_numeric, errors='coerce', downcast='integer')
+odi["stress_level"] = odi["stress_level"].apply(pd.to_numeric, errors='coerce', downcast='float')
+odi["stress_level"] = odi["stress_level"]
 
+# neighbors
+odi["number_of_neighbors"] = odi.iloc[:, 9]
+odi["number_of_neighbors"] = odi["number_of_neighbors"].apply(pd.to_numeric, errors='coerce', downcast='integer')
+odi["number_of_neighbors"] = odi["number_of_neighbors"].round(2)
 
-#
-# odi["clean_stress_level"] = odi[~odi["stress_level"].isin([0, 100])]
-# print(odi["clean_stress_level"])
-# #
-# #
-
-
-odi = odi.drop(columns=['Timestamp'])
