@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 train_data = pd.read_csv("train.csv")
 test_data = pd.read_csv("test.csv")
 
-plt.figure(figsize=(14,14))
+plt.figure(figsize=(14, 10))
 
 plt.subplot2grid((3, 2), (0, 0))
 train_data.Age.value_counts().sort_index().plot(kind="bar", alpha=0.6)
