@@ -45,7 +45,8 @@ sns.barplot(x="Sex", y="Survived", data=train_data, alpha=0.8, palette=['lightbl
 plt.title("Survival Rate per Gender")
 
 plt.subplot2grid((3,2), (2,0), colspan=2)
-[train_data.Survived[train_data.Sex == x].plot.kde(bw_method=0.3) for x in ["male", "female"]]
+[train_data.Survived[train_data.Sex == x].plot.kde(bw_method=0.3, color=c)
+ for x, c in zip(["male", "female"], ['lightblue', 'pink'])]
 plt.legend(["male", "female"])
 plt.title("Density Plot of Survived wrt Gender")
 
