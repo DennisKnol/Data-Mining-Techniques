@@ -1,6 +1,9 @@
 import pandas as pd
 import numpy as np
 
+import seaborn as sns
+import matplotlib.pyplot as plt
+
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
@@ -125,6 +128,12 @@ train_data_outlier_removed = remove_outlier(train_data)
 print(train_data_outlier_removed.shape)
 train_data_prepped = prep_data(train_data_outlier_removed)
 
+sns.set()
+cols = ["Survived", "Pclass", "Sex", "SibSp", "Parch", "Cabin", "Embarked", "Fare", "Age"]
+sns.pairplot(train_data[cols], height=2.5)
+plt.show()
+
+
 y = train_data_prepped["Survived"]
 X = train_data_prepped[["Pclass", "Sex", "SibSp", "Parch", "Cabin", "Embarked", "FareBins", "AgeCategories", "Title"]]
 
@@ -132,11 +141,11 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random
 
 models = [
     DecisionTreeClassifier(),
-    KNeighborsClassifier(n_),
-    GradientBoostingClassifier(n_estimators=100),
+    KNeighborsClassifier(),
+    GradientBoostingClassifier(),
     SVC(),
     MLPClassifier(),
-    RandomForestClassifier(n_estimators=100)
+    RandomForestClassifier()
 ]
 
 for model in models:
