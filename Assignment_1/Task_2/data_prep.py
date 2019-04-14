@@ -5,22 +5,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn import linear_model, svm, tree
+from sklearn import svm, tree
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
-from sklearn.naive_bayes import GaussianNB
 from sklearn.neural_network import MLPClassifier
 
 
 train_data = pd.read_csv("train.csv")
 test_data = pd.read_csv("test.csv")
-
-titanic_data = pd.concat([train_data, test_data], sort=False)
-
-
-def missing_values_count(data):
-    total = len(data)
-    missing = (total - (data.count()[data.count() < total]))
-    return missing
 
 
 def prep_data(data):
@@ -109,66 +100,70 @@ X = train_data_prepped[["Pclass", "Sex", "SibSp", "Parch", "Cabin", "Embarked", 
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=0)
 
-# Decision Tree Classifier
-dtc = tree.DecisionTreeClassifier()
-dtc.fit(X_train, y_train)
-y_predict = dtc.predict(X_test)
-acc_dtc = round(accuracy_score(y_predict, y_test)*100, 2)
+accuracy_dtc = []
+accuracy_knn = []
+accuracy_gbc = []
+accuracy_svc = []
+accuracy_nnc = []
+accuracy_rfc = []
 
-# Gaussian Naive Bayes model
-gnb = GaussianNB()
-gnb.fit(X_train, y_train)
-y_predict = gnb.predict(X_test)
-acc_gnb = round(accuracy_score(y_predict, y_test)*100, 2)
+for _ in range(1):
+    # Decision Tree Classifier
+    dtc = tree.DecisionTreeClassifier()
+    dtc.fit(X_train, y_train)
+    y_predict = dtc.predict(X_test)
+    accuracy_dtc.append(round(accuracy_score(y_predict, y_test)*100, 2))
 
-# Create and fit a nearest-neighbor classifier
-knn = KNeighborsClassifier()
-knn.fit(X_train, y_train)
-y_predict = knn.predict(X_test)
-acc_knn = round(accuracy_score(y_predict, y_test)*100, 2)
+    # Create and fit a nearest-neighbor classifier
+    knn = KNeighborsClassifier()
+    knn.fit(X_train, y_train)
+    y_predict = knn.predict(X_test)
+    accuracy_knn.append(round(accuracy_score(y_predict, y_test)*100, 2))
 
-# Logistic regression
-log_regr = linear_model.LogisticRegression()
-log_regr.fit(X_train, y_train)
-y_predict = log_regr.predict(X_test)
-acc_log_regr = round(accuracy_score(y_predict, y_test)*100, 2)
+    # Gradient boosting
+    gbc = GradientBoostingClassifier()
+    gbc.fit(X_train, y_train)
+    y_predict = gbc.predict(X_test)
+    accuracy_gbc.append(round(accuracy_score(y_predict, y_test)*100, 2))
 
-# Gradient boosting
-gbk = GradientBoostingClassifier()
-gbk.fit(X_train, y_train)
-y_predict = gbk.predict(X_test)
-acc_gbk = round(accuracy_score(y_predict, y_test)*100, 2)
+    # Support Vector Classification
+    svc = svm.SVC()
+    svc.fit(X_train, y_train)
+    y_predict = svc.predict(X_test)
+    accuracy_svc.append(round(accuracy_score(y_predict, y_test) * 100, 2))
 
-# Stochastic gradient descent Classification
-sgd = linear_model.SGDClassifier()
-sgd.fit(X_train, y_train)
-y_predict = sgd.predict(X_test)
-acc_sgd = round(accuracy_score(y_predict, y_test)*100, 2)
+    # Neural Network Classification
+    nnc = MLPClassifier()
+    nnc.fit(X_train, y_train)
+    y_predict = nnc.predict(X_test)
+    accuracy_nnc.append(round(accuracy_score(y_predict, y_test) * 100, 2))
 
-# Support Vector Classification
-svc = svm.SVC()
-svc.fit(X_train, y_train)
-y_predict = svc.predict(X_test)
-acc_svc = round(accuracy_score(y_predict, y_test) * 100, 2)
+    # Random Forest Classifier
+    rfc = RandomForestClassifier()
+    rfc.fit(X_train, y_train)
+    y_predict = rfc.predict(X_test)
+    accuracy_rfc.append(round(accuracy_score(y_predict, y_test) * 100, 2))
 
-# Neural Network Classification
-nnc = MLPClassifier()
-nnc.fit(X_train, y_train)
-y_predict = nnc.predict(X_test)
-acc_nnc = round(accuracy_score(y_predict, y_test) * 100, 2)
+print("dtc:      ", np.mean(accuracy_dtc))
+print("knn:      ", np.mean(accuracy_knn))
+print("gbc:      ", np.mean(accuracy_gbc))
+print("svm:      ", np.mean(accuracy_svc))
+print("nnc:      ", np.mean(accuracy_nnc))
+print("rfc:      ", np.mean(accuracy_rfc))
 
-# Random Forest Classifier
-rfc = RandomForestClassifier()
-rfc.fit(X_train, y_train)
-y_predict = rfc.predict(X_test)
-acc_rfc = round(accuracy_score(y_predict, y_test) * 100, 2)
+# dtc:       80.46240000000002
+# knn:       83.39
+# gbc:       83.7266
+# svm:       81.35999999999999
+# nnc:       81.65709999999999
+# rfc:       81.06819999999999
+# --> Best classifier is Gradient Boosting
 
-print("dtc:      ", acc_dtc)
-print("gnb:      ", acc_gnb)
-print("knn:      ", acc_knn)
-print("log_regr: ", acc_log_regr)
-print("gbc:      ", acc_gbk)
-print("sgd:      ", acc_sgd)
-print("svm:      ", acc_svc)
-print("nnc:      ", acc_nnc)
-print("rfc:      ", acc_rfc)
+test_data_prepped = prep_data(test_data)
+X = test_data_prepped[["Pclass", "Sex", "SibSp", "Parch", "Cabin", "Embarked", "FareBins", "AgeCategories", "Title"]]
+
+prediction_survived = pd.DataFrame(gbc.predict(X))
+submission = pd.concat([test_data["PassengerId"], prediction_survived], axis=1)
+submission.columns = ["PassengerId", "Survived"]
+submission.to_csv('survived_submission.csv', index=False)
+
