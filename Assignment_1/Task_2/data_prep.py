@@ -1,6 +1,14 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn import linear_model, svm, tree
+from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.neural_network import MLPClassifier
 
 
 train_data = pd.read_csv("train.csv")
@@ -16,58 +24,151 @@ def missing_values_count(data):
 
 
 def prep_data(data):
-    # convert sex to binary
+    # convert sex: male is 0, female is 1
     data.loc[data["Sex"] == "male", "Sex"] = 0
     data.loc[data["Sex"] == "female", "Sex"] = 1
 
-    # fill empty Fare with mean Fare is the corresponding Pclass
-    mean_fare_per_class = titanic_data.groupby("Pclass")["Fare"].mean()
+    # fill empty Fare with mean Fare in the corresponding Pclass
+    mean_fare_per_class = data.groupby("Pclass")["Fare"].mean()
     data["Fare"] = data[["Fare", "Pclass"]].apply(
         lambda x: mean_fare_per_class[x["Pclass"]] if pd.isnull(x["Fare"]) else x["Fare"], axis=1
     )
 
-    # fill empty Cabin with "unknown"
-    data.Cabin = data.Cabin.fillna("unknown")
+    # sort Fare into bins
+    data["FareBins"] = pd.cut(data["Fare"], 10, labels=[i+1 for i in range(10)])
+
+    # fill empty Age with mean age in the corresponding Pclass
+    mean_age_per_class = data.groupby("Pclass")["Age"].mean()
+    data["Age"] = data[["Age", "Pclass"]].apply(
+        lambda x: mean_age_per_class[x["Pclass"]] if pd.isnull(x["Age"]) else x["Age"], axis=1
+    )
+
+    # categorize age in
+    labels = ['Baby', 'Child', 'Youth', 'Adult', 'Senior']
+    bins = [0, 5, 15, 24, 65, np.inf]
+    data['AgeCategories'] = pd.cut(data["Age"], bins, labels=labels)
+
+    age_mapping = {
+        "Baby": 1,
+        "Child": 2,
+        "Youth": 3,
+        "Adult": 4,
+        "Senior": 5
+    }
+
+    data["AgeCategories"] = data["AgeCategories"].map(age_mapping)
+
+    # fill unknown Cabin with 0, known cabin with 1
+    data["Cabin"] = (data["Cabin"].notnull()).astype('int')
+    data["Cabin"] = data["Cabin"].fillna(0)
 
     # fill empty Embarked with value that appears most often
     data.Embarked = data.Embarked.fillna(data.Embarked.mode()[0])
-    
+
     # convert Embarked to integers
     data.loc[data["Embarked"] == "S", "Embarked"] = 0
     data.loc[data["Embarked"] == "C", "Embarked"] = 1
     data.loc[data["Embarked"] == "Q", "Embarked"] = 2
 
-    # TODO: think of a way to fill unknown Ages, also the title of a passenger is correlated with ones survival
-
+    # subtract title from name
     data["Title"] = data.Name.apply(lambda x: x.split('.')[0].split(',')[1].strip())
     data.loc[data["Title"] == "Ms", "Title"] = "Miss"
     data.loc[data["Title"] == "Mlle", "Title"] = "Miss"
     data.loc[data["Title"] == "Mme", "Title"] = "Mrs"
+    data.loc[data["Title"] == "Mme", "Title"] = "Mrs"
 
-    titles_list = np.unique(train_data.Title.values)
-    title_mapping = {}
-    for i in range(len(titles_list)):
-        title_mapping[i] = titles_list[i]
+    rare_titles = ["Dr", "Rev", "Col", "Major", "Jonkheer", "Don", "the Countess", "Lady", "Sir"]
+    for title in rare_titles:
+        data.loc[data["Title"] == title, "Title"] = "Rare"
 
-    print(title_mapping)
+    title_mapping = {
+        "Unknown": 0,
+        "Mr": 1,
+        "Miss": 2,
+        "Mrs": 3,
+        "Master": 4,
+        "Rare": 5,
+        "Capt": 6
+    }
 
-    # data["Title"] = data.Title.map(title_mapping)
+    data["Title"] = data["Title"].map(title_mapping)
+    data["Title"] = data["Title"].fillna(0)
 
+    # drop Age, Name and Ticket
+    data = data.drop(["Age"], axis=1)
+    data = data.drop(["Fare"], axis=1)
+    data = data.drop(["Name"], axis=1)
+    data = data.drop(["Ticket"], axis=1)
     return data
 
 
-prep_data(train_data)
-prep_data(test_data)
+train_data_prepped = prep_data(train_data)
 
-print("Missing data in train set\n", missing_values_count(train_data), "\n")
-print("Missing data in test set \n", missing_values_count(test_data), "\n")
+y = train_data_prepped["Survived"]
+X = train_data_prepped[["Pclass", "Sex", "SibSp", "Parch", "Cabin", "Embarked", "FareBins", "AgeCategories", "Title"]]
 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=0)
 
-# Test area:
-print(train_data["Title"])
+# Decision Tree Classifier
+dtc = tree.DecisionTreeClassifier()
+dtc.fit(X_train, y_train)
+y_predict = dtc.predict(X_test)
+acc_dtc = round(accuracy_score(y_predict, y_test)*100, 2)
 
-title_list = np.unique(train_data.Title.values)
+# Gaussian Naive Bayes model
+gnb = GaussianNB()
+gnb.fit(X_train, y_train)
+y_predict = gnb.predict(X_test)
+acc_gnb = round(accuracy_score(y_predict, y_test)*100, 2)
 
-print(train_data.Title.value_counts())
-print(pd.crosstab(train_data["Title"], train_data["Sex"]))
-print(train_data[["Title", "Survived"]].groupby(["Title"], as_index=False).mean())
+# Create and fit a nearest-neighbor classifier
+knn = KNeighborsClassifier()
+knn.fit(X_train, y_train)
+y_predict = knn.predict(X_test)
+acc_knn = round(accuracy_score(y_predict, y_test)*100, 2)
+
+# Logistic regression
+log_regr = linear_model.LogisticRegression()
+log_regr.fit(X_train, y_train)
+y_predict = log_regr.predict(X_test)
+acc_log_regr = round(accuracy_score(y_predict, y_test)*100, 2)
+
+# Gradient boosting
+gbk = GradientBoostingClassifier()
+gbk.fit(X_train, y_train)
+y_predict = gbk.predict(X_test)
+acc_gbk = round(accuracy_score(y_predict, y_test)*100, 2)
+
+# Stochastic gradient descent Classification
+sgd = linear_model.SGDClassifier()
+sgd.fit(X_train, y_train)
+y_predict = sgd.predict(X_test)
+acc_sgd = round(accuracy_score(y_predict, y_test)*100, 2)
+
+# Support Vector Classification
+svc = svm.SVC()
+svc.fit(X_train, y_train)
+y_predict = svc.predict(X_test)
+acc_svc = round(accuracy_score(y_predict, y_test) * 100, 2)
+
+# Neural Network Classification
+nnc = MLPClassifier()
+nnc.fit(X_train, y_train)
+y_predict = nnc.predict(X_test)
+acc_nnc = round(accuracy_score(y_predict, y_test) * 100, 2)
+
+# Random Forest Classifier
+rfc = RandomForestClassifier()
+rfc.fit(X_train, y_train)
+y_predict = rfc.predict(X_test)
+acc_rfc = round(accuracy_score(y_predict, y_test) * 100, 2)
+
+print("dtc:      ", acc_dtc)
+print("gnb:      ", acc_gnb)
+print("knn:      ", acc_knn)
+print("log_regr: ", acc_log_regr)
+print("gbc:      ", acc_gbk)
+print("sgd:      ", acc_sgd)
+print("svm:      ", acc_svc)
+print("nnc:      ", acc_nnc)
+print("rfc:      ", acc_rfc)
