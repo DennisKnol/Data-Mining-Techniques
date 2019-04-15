@@ -224,7 +224,7 @@ def data_prep(data):
         good_1 = replace_name(s, now, good_1)
 
     now = 'Food'
-    s = good_day_1_cat.categories.str.contains('eat')
+    s1 = good_day_1_cat.categories.str.contains('eat')
     s2 = good_day_1_cat.categories.str.contains('pizza')
     s3 = good_day_1_cat.categories.str.contains('food')
     s4 = good_day_1_cat.categories.str.contains('pasta')
@@ -278,7 +278,7 @@ def data_prep(data):
     good_2 = replace_name(s2, now, good_2)
 
     now = 'Friends'
-    s = good_day_2_cat.categories.str.contains('friend')
+    s1 = good_day_2_cat.categories.str.contains('friend')
     s2 = good_day_2_cat.categories.str.contains('people')
     s3 = good_day_2_cat.categories.str.contains('person')
     s4 = good_day_2_cat.categories.str.contains('company')
