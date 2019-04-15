@@ -1,84 +1,134 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
-ODI = pd.read_csv(
+
+odi = pd.read_csv(
     "/Users/DennisK/PycharmProjects/Data-Mining-Techniques/Assignment_1/Task_1/ODI-2019-csv.csv",
     sep=';'
 )
 
-ODI.iloc[:, 10].value_counts().plot(kind='bar', title='did you stand up?')
+print(odi.shape)
+
+def data_prep(data):
+    # Split timestamp into day and time
+    data[["day", "time"]] = data['Timestamp'].str.split(" ", expand=True)
+
+    col_names = [
+        "programme",
+        "machine_learning",
+        "information_retrieval",
+        "statistics",
+        "databases",
+        "gender",
+        "chocolate",
+        "birthday",
+        "number_of_neighbors",
+        "stand_up",
+        "deserve_money",
+        "random_number",
+        "bedtime",
+        "good_day_1",
+        "good_day_2",
+        "stress_level"
+        ]
+
+    for col in col_names:
+        data[col] = data.iloc[:, (col_names.index(col)+1)]
+
+    # select only the renamed columns
+    data = data.iloc[:, [i for i in range(17, 35)]]
+
+    # convert answers to numbers
+    data.loc[data["machine_learning"] == "no", "machine_learning"] = 0
+    data.loc[data["machine_learning"] == "yes", "machine_learning"] = 1
+    data.loc[data["machine_learning"] == "unknown", "machine_learning"] = 2
+
+    data.loc[data["information_retrieval"] == "0", "information_retrieval"] = 0
+    data.loc[data["information_retrieval"] == "1", "information_retrieval"] = 1
+    data.loc[data["information_retrieval"] == "unknown", "information_retrieval"] = 2
+
+    data.loc[data["statistics"] == "sigma", "statistics"] = 0
+    data.loc[data["statistics"] == "mu", "statistics"] = 1
+    data.loc[data["statistics"] == "unknown", "statistics"] = 2
+
+    data.loc[data["databases"] == "nee", "databases"] = 0
+    data.loc[data["databases"] == "ja", "databases"] = 1
+    data.loc[data["databases"] == "unknown", "databases"] = 2
+
+    data.loc[data["gender"] == "male", "gender"] = 0
+    data.loc[data["gender"] == "female", "gender"] = 1
+    data.loc[data["gender"] == "unknown", "gender"] = 2
+
+    data.loc[data["stand_up"] == "no", "stand_up"] = 0
+    data.loc[data["stand_up"] == "yes", "stand_up"] = 1
+    data.loc[data["stand_up"] == "unknown", "stand_up"] = 2
+    return data
+
+
+odi = data_prep(odi)
+
+
+# ODI_cleaned["stand_up"].value_counts().plot(kind='bar', title='did you stand up?')
+# plt.show()
+
+plt.figure(figsize=(10, 10))
+
+plt.subplot2grid((3, 2), (0, 0))
+odi["machine_learning"].value_counts().sort_index().plot(
+    kind='pie',
+    labels=["no", "yes", "unknown"],
+    colors=["lightblue", "teal", "wheat"],
+    autopct="%.1f%%",
+    title="Have you taken a course on machine learning?"
+    )
+
+
+plt.subplot2grid((3, 2), (0, 1))
+odi["information_retrieval"].value_counts().sort_index().plot(
+    kind='pie',
+    labels=["no", "yes", "unknown"],
+    colors=["lightblue", "teal", "wheat"],
+    autopct="%.1f%%",
+    title="Have you taken a course on information retrieval?"
+    )
+
+plt.subplot2grid((3, 2), (1, 0))
+odi["statistics"].value_counts().sort_index().plot(
+    kind='pie',
+    labels=["no", "yes", "unknown"],
+    colors=["lightblue", "teal", "wheat"],
+    autopct="%.1f%%",
+    title="Have you taken a course on statistics?"
+    )
+
+plt.subplot2grid((3, 2), (1, 1))
+odi["databases"].value_counts().sort_index().plot(
+    kind='pie',
+    labels=["no", "yes", "unknown"],
+    colors=["lightblue", "teal", "wheat"],
+    autopct="%.1f%%",
+    title="Have you taken a course on databases?"
+)
+
+plt.subplot2grid((3, 2), (2, 0))
+odi["chocolate"].value_counts().sort_index().plot(
+    kind='pie',
+    # labels=["no", "yes", "unknown"],
+    colors=["lightblue", "teal", "lavender", "wheat", "beige"],
+    autopct="%.1f%%",
+    title="Chocolate makes you ..."
+)
+
+plt.subplot2grid((3, 2), (2, 1))
+odi["stand_up"].value_counts().sort_index().plot(
+    kind='pie',
+    labels=["no", "yes", "unknown"],
+    colors=["lightblue", "teal", "wheat"],
+    autopct="%.1f%%",
+    title="Did you stand up?"
+)
+
 plt.show()
 
 
-def program_question(data):
-    # improvements on text program question
-    prog = data.str.lower()
-    prog_cat = prog.astype('category')
-    cat_list = prog_cat.cat.categories
-
-    def find_program(program, prog_list):
-        for i, _ in enumerate(program):
-            if _ == True:
-                prog_list.append(prog_cat.cat.categories[i])
-        return prog_list
-
-    # Artificial Intelligence
-    AI = prog_cat.cat.categories.str.contains('ai')
-    ArtInt = prog_cat.cat.categories.str.contains('artificial intelligence')
-    AI_list = []
-    AI_list = find_program(ArtInt, AI_list)
-    AI_list = find_program(AI, AI_list)
-    cat_list = [item for item in cat_list if item not in AI_list]
-
-    # Business Analytics
-    BA = prog_cat.cat.categories.str.contains('ba')
-    Busi_anal = prog_cat.cat.categories.str.contains('business analytics')
-    BA_list = []
-    BA_list = find_program(BA, BA_list)
-    BA_list = find_program(Busi_anal, BA_list)
-    cat_list = [item for item in cat_list if item not in BA_list]
-
-    # Bioinformatics
-    BI = prog_cat.cat.categories.str.contains('bioinf')
-    BI_list = []
-    BI_list = find_program(BI, BI_list)
-    cat_list = [item for item in cat_list if item not in BI_list]
-
-    # Computer Science
-    Comp_Sc = prog_cat.cat.categories.str.contains('computer')
-    CS = prog_cat.cat.categories.str.match('cs')
-    CS_list = []
-    CS_list = find_program(Comp_Sc, CS_list)
-    CS_list = find_program(CS, CS_list)
-    cat_list = [item for item in cat_list if item not in CS_list]
-
-    # Computational Science
-    Compu_Sc = prog_cat.cat.categories.str.contains('computational')
-    CLS = prog_cat.cat.categories.str.contains('cls')
-    CLS_list = []
-    CLS_list = find_program(Compu_Sc, CLS_list)
-    CLS_list = find_program(CLS, CLS_list)
-    cat_list = [item for item in cat_list if item not in CLS_list]
-
-    # Data Science
-    DS = prog_cat.cat.categories.str.contains('data science')
-    DS_dir = prog_cat.cat.categories.str.match('ds')
-    DS_list = []
-    DS_list = find_program(DS, DS_list)
-    DS_list = find_program(DS_dir, DS_list)
-    cat_list = [item for item in cat_list if item not in DS_list]
-
-    # Business administration
-    BAM = prog_cat.cat.categories.str.contains('business administration')
-    BAM_list = []
-    BAM_list = find_program(BAM, BAM_list)
-    cat_list = [item for item in cat_list if item not in BAM_list]
-
-    # Econometrics
-    EC = prog_cat.cat.categories.str.contains('econometrics')
-    EC_list = []
-    EC_list = find_program(EC, EC_list)
-    cat_list = [item for item in cat_list if item not in EC_list]
-    return cat_list
-
-print(program_question(ODI.iloc[:, 1]))
