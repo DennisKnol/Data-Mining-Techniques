@@ -162,41 +162,164 @@ def data_prep(data):
     prog_cat = pd.Categorical(prog.program)
     cat_list = prog_cat.categories
 
-    # convert answers to numbers
-    data.loc[data["machine_learning"] == "no", "machine_learning"] = 0
-    data.loc[data["machine_learning"] == "yes", "machine_learning"] = 1
-    data.loc[data["machine_learning"] == "unknown", "machine_learning"] = 2
+    # convert multiple choice answers to numbers
+    ml_mapping = {"no": 0, "yes": 1, "unknown": 2}
+    ir_mapping = {"0": 0, "1": 1, "unknown": 2}
+    st_mapping = {"sigma": 0, "mu": 1, "unknown": 2}
+    db_mapping = {"nee": 0, "ja": 1, "unknown": 2}
 
-    data.loc[data["information_retrieval"] == "0", "information_retrieval"] = 0
-    data.loc[data["information_retrieval"] == "1", "information_retrieval"] = 1
-    data.loc[data["information_retrieval"] == "unknown", "information_retrieval"] = 2
+    gender_mapping = {"male": 0, "female": 1, "unknown": 2}
+    stand_mapping = {"no": 0, "yes": 1, "unknown": 2}
 
-    data.loc[data["statistics"] == "sigma", "statistics"] = 0
-    data.loc[data["statistics"] == "mu", "statistics"] = 1
-    data.loc[data["statistics"] == "unknown", "statistics"] = 2
+    chocolate_mapping = {
+        'fat': 0,
+        'slim': 1,
+        'neither': 2,
+        'I have no idea what you are talking about': 3,
+        'unknown': 4
+    }
 
-    data.loc[data["databases"] == "nee", "databases"] = 0
-    data.loc[data["databases"] == "ja", "databases"] = 1
-    data.loc[data["databases"] == "unknown", "databases"] = 2
+    mapping_list = [ml_mapping, ir_mapping, st_mapping, db_mapping, gender_mapping, stand_mapping, chocolate_mapping]
+    cols = ["machine_learning", "information_retrieval", "statistics", "databases", "gender", "stand_up", "chocolate"]
 
-    data.loc[data["gender"] == "male", "gender"] = 0
-    data.loc[data["gender"] == "female", "gender"] = 1
-    data.loc[data["gender"] == "unknown", "gender"] = 2
+    for col in cols:
+        data[col] = data[col].map(mapping_list[cols.index(col)])
 
-    data.loc[data["stand_up"] == "no", "stand_up"] = 0
-    data.loc[data["stand_up"] == "yes", "stand_up"] = 1
-    data.loc[data["stand_up"] == "unknown", "stand_up"] = 2
-
+    # replace comma with point for all numeric values
     for col in ["number_of_neighbors", "deserve_money", "random_number", "stress_level"]:
         data[col] = data[col].apply(lambda x: str(x))
         data[col] = data[col].apply(lambda x: x.replace(',', '.'))
-        data[col] = data[col].apply(pd.to_numeric, errors='coerce', downcast='integer')
+        data[col] = data[col].apply(pd.to_numeric, errors='coerce', downcast='float')
 
     data["stress_level"][data["stress_level"] > 100] = 100
     data["stress_level"][data["stress_level"] < 0] = 0
+
+    # good day 1
+    good_1 = pd.DataFrame({'good_day_1': data["good_day_1"].str.lower()}, dtype='category')
+    good_day_1_cat = pd.Categorical(good_1.good_day_1)
+    cat_list = good_day_1_cat.categories
+
+    now = 'Nice weather'
+    sun1 = good_day_1_cat.categories.str.contains('sun')
+    sun2 = good_day_1_cat.categories.str.contains('weather')
+    good_1 = replace_name(sun1, now, good_1)
+    good_1 = replace_name(sun2, now, good_1)
+
+    now = 'Sex'
+    s = good_day_1_cat.categories.str.contains('sex')
+    good_1 = replace_name(s, now, good_1)
+
+    now = 'Sleep'
+    s = good_day_1_cat.categories.str.contains('sleep')
+    s2 = good_day_1_cat.categories.str.contains('bed')
+    good_1 = replace_name(s, now, good_1)
+    good_1 = replace_name(s2, now, good_1)
+
+    now = 'Friends'
+    s1 = good_day_1_cat.categories.str.contains('friend')
+    s2 = good_day_1_cat.categories.str.contains('people')
+    s3 = good_day_1_cat.categories.str.contains('person')
+    s4 = good_day_1_cat.categories.str.contains('company')
+    for s in [s1, s2, s3, s4]:
+        good_1 = replace_name(s, now, good_1)
+
+    now = 'Food'
+    s = good_day_1_cat.categories.str.contains('eat')
+    s2 = good_day_1_cat.categories.str.contains('pizza')
+    s3 = good_day_1_cat.categories.str.contains('food')
+    s4 = good_day_1_cat.categories.str.contains('pasta')
+    s5 = good_day_1_cat.categories.str.contains('meal')
+    s6 = good_day_1_cat.categories.str.contains('choco')
+    for s in [s1, s2, s3, s4, s5, s6]:
+        good_1 = replace_name(s, now, good_1)
+
+    now = 'Sports'
+    s1 = good_day_1_cat.categories.str.contains('run')
+    s2 = good_day_1_cat.categories.str.contains('gym')
+    s3 = good_day_1_cat.categories.str.contains('sport')
+    s4 = good_day_1_cat.categories.str.contains('hike')
+    s5 = good_day_1_cat.categories.str.contains('tennis')
+    s6 = good_day_1_cat.categories.str.contains('football')
+    s7 = good_day_1_cat.categories.str.contains('swim')
+    for s in [s1, s2, s3, s4, s5, s6, s7]:
+        good_1 = replace_name(s, now, good_1)
+
+    now = 'Alcohol'
+    s1 = good_day_1_cat.categories.str.contains('wine')
+    s2 = good_day_1_cat.categories.str.contains('drinks')
+    s3 = good_day_1_cat.categories.str.contains('beer')
+    s4 = good_day_1_cat.categories.str.contains('cocktail')
+    s5 = good_day_1_cat.categories.str.contains('alcohol')
+    s6 = good_day_1_cat.categories.str.contains('drinking')
+    for s in [s1, s2, s3, s4, s5, s6]:
+        good_1 = replace_name(s, now, good_1)
+
+    data["good_day_1"] = good_1
+
+    # good day 2
+    good_2 = pd.DataFrame({'good_day_2': data["good_day_2"].str.lower()}, dtype='category')
+    good_day_2_cat = pd.Categorical(good_2.good_day_2)
+    cat_list = good_day_2_cat.categories
+
+    now = 'Nice weather'
+    sun1 = good_day_2_cat.categories.str.contains('weather')
+    sun2 = good_day_2_cat.categories.str.contains('sun')
+    good_2 = replace_name(sun1, now, good_2)
+    good_2 = replace_name(sun2, now, good_2)
+
+    now = 'Sex'
+    s = good_day_2_cat.categories.str.contains('sex')
+    good_2 = replace_name(s, now, good_2)
+
+    now = 'Sleep'
+    s = good_day_2_cat.categories.str.contains('sleep')
+    s2 = good_day_2_cat.categories.str.contains('bed')
+    good_2 = replace_name(s, now, good_2)
+    good_2 = replace_name(s2, now, good_2)
+
+    now = 'Friends'
+    s = good_day_2_cat.categories.str.contains('friend')
+    s2 = good_day_2_cat.categories.str.contains('people')
+    s3 = good_day_2_cat.categories.str.contains('person')
+    s4 = good_day_2_cat.categories.str.contains('company')
+    for s in [s1, s2, s3, s4]:
+        good_2 = replace_name(s, now, good_2)
+
+    now = 'Food'
+    s = good_day_2_cat.categories.str.contains('eat')
+    s2 = good_day_2_cat.categories.str.contains('pizza')
+    s3 = good_day_2_cat.categories.str.contains('food')
+    s4 = good_day_2_cat.categories.str.contains('pasta')
+    s5 = good_day_2_cat.categories.str.contains('meal')
+    s6 = good_day_2_cat.categories.str.contains('choco')
+    for s in [s1, s2, s3, s4, s5, s6]:
+        good_2 = replace_name(s, now, good_2)
+
+    now = 'Sports'
+    s1 = good_day_2_cat.categories.str.contains('run')
+    s2 = good_day_2_cat.categories.str.contains('gym')
+    s3 = good_day_2_cat.categories.str.contains('sport')
+    s4 = good_day_2_cat.categories.str.contains('hike')
+    s5 = good_day_2_cat.categories.str.contains('tennis')
+    s6 = good_day_2_cat.categories.str.contains('football')
+    s7 = good_day_2_cat.categories.str.contains('swim')
+    for s in [s1, s2, s3, s4, s5, s6, s7]:
+        good_2 = replace_name(s, now, good_2)
+
+    now = 'Alcohol'
+    s1 = good_day_2_cat.categories.str.contains('wine')
+    s2 = good_day_2_cat.categories.str.contains('drinks')
+    s3 = good_day_2_cat.categories.str.contains('beer')
+    s4 = good_day_2_cat.categories.str.contains('cocktail')
+    s5 = good_day_2_cat.categories.str.contains('alcohol')
+    s6 = good_day_2_cat.categories.str.contains('drinking')
+    for s in [s1, s2, s3, s4, s5, s6]:
+        good_2 = replace_name(s, now, good_2)
+
+    data["good_day_2"] = good_2
 
     return data
 
 
 odi = data_prep(odi)
-odi.to_csv('ODI_2019_clean.csv')
+# odi.to_csv('ODI_2019_clean.csv')
