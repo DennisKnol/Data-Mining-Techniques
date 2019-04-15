@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib import pylab
 import seaborn as sns
 
 
@@ -77,12 +78,13 @@ plt.figure(figsize=(10, 10))
 plt.subplot2grid((3, 2), (0, 0))
 odi["machine_learning"].value_counts().sort_index().plot(
     kind='pie',
+    y='leeg',
     labels=["no", "yes", "unknown"],
     colors=["lightblue", "teal", "wheat"],
     autopct="%.1f%%",
     title="Have you taken a course on machine learning?"
     )
-
+plt.axis('off')
 
 plt.subplot2grid((3, 2), (0, 1))
 odi["information_retrieval"].value_counts().sort_index().plot(
@@ -92,6 +94,7 @@ odi["information_retrieval"].value_counts().sort_index().plot(
     autopct="%.1f%%",
     title="Have you taken a course on information retrieval?"
     )
+plt.axis('off')
 
 plt.subplot2grid((3, 2), (1, 0))
 odi["statistics"].value_counts().sort_index().plot(
@@ -101,6 +104,7 @@ odi["statistics"].value_counts().sort_index().plot(
     autopct="%.1f%%",
     title="Have you taken a course on statistics?"
     )
+plt.axis('off')
 
 plt.subplot2grid((3, 2), (1, 1))
 odi["databases"].value_counts().sort_index().plot(
@@ -110,15 +114,17 @@ odi["databases"].value_counts().sort_index().plot(
     autopct="%.1f%%",
     title="Have you taken a course on databases?"
 )
+plt.axis('off')
 
 plt.subplot2grid((3, 2), (2, 0))
 odi["chocolate"].value_counts().sort_index().plot(
     kind='pie',
     # labels=["no", "yes", "unknown"],
-    colors=["lightblue", "teal", "lavender", "wheat", "beige"],
+    colors=["lavender", "lightblue", "teal", "wheat", "beige"],
     autopct="%.1f%%",
     title="Chocolate makes you ..."
 )
+plt.axis('off')
 
 plt.subplot2grid((3, 2), (2, 1))
 odi["stand_up"].value_counts().sort_index().plot(
@@ -128,6 +134,7 @@ odi["stand_up"].value_counts().sort_index().plot(
     autopct="%.1f%%",
     title="Did you stand up?"
 )
+plt.axis('off')
 
 plt.show()
 
