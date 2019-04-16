@@ -19,11 +19,12 @@ odi = pd.read_csv(
 
 odi = odi.drop(odi.columns[0], axis=1)
 
-
+plt.figure(figsize=(15, 8))
 odi["programme"].value_counts().plot(
     kind='bar',
     title='What programme are you in?'
 )
+plt.ylabel("Count")
 plt.show()
 
 print(round(odi["gender"].value_counts(normalize=True), 2))
