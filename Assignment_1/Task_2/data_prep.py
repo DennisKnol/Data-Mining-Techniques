@@ -45,27 +45,6 @@ def prep_data(data):
     # sort Fare into bins
     data["FareBins"] = pd.cut(data["Fare"], 10, labels=[i+1 for i in range(10)])
 
-    # fill empty Age with mean age in the corresponding Pclass
-    mean_age_per_class = data.groupby("Pclass")["Age"].mean()
-    data["Age"] = data[["Age", "Pclass"]].apply(
-        lambda x: mean_age_per_class[x["Pclass"]] if pd.isnull(x["Age"]) else x["Age"], axis=1
-    )
-
-    # categorize age in
-    labels = ['Baby', 'Child', 'Youth', 'Adult', 'Senior']
-    bins = [0, 5, 15, 24, 65, np.inf]
-    data['AgeCategories'] = pd.cut(data["Age"], bins, labels=labels)
-
-    age_mapping = {
-        "Baby": 1,
-        "Child": 2,
-        "Youth": 3,
-        "Adult": 4,
-        "Senior": 5
-    }
-
-    data["AgeCategories"] = data["AgeCategories"].map(age_mapping)
-
     # fill unknown Cabin with 0, known cabins with 1-8 (from most appearing to least appearing)
     data["Cabin"] = data["Cabin"].fillna("U")
     data['Cabin'] = data['Cabin'].apply(lambda x: x[0])
@@ -116,6 +95,27 @@ def prep_data(data):
     data["Title"] = data["Title"].map(title_mapping)
     data["Title"] = data["Title"].fillna(0)
 
+    # fill empty Age with mean age in the corresponding Title
+    mean_age_per_class = data.groupby("Title")["Age"].mean()
+    data["Age"] = data[["Age", "Title"]].apply(
+        lambda x: mean_age_per_class[x["Title"]] if pd.isnull(x["Age"]) else x["Age"], axis=1
+    )
+
+    # categorize age in
+    labels = ['Baby', 'Child', 'Youth', 'Adult', 'Senior']
+    bins = [0, 5, 15, 24, 65, np.inf]
+    data['AgeCategories'] = pd.cut(data["Age"], bins, labels=labels)
+
+    age_mapping = {
+        "Baby": 1,
+        "Child": 2,
+        "Youth": 3,
+        "Adult": 4,
+        "Senior": 5
+    }
+
+    data["AgeCategories"] = data["AgeCategories"].map(age_mapping)
+
     # drop Age, Name and Ticket
     data = data.drop(["Age"], axis=1)
     data = data.drop(["Fare"], axis=1)
@@ -124,14 +124,14 @@ def prep_data(data):
     return data
 
 
-train_data_outlier_removed = remove_outlier(train_data)
-print(train_data_outlier_removed.shape)
-train_data_prepped = prep_data(train_data_outlier_removed)
+# train_data_outlier_removed = remove_outlier(train_data)
+# print(train_data_outlier_removed.shape)
+train_data_prepped = prep_data(train_data)
 
-sns.set()
-cols = ["Survived", "Pclass", "Sex", "SibSp", "Parch", "Cabin", "Embarked", "Fare", "Age"]
-sns.pairplot(train_data[cols], height=2.5)
-plt.show()
+# sns.set()
+# cols = ["Survived", "Pclass", "Sex", "SibSp", "Parch", "Cabin", "Embarked", "Fare", "Age"]
+# sns.pairplot(train_data[cols], height=2.5)
+# plt.show()
 
 
 y = train_data_prepped["Survived"]
@@ -153,3 +153,12 @@ for model in models:
     score = round(model.score(X_test, y_test), 2)
     print(score)
 
+test_data_prepped = prep_data(test_data)
+X = test_data_prepped[["Pclass", "Sex", "SibSp", "Parch", "Cabin", "Embarked", "FareBins", "AgeCategories", "Title"]]
+
+gbk = GradientBoostingClassifier()
+gbk.fit(X_train, y_train)
+prediction_survived = pd.DataFrame(gbk.predict(X))
+submission = pd.concat([test_data["PassengerId"], prediction_survived], axis=1)
+submission.columns = ["PassengerId", "Survived"]
+submission.to_csv('survived_submission.csv', index=False)
