@@ -268,4 +268,7 @@ colors = ["pink", "lightblue"]
 sns.barplot(x='good_day', y='gender', data=df_good_day_cat, alpha=0.8,
             palette=sns.diverging_palette(10, 220, sep=80, n=7),
             order=["Friends", "Nice weather", "Food", "Sleep", "Alcohol", "Sports", "Sex"])
+plt.ylabel("Fraction of women")
+plt.xlabel("Categories")
+plt.title("What makes a good day?")
 plt.show()
