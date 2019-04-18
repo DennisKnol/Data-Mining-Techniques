@@ -222,12 +222,6 @@ def data_prep(data):
     data["stress_level"][data["stress_level"] > 100] = 100
     data["stress_level"][data["stress_level"] < 0] = 0
 
-    # room capacity is 343, https://www.vu.nl/nl/Images/Zaalfaciliteiten_aug2018_tcm289-257362.pdf)
-    # odi["number_of_neighbors"] = odi["number_of_neighbors"].dropna()
-    # odi["number_of_neighbors"] = odi["number_of_neighbors"].drop(
-    #     odi["number_of_neighbors"][odi["number_of_neighbors"] > 343].index
-    # )
-
     # good day 1
     good_1 = pd.DataFrame({'good_day_1': data["good_day_1"].str.lower()}, dtype='category')
     good_day_1_cat = pd.Categorical(good_1.good_day_1)
