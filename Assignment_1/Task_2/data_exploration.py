@@ -7,6 +7,8 @@ import seaborn as sns
 train_data = pd.read_csv("train.csv")
 train_data.info()
 
+test_data = pd.read_csv("test.csv")
+test_data.info()
 
 def missing_values_count(data):
     total = len(data)
@@ -15,6 +17,7 @@ def missing_values_count(data):
 
 
 print("Missing data in train set\n", missing_values_count(train_data), "\n")
+print("Missing data in test set\n", missing_values_count(test_data), "\n")
 
 
 # Gender
@@ -112,3 +115,13 @@ plt.show()
 # sns.pairplot(train_data[cols], height=2.5)
 # plt.show()
 
+
+train_data_prepped = pd.read_csv("train_prepp.csv")
+corr = train_data_prepped.corr()
+print(corr)
+
+
+[train_data_prepped.AgeCategories[train_data_prepped.Title == i].plot.kde(bw_method=0.3) for i in range(1, 6)]
+plt.legend()
+plt.title("Density plot Age wrt Class of Travel")
+plt.show()
