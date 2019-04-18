@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 
+
 odi = pd.read_csv(
     "/Users/DennisK/PycharmProjects/Data-Mining-Techniques/Assignment_1/Task_1/ODI_2019_clean.csv",
     sep=','
@@ -44,10 +45,18 @@ df.good_day_2 = df.good_day_2.map(mapping_2)
 df = pd.concat([df, pd.get_dummies(df["good_day_1"])], axis=1)
 df = pd.concat([df, pd.get_dummies(df["good_day_2"])], axis=1)
 
+# for feature selection
+for cat in categories:
+    print(cat, df["gender"][odi["good_day_1"] == cat].value_counts(normalize=True))
+    print("\n")
+    print(cat, df["gender"][odi["good_day_2"] == cat].value_counts(normalize=True))
+
 corr_mat_2 = df.corr().round(4)
 
 y = df["gender"]
-X = df[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]]
+X = df[[1, 3, 5, 6, 7, 9, 10, 11, 12, 13]]
+
+corr_mat_3 = X.corr().round(4)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
 
