@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pylab as plt
 
 
 train_data = pd.read_csv("train.csv")
@@ -106,7 +107,7 @@ def prep_data(data):
     data["AgeCategories"] = data["AgeCategories"].map(age_mapping)
 
     # drop Age, Name and Ticket
-    data = data.drop(["Age"], axis=1)
+    # data = data.drop(["Age"], axis=1)
     data = data.drop(["Fare"], axis=1)
     data = data.drop(["Name"], axis=1)
     data = data.drop(["Ticket"], axis=1)
@@ -116,7 +117,24 @@ def prep_data(data):
 train_data_outlier_removed = remove_outlier(train_data)
 
 train_data_prepped = prep_data(train_data_outlier_removed)
-train_data_prepped.to_csv("train_prepp.csv")
+
+plt.figure(figsize=(18, 6))
+colors = ["lightblue", "pink", "teal", "wheat", "grey", "lavender"]
+labels = ['Mr', "Miss", "Mrs", "Master", "Rare", "Capt"]
+[train_data_prepped.Age[train_data_prepped.Title == i].plot.kde(
+    bw_method=0.3,
+    color=colors[i-1],
+    label=labels[i-1]
+)
+    for i in [1, 2, 3, 5]
+]
+plt.legend()
+plt.xlabel("Age")
+plt.xlim((-5, 85))
+plt.title("Density plot Age wrt Title")
+plt.show()
+
+# train_data_prepped.to_csv("train_prepp.csv")
 
 # test_data_prepped = prep_data(test_data)
 # test_data_prepped.to_csv("test_prep.csv")

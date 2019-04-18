@@ -114,14 +114,3 @@ plt.show()
 # cols = ["Survived", "Pclass", "Sex", "SibSp", "Parch", "Cabin", "Embarked", "Fare", "Age"]
 # sns.pairplot(train_data[cols], height=2.5)
 # plt.show()
-
-
-train_data_prepped = pd.read_csv("train_prepp.csv")
-corr = train_data_prepped.corr()
-print(corr)
-
-
-[train_data_prepped.AgeCategories[train_data_prepped.Title == i].plot.kde(bw_method=0.3) for i in range(1, 6)]
-plt.legend()
-plt.title("Density plot Age wrt Class of Travel")
-plt.show()
