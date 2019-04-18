@@ -35,7 +35,7 @@ print(round(odi["gender"].value_counts(normalize=True), 2))
 # Pie plots for multiple choice answers
 plt.figure(figsize=(18, 8))
 
-plt.subplot2grid((2, 3), (0, 0))
+plt.subplot2grid((2, 4), (0, 0))
 odi["machine_learning"].value_counts().sort_index().plot(
     kind='pie',
     labels=["no", "yes", "unknown"],
@@ -45,7 +45,7 @@ odi["machine_learning"].value_counts().sort_index().plot(
     )
 plt.axis('off')
 
-plt.subplot2grid((2, 3), (0, 1))
+plt.subplot2grid((2, 4), (0, 1))
 odi["information_retrieval"].value_counts().sort_index().plot(
     kind='pie',
     labels=["no", "yes", "unknown"],
@@ -55,7 +55,7 @@ odi["information_retrieval"].value_counts().sort_index().plot(
     )
 plt.axis('off')
 
-plt.subplot2grid((2, 3), (0, 2))
+plt.subplot2grid((2, 4), (0, 2))
 odi["statistics"].value_counts().sort_index().plot(
     kind='pie',
     labels=["no", "yes", "unknown"],
@@ -65,7 +65,7 @@ odi["statistics"].value_counts().sort_index().plot(
     )
 plt.axis('off')
 
-plt.subplot2grid((2, 3), (1, 0))
+plt.subplot2grid((2, 4), (1, 0))
 odi["databases"].value_counts().sort_index().plot(
     kind='pie',
     labels=["no", "yes", "unknown"],
@@ -75,7 +75,7 @@ odi["databases"].value_counts().sort_index().plot(
 )
 plt.axis('off')
 
-plt.subplot2grid((2, 3), (1, 1))
+plt.subplot2grid((2, 4), (1, 1))
 odi["stand_up"].value_counts().sort_index().plot(
     kind='pie',
     labels=["no", "yes", "unknown"],
@@ -85,20 +85,40 @@ odi["stand_up"].value_counts().sort_index().plot(
 )
 plt.axis('off')
 
-plt.subplot2grid((2, 3), (1, 2))
-odi["chocolate"].value_counts().sort_index().plot(
+plt.subplot2grid((2, 4), (1, 2))
+odi["gender"].value_counts().sort_index().plot(
+    kind='pie',
+    labels=["male", "female", "unknown"],
+    colors=["lightblue", "pink", "beige"],
+    autopct="%.1f%%",
+    title="What is your gender"
+)
+plt.axis('off')
+
+plt.subplot2grid((2, 4), (0, 3))
+odi["chocolate"][odi["gender"] == 0].value_counts().sort_index().plot(
     kind='pie',
     labels=["fat", "slim", "neither", "I have no idea what you are talking about", "unknown"],
     colors=["lavender", "lightblue", "teal", "wheat", "beige"],
     autopct="%.1f%%",
-    title="Chocolate makes you ..."
+    title="Chocolate makes you ... (Male)"
+)
+plt.axis('off')
+
+plt.subplot2grid((2, 4), (1, 3))
+odi["chocolate"][odi["gender"] == 1].value_counts().sort_index().plot(
+    kind='pie',
+    labels=["fat", "slim", "neither", "I have no idea what you are talking about", "unknown"],
+    colors=["lavender", "lightblue", "teal", "wheat", "beige"],
+    autopct="%.1f%%",
+    title="Chocolate makes you ... (Female)"
 )
 plt.axis('off')
 
 plt.show()
-
-# room capacity is 343, meaning that the max numbers is 342
-# https://www.vu.nl/nl/Images/Zaalfaciliteiten_aug2018_tcm289-257362.pdf
+#
+# # room capacity is 343, meaning that the max numbers is 342
+# # https://www.vu.nl/nl/Images/Zaalfaciliteiten_aug2018_tcm289-257362.pdf
 odi["number_of_neighbors"] = odi["number_of_neighbors"].dropna()
 odi["number_of_neighbors"] = odi["number_of_neighbors"].drop(
     odi["number_of_neighbors"][odi["number_of_neighbors"] > 342].index
@@ -116,6 +136,7 @@ odi["deserve_money"] = odi["deserve_money"].drop(
     odi["deserve_money"][odi["deserve_money"] > 100].index
 )
 
+# Density plot and bar plots
 plt.figure(figsize=(18, 8))
 
 plt.subplot2grid((2, 4), (0, 0))
@@ -129,7 +150,7 @@ plt.ylabel("Mean number of neighbors")
 
 plt.subplot2grid((2, 4), (0, 1))
 sns.distplot(odi["random_number"], bins=100)
-plt.title("Density plot of random number between 0 an 10")
+plt.title("Density plot of random number from 0 to 10")
 
 plt.subplot2grid((2, 4), (1, 1))
 sns.barplot(x="gender", y="random_number", data=odi, alpha=0.8, palette=['lightblue', 'pink', 'beige'])
