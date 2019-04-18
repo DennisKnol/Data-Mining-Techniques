@@ -114,6 +114,7 @@ def prep_data(data):
 
 
 train_data_outlier_removed = remove_outlier(train_data)
+print(train_data_outlier_removed.shape)
 # print(train_data_outlier_removed.shape)
 # print(train_data.shape)
 

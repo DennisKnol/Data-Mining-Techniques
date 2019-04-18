@@ -9,7 +9,7 @@ from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
 
 
-train_data_prepped = pd.read_csv("train_prep.csv")
+train_data_prepped = pd.read_csv("train_prepp.csv")
 test_data_prepped = pd.read_csv("test_prep.csv")
 test_data = pd.read_csv("test.csv")
 
@@ -34,12 +34,12 @@ for model in models:
 
 X = test_data_prepped[["Pclass", "Sex", "SibSp", "Parch", "Cabin", "Embarked", "FareBins", "AgeCategories", "Title"]]
 
-# knn = RandomForestClassifier()
-# knn.fit(X_train, y_train)
-# prediction_survived = pd.DataFrame(knn.predict(X))
-# submission = pd.concat([test_data["PassengerId"], prediction_survived], axis=1)
-# submission.columns = ["PassengerId", "Survived"]
-# submission.to_csv('survived_submission.csv', index=False)
+knn = KNeighborsClassifier()
+knn.fit(X_train, y_train)
+prediction_survived = pd.DataFrame(knn.predict(X))
+submission = pd.concat([test_data["PassengerId"], prediction_survived], axis=1)
+submission.columns = ["PassengerId", "Survived"]
+submission.to_csv('survived_submission.csv', index=False)
 
 # gbk = GradientBoostingClassifier()
 # gbk.fit(X_train, y_train)
@@ -47,5 +47,3 @@ X = test_data_prepped[["Pclass", "Sex", "SibSp", "Parch", "Cabin", "Embarked", "
 # submission = pd.concat([test_data["PassengerId"], prediction_survived], axis=1)
 # submission.columns = ["PassengerId", "Survived"]
 # submission.to_csv('survived_submission.csv', index=False)
-
-print(train_data_prepped)
