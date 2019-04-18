@@ -250,3 +250,11 @@ df_good_day["gender"][df_good_day["good_day"] == "Sports"].value_counts(normaliz
 plt.title("'Sports' makes a good day , per gender ")
 
 plt.show()
+
+categories = ["Sex", "Food", "Nice weather", "Alcohol", "Friends", "Sports", "Sleep"]
+df_good_day_cat = df_good_day[df_good_day["good_day"].isin(categories)]
+df_good_day = df_good_day[df_good_day.gender < 2]
+
+plt.figure(figsize=(18, 6))
+sns.barplot(x='good_day', y='gender', data=df_good_day_cat, alpha=0.8)
+plt.show()
