@@ -119,7 +119,7 @@ print(train_data_outlier_removed.shape)
 # print(train_data.shape)
 
 train_data_prepped = prep_data(train_data_outlier_removed)
-train_data_prepped.to_csv("train_prep.csv")
+train_data_prepped.to_csv("train_prepp.csv")
 
 # test_data_prepped = prep_data(test_data)
 # test_data_prepped.to_csv("test_prep.csv")
