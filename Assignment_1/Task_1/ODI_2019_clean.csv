@@ -1,277 +1,277 @@
 ,day,time,programme,machine_learning,information_retrieval,statistics,databases,gender,chocolate,birthday,number_of_neighbors,stand_up,deserve_money,random_number,bedtime,good_day_1,good_day_2,stress_level
-0,3/27/2019,10:16:11,Artificial Intelligence,1,1,1,1,2,1,unknown,3.0,0,100.0,6.0,23:00,Nice weather,lecture,
-1,4/1/2019,15:58:21,Artificial Intelligence,0,0,1,1,0,0,09071992,1.0,0,0.0,7.0,3,dm,ai,1.0
-2,4/1/2019,15:59:07,Computer Science,1,1,2,1,0,2,04/08/95,0.0,2,0.0,0.0,0,0,0,100.0
-3,4/1/2019,15:59:30,Econometrics,1,1,1,1,0,0,29-09-1993,2.0,0,42.0,1.6449999809265137,"0,3",winning,Food,0.0
-4,4/1/2019,15:59:58,Computer Science,0,1,1,1,0,2,0212,2.0,0,,66.0,20,kiss,love,100.0
-5,4/1/2019,16:00:01,Artificial Intelligence,1,1,1,1,0,4,31-12-1994,0.0,1,,420.0,0000,ganja,Nice weather,100.0
-6,4/1/2019,16:00:12,Bioinformatics,1,0,1,0,1,2,09-10-1995,,0,100.0,739.0,22:00,Food,Nice weather,80.0
-7,4/1/2019,16:00:16,Bioinformatics,1,1,1,1,0,3,22/07/1996,0.0,1,,5.0,"24,3",Friends,Nice weather,50.0
-8,4/1/2019,16:00:21,Computational Science,0,0,1,1,0,2,30-02-1945,0.0,0,0.0,31.0,03:30,done something useful,had fun,0.0
-9,4/1/2019,16:00:31,Artificial Intelligence,1,1,1,0,0,2,22,,0,,5.0,02:00,Nice weather,relax walks,80.0
-10,4/1/2019,16:00:52,Bioinformatics,1,0,1,0,0,2,10/06/1991,470.0,0,20.0,3851.0,11,Nice weather,Sleep,100.0
-11,4/1/2019,16:00:59,Computational Science,0,0,1,0,0,0,19,3.0,0,0.25,6.0,3,Nice weather,Food,20.0
-12,4/1/2019,16:00:59,Artificial Intelligence,1,1,1,0,0,3,18 March 1994,3.0,0,100000000.0,7.0,0:40,Sleep,good breakfast,10.0
-13,4/1/2019,16:01:02,Business Analytics,1,1,1,1,0,0,02-08-1996,1.0,0,100.0,16.0,2330,girls,Alcohol,16.0
-14,4/1/2019,16:01:03,Business Analytics,1,1,1,1,0,0,1 May,2.0,0,95.0,314.1520080566406,00:00,Nice weather,Food,50.0
-15,4/1/2019,16:01:04,Econometrics,1,0,1,0,0,2,1996,11.0,0,50.0,11.0,2:00,work,Sleep,10.0
-16,4/1/2019,16:01:04,Econometrics,0,0,1,0,0,0,03-03-1994,6.0,0,30.0,5.0,5 am,Sports,Food,0.0
-17,4/1/2019,16:01:06,Business Analytics,1,1,1,1,0,0,17-05-1994,7.0,0,30.0,17.0,22,Nice weather,Sports,17.0
-18,4/1/2019,16:01:09,Bioinformatics,1,1,1,1,0,0,08-28,3.0,1,50.0,7.0,24:00,Nice weather,Food,40.0
-19,4/1/2019,16:01:13,Business Analytics,1,0,1,1,1,2,27/12/1996,1.0,0,100.0,7.0,23:00,Nice weather,Food,20.0
-20,4/1/2019,16:01:13,Bioinformatics,1,0,1,1,1,0,18-10-1996,2.0,0,100.0,2.0,21,horses,Food,12.0
-21,4/1/2019,16:01:13,Artificial Intelligence,0,1,1,0,1,1,21-08-1995,,0,100.0,6.0,01:03,Nice weather,Food,2.0
-22,4/1/2019,16:01:13,Artificial Intelligence,0,0,1,1,0,0,"10th,June",4.0,0,0.0,888.0,18:00,good news,very good news,63.0
-23,4/1/2019,16:01:14,Artificial Intelligence,1,1,1,1,1,0,09/08/1996,1.0,0,10.0,2.0,00:00,Nice weather,Food,0.0
-24,4/1/2019,16:01:15,Artificial Intelligence,1,1,1,1,0,2,24-02-1994,1.0,0,,251656720.0,2:30 am,Nice weather,relaxing,0.0
-25,4/1/2019,16:01:16,Bioinformatics,1,0,1,0,0,2,04/06,0.0,0,0.009999999776482582,,01:00,sea,Nice weather,98.0
-26,4/1/2019,16:01:16,Artificial Intelligence,1,0,1,1,1,1,01-01-1993,5.0,0,5.0,6.0,1 AM,Nice weather,holiday,20.0
-27,4/1/2019,16:01:17,Computational Science,0,0,1,0,1,2,29/03,1.0,0,0.25,9.0,23:30,Nice weather,vacation,10.0
-28,4/1/2019,16:01:17,Bioinformatics,1,1,1,1,1,1,1996-11-06,2.0,0,100.0,5.79659987542868e+17,22:30,Food,cuddling with dogs ,3.0
-29,4/1/2019,16:01:17,Business Analytics,1,0,1,0,0,3,11-08,2.0,0,50.0,9.0,22:00,Nice weather,summer,5.0
-30,4/1/2019,16:01:18,Computational Science,1,0,0,0,2,2,15/10/1990,4.0,0,0.0,8.0,23,Friends,figuring something out,99.0
-31,4/1/2019,16:01:18,Data Science,1,1,1,1,0,0,03-11-1991,5.0,0,3.5,2.0,00:45,Friends,Food,22.0
-32,4/1/2019,16:01:24,Bioinformatics,1,0,1,0,2,2,15-07-1995,1.0,0,,,1.30 pm ,weed,Friends,0.0
-33,4/1/2019,16:01:25,QRM,0,0,1,0,0,3,1988,10.0,0,60.0,9.0,12,Sports,Sex,40.0
-34,4/1/2019,16:01:25,QRM,1,1,1,1,0,0,25-05-1995,2.0,0,1.0,9.0,1:00,Food,Sex,80.0
-35,4/1/2019,16:01:25,Computer Science,0,0,1,0,0,3,05 Dec,6.0,0,5.0,5.0,2,Food,Friends,60.0
-36,4/1/2019,16:01:27,Bioinformatics,1,0,1,0,1,3,12-12-1995,2.0,0,20.0,12.0,01:00,Nice weather,Food,0.0
-37,4/1/2019,16:01:28,Econometrics,0,0,1,0,0,3,02-05,469.0,0,100.0,7.0,01:00,Nice weather,no stress,0.0
-38,4/1/2019,16:01:29,Business Analytics,1,1,1,1,1,0,03-01,10.0,0,10.0,8.0,21:00,no lectures and work,Food,20.0
-39,4/1/2019,16:01:29,Artificial Intelligence,0,0,1,0,1,1,13-07-1995,1.0,0,,5.0,2:00,Nice weather,Friends,100.0
-40,4/1/2019,16:01:29,Computational Science,0,1,1,1,1,0,03/12,4.0,0,0.0,5.829999923706055,01:30,good conversation,Friends,60.0
-41,4/1/2019,16:01:29,Bioinformatics,1,0,1,1,0,0,7-4-95,5.0,0,,7.0,1,laughing,smiling,15.0
-42,4/1/2019,16:01:29,Business Analytics,1,1,1,1,0,2,23-02-1997,4.0,0,15.0,1.0,23:30,Sports,Sleep,30.0
-43,4/1/2019,16:01:29,Artificial Intelligence,1,1,1,1,1,2,30-3-1995,8.0,0,60.0,46743224.0,21,Nice weather,Sports,25.0
-44,4/1/2019,16:01:29,Computational Science,0,0,1,0,0,3,09/03/1994,4.0,0,0.20000000298023224,3.0,22:30,Food,Nice weather,33.0
-45,4/1/2019,16:01:29,Computer Science,1,1,1,0,0,2,27/04/1994,4.0,0,100.0,6483920551936.0,3:00,vim,emacs,10.0
-46,4/1/2019,16:01:30,Bioinformatics,1,0,1,0,0,2,11-05-1996,0.0,0,1.0,4.0,01:00,Sleep,coffee,
-47,4/1/2019,16:01:31,Data Science,1,0,1,0,0,2,13-09-1995,6.0,0,85.0,3.140000104904175,23:00,Sleep,Nice weather,50.0
-48,4/1/2019,16:01:31,Computational Science,0,0,0,0,0,2,23/01/1994,3.0,0,3.0,3.0,11,Sports,Food,15.0
-49,4/1/2019,16:01:31,Computer Science,1,1,1,1,0,4,kuhbj,,0,,777777792.0,1:00,Food,Sex,0.0
-50,4/1/2019,16:01:31,Artificial Intelligence,1,1,1,1,0,2,Tomorrow ,,0,100.0,5587458783707136.0,I didnt,Nice weather,Food,
-51,4/1/2019,16:01:33,Artificial Intelligence,1,1,1,1,0,2,19-12-1995,1.0,0,15.0,8.5,02:40,Nice weather,amount of work needed to be done,0.0
-52,4/1/2019,16:01:33,Computer Science,1,1,0,1,1,2,DECEMBER 1993,7.0,0,90.0,7.0,1 am,travel,party,20.0
-53,4/1/2019,16:01:33,Artificial Intelligence,1,0,1,1,1,0,12.12.1995,6.0,0,5.0,1212.0,12:30,Friends,Sports,30.0
-54,4/1/2019,16:01:34,Econometrics,0,0,1,0,0,3,23-08-1992,3921.0,0,91.0,27.0,01:00,Nice weather,Food,99.9000015258789
-55,4/1/2019,16:01:34,Econometrics,0,0,1,0,0,0,04041996,0.0,2,2.0,,"2,03",Food,Nice weather,30.0
-56,4/1/2019,16:01:34,Innovation,0,0,1,0,0,0,22-07-1995,2.0,0,33.33000183105469,9.0,23:00,Nice weather,Food,69.0
-57,4/1/2019,16:01:34,Computer Science,1,0,1,1,0,2,11-02-1996,2.0,0,100.0,69.0,23:30,Nice weather,Food,10.0
-58,4/1/2019,16:01:34,Business Analytics,1,0,1,1,0,3,26-05-1997,7.0,0,100.0,7.0,24,Food,Sleep,0.0
-59,4/1/2019,16:01:35,Artificial Intelligence,1,0,0,0,0,3,02-12-1992,1.0,0,0.4000000059604645,6.0,23:30,activities,Friends,20.0
-60,4/1/2019,16:01:35,Computer Science,1,1,1,1,0,0,14,4.0,0,50.0,3.1415927410125732,4:25AM,surprise money,surprise presents,99.0
-61,4/1/2019,16:01:35,Artificial Intelligence,1,1,1,1,0,3,13/05,2.0,0,,7.0,1,no hangover,Sleep,15.0
-62,4/1/2019,16:01:36,medical informatics,1,0,1,0,1,0,18-11-1995,2.0,0,10.0,8.0,23:00,working out,Friends,10.0
-63,4/1/2019,16:01:36,Business Analytics,2,0,1,0,1,1,27/06/1991,1.0,0,100.0,3.0,2:30,Nice weather,vacation,100.0
-64,4/1/2019,16:01:36,Bioinformatics,0,0,1,1,1,3,25.02.1993,5.0,0,20.0,7.0,23:30,playing volleyball,Sleep,20.0
-65,4/1/2019,16:01:36,Artificial Intelligence,1,1,1,1,0,0,30.01.1996,1.0,0,10.0,7.0,3:00,Nice weather,Friends,7.0
-66,4/1/2019,16:01:36,Computer Science,1,1,1,1,0,4,05-02-1986,,0,50.0,1.0,23:30,no lectures,waking up early,0.0
-67,4/1/2019,16:01:36,Artificial Intelligence,1,1,1,1,0,2,03OCT1996,2.0,0,20.0,96.0,110305pm,Alcohol,Nice weather,10.0
-68,4/1/2019,16:01:37,Business Analytics,1,0,1,1,1,0,31-10-1996,8.0,0,80.0,2.0,22:30,Nice weather,Food,75.0
-69,4/1/2019,16:01:37,Operations Research,1,0,1,1,0,2,10/05/1996,7.0,0,0.0,2.0,"22,3",Alcohol,Nice weather,20.0
-70,4/1/2019,16:01:37,Unknown,1,0,1,1,2,3,0109,5.0,0,,8.0,3,Food,learning,37.0
-71,4/1/2019,16:01:38,Bioinformatics,1,0,0,1,0,0,18-07-95,2.0,0,101.0,8.0,01:00,Nice weather,Sex,10.0
-72,4/1/2019,16:01:38,Innovation,0,0,1,1,1,0,14th March,2.0,0,80.0,7.0,00,Nice weather,Friends,30.0
-73,4/1/2019,16:01:38,Business Analytics,1,1,1,1,0,2,15-02-1994,1.0,0,99.0,,22:30,music,Nice weather,99.0
-74,4/1/2019,16:01:39,Artificial Intelligence,1,1,1,1,0,2,19-01-1996,5.0,0,0.0,341.0,23h00,Sports,Alcohol,40.0
-75,4/1/2019,16:01:39,Computational Science,1,0,1,1,1,1,08/02/1997,400.0,0,50.0,8.0,9,Food,no lecture,100.0
-76,4/1/2019,16:01:39,Artificial Intelligence,1,1,1,0,0,2,26-10,5.0,0,80.0,3.0,23:34,Nice weather,Sleep,0.0
-77,4/1/2019,16:01:39,Artificial Intelligence,1,1,1,1,1,3,01-04-1997,3.0,0,10.0,7.0,00:00,Nice weather,Friends,60.0
-78,4/1/2019,16:01:39,Artificial Intelligence,1,1,1,0,1,4,14/11/1995,0.0,0,,1.0,23:00,Nice weather,big breakfast,0.0
-79,4/1/2019,16:01:40,Artificial Intelligence,0,0,1,1,1,2,17.10.1996.,5.0,0,200.0,7.0,23,Nice weather,Food,30.0
-80,4/1/2019,16:01:40,Sociology,1,0,1,0,1,2,05.09:1993,2.0,0,10.0,7.0,02:00,no stress,Food,10.0
-81,4/1/2019,16:01:40,Artificial Intelligence,1,1,1,0,0,2,22.03.94,1.0,0,99.0,7.0,12,Friends,Food,5.0
-82,4/1/2019,16:01:40,Econometrics,0,0,1,1,0,1,06-12-1993,2.0,2,90.0,3.140000104904175,2359,Food,weekend,100.0
-83,4/1/2019,16:01:40,Finance,0,0,1,0,0,2,4-12-1995,2.0,0,1.0,3.0,02:00,Nice weather,Alcohol,68.0
-84,4/1/2019,16:01:40,Artificial Intelligence,1,1,1,1,0,2,04061997,3.0,0,5.0,7.0,3:30,mood,succes,60.0
-85,4/1/2019,16:01:40,Computational Science,0,0,1,0,1,1,13/08/1996,3.0,0,,3.5282626152038574,23:45,Nice weather,getting work done,
-86,4/1/2019,16:01:40,Artificial Intelligence,1,1,1,1,0,2,21-05-1995,2.0,1,25.0,7.0,23:00,Nice weather,don't have stress,10.0
-87,4/1/2019,16:01:40,Business Analytics,1,1,1,1,1,3,07-06-1994,5.0,0,0.25,3.140000104904175,01:30,Nice weather,Friends,15.0
-88,4/1/2019,16:01:39,QRM,0,0,1,0,0,0,"15,05",2.0,0,0.0,7.0,1,Nice weather,no exams,50.0
-89,4/1/2019,16:01:40,Bioinformatics,0,0,1,1,0,3,26-06,10.0,0,50.0,7.0,13,no deadlines,no stress,99.0
-90,4/1/2019,16:01:40,Bioinformatics,1,0,1,1,0,2,03-11-1992,1.0,0,100.0,2.0,23:00,Alcohol,Sex,80.0
-91,4/1/2019,16:01:41,Business Analytics,1,0,1,1,1,2,27/11/1996,7.0,0,1.0,5.0,00:57,Nice weather,Food,75.0
-92,4/1/2019,16:01:41,Artificial Intelligence,1,1,1,1,1,2,25-11-1994,5.0,0,100.0,5.0,00:30,Nice weather,coffee,55.0
-93,4/1/2019,16:01:41,Finance,0,0,1,0,0,0,27-01-1993,1.0,0,0.25,5.0,12,Nice weather,passing the data mining course,0.0
-94,4/1/2019,16:01:41,Business Analytics,1,1,1,1,0,3,10-09-1995,1.0,0,2.5,9.0,23:55,Food,Sleep,53.0
-95,4/1/2019,16:01:41,Business Analytics,1,0,1,0,0,2,15/4/1995,2.0,0,7.0,7.0,12,Nice weather,free,0.0
-96,4/1/2019,16:01:41,Business Analytics,1,0,1,1,0,0,12-08-96,2.0,0,5.0,6.0,23:30,no deadline,party,4.0
-97,4/1/2019,16:01:41,Business Analytics,1,0,1,0,0,0,October 8th ,0.0,0,,4.0,0:00,Food,mathematics ,42.0
-98,4/1/2019,16:01:41,Econometrics,0,0,1,0,0,0,3 juni 1995,2.0,0,100.0,9.0,23:30,weekend,fun,10.0
-99,4/1/2019,16:01:41,Business Analytics,1,0,1,1,0,0,20-09-1995,3.0,2,50.0,25.0,12,Sex,Alcohol,100.0
-100,4/1/2019,16:01:42,Artificial Intelligence,1,1,1,1,1,2,14-01-1992,8.0,0,0.0,4.0,21:30,when i’m productive,when i feel good,20.0
-101,4/1/2019,16:01:42,Econometrics,1,0,1,0,0,2,13-10,2.0,0,70.0,4.0,23:30,fruitful day ,Nice weather,13.0
-102,4/1/2019,16:01:42,Business Analytics,1,0,1,1,1,3,21-10-1996,2.0,0,100.0,8.0,23:00,Nice weather,Sports,0.0
-103,4/1/2019,16:01:42,Innovation,0,0,1,0,1,0,25-08-1993,1.0,0,33.33000183105469,9.0,23:30,Nice weather,Alcohol,88.0
-104,4/1/2019,16:01:42,Artificial Intelligence,0,0,1,0,1,1,31-01-1995,6.0,0,10.0,3.0,0,Nice weather,Food,70.0
-105,4/1/2019,16:01:42,Innovation,1,1,1,1,0,1,01-05-1996,7.0,0,2.0,5.0,"23,45",Nice weather,money,1.0
-106,4/1/2019,16:01:43,Business Analytics,1,0,1,1,0,3,09/07,2.0,0,100.0,7.0,24:00,Food,Sleep,25.0
-107,4/1/2019,16:01:43,Artificial Intelligence,0,0,1,0,0,0,24th septembre,6.0,0,0.0,9.0,23:00,Food,Sex,70.0
-108,4/1/2019,16:01:43,Artificial Intelligence,0,0,1,0,1,2,15 09 1994,24.0,0,100.0,9.0,22:22,love,adventure,45.0
-109,4/1/2019,16:01:43,Artificial Intelligence,1,0,1,0,1,1,28-04-97,6.0,0,1.0,8.0,01:00,Nice weather,Friends,50.0
-110,4/1/2019,16:01:43,Artificial Intelligence,1,1,1,1,0,0,30.07.97,1.0,2,2.0,10.0,23:00,finishing all the tasks,Nice weather,30.0
-111,4/1/2019,16:01:43,Computer Science,0,2,1,1,0,2,10-06-1989,5.0,0,1.0,10.0,01:30,Nice weather,no work,1.0
-112,4/1/2019,16:01:43,Computational Science,1,1,1,1,0,0,1995,7.0,0,100.0,7.0,01:00,learning something,finishing work,0.0
-113,4/1/2019,16:01:43,Artificial Intelligence,1,0,1,0,0,2,15-09-1992,300.0,0,1.0,67.0,0:14,Sleep,Friends,60.0
-114,4/1/2019,16:01:44,Computational Science,0,1,1,1,1,0,1996-05-24,,1,10.0,1.25,1am,Nice weather,coffee,10.0
-115,4/1/2019,16:01:44,Business Analytics,1,1,1,1,1,0,04-10-1995,2.0,0,1.0,7.0,"23,45",Nice weather,Friends,9.0
-116,4/1/2019,16:01:45,Artificial Intelligence,1,1,1,1,0,2,07AUG1993,8.0,0,100.0,2104.0,10:30:21 PM,birthday,trains on time,0.0
-117,4/1/2019,16:01:45,Computer Science,0,1,0,0,0,2,01,6.0,0,50.0,6.0,3 am,Food,weed,10.0
-118,4/1/2019,16:01:45,Artificial Intelligence,1,1,1,1,0,3,24 september,2.0,0,1.0,8.0,12,Nice weather,Alcohol,0.0
-119,4/1/2019,16:01:45,Artificial Intelligence,1,1,1,0,1,3,02/03,5.0,0,5.0,4.0,"23,45",Nice weather,spare time,50.0
-120,4/1/2019,16:01:45,QRM,0,0,1,0,0,0,16-01-1997,2.0,0,0.0,7.0,01:00,Food,Sports,0.0
-121,4/1/2019,16:01:45,Bioinformatics,1,1,0,1,1,3,11 june 1991,5.0,0,70.0,8.0,2:00am,Nice weather,good vibes,60.0
-122,4/1/2019,16:01:45,Health,0,0,1,0,1,3,04-10-1994,4.0,0,3.0,6.78000020980835,22:12,Sex,Nice weather,10.0
-123,4/1/2019,16:01:45,Artificial Intelligence,0,0,1,0,1,2,1995,2.0,0,,1.0,00:30,Food,productive,50.0
-124,4/1/2019,16:01:45,Business Analytics,1,1,1,1,0,0,06-03-1995,1.0,0,85.0,3.0,23:30,going to the vu,Alcohol,0.0
-125,4/1/2019,16:01:45,Innovation,0,0,1,0,0,2,17/07/1995,2.0,0,50.0,8.0,03:00,Nice weather,euros,0.0
-126,4/1/2019,16:01:46,Computer Science,1,1,1,0,0,3,01-10-1996,3.0,0,100.0,8.0,6,Food,Alcohol,10.0
-127,4/1/2019,16:01:46,Computational Science,1,1,1,0,0,2,04-12-1991,5.0,1,35.0,7.0,01:30,no deadlines ,Nice weather,0.0
-128,4/1/2019,16:01:46,Artificial Intelligence,0,1,1,0,1,3,19-12-1993,2.0,0,0.20000000298023224,3.0,00:30,fnatic winning games in lec,Nice weather,10.0
-129,4/1/2019,16:01:46,Computational Science,0,0,1,0,0,3,16 dec,,2,1.0,3.141590118408203,12,Food,doing hobbies,57.0
-130,4/1/2019,16:01:46,Computational Science,1,1,1,1,0,2,24/09/1996,2.0,0,47100.0,2.0,didn't sleep,relaxing,Food,0.0
-131,4/1/2019,16:01:46,Business Analytics,1,0,1,0,0,3,2-5-1975,6.0,0,50.0,1.0,0:30,Sleep,enough fysical excercise,40.0
-132,4/1/2019,16:01:46,Econometrics,1,0,1,0,0,0,03-1994,8.0,0,99.0,1.0,22:00,being productive,being social,0.0
-133,4/1/2019,16:01:47,Bioinformatics,1,0,2,0,2,2,09/09/96,5.0,2,25.0,666.0,1:00,serotonin,my frens,20.0
-134,4/1/2019,16:01:47,Bioinformatics,1,0,1,0,0,1,xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx,,0,5.0,,11,Food,Friends,0.019999999552965164
-135,4/1/2019,16:01:47,Business Administration,0,1,1,0,0,0,17-05-1993,6.0,0,27.0,5.0,22:00,Sleep,worker out,60.0
-136,4/1/2019,16:01:47,Artificial Intelligence,0,0,1,0,1,0,14-09-1996,8.0,0,100.0,9.0,00:00,Friends,Sports,30.0
-137,4/1/2019,16:01:47,Econometrics,0,0,1,0,1,1,22-3-1996,400.0,0,15.0,5.0,23:00,laughing,Food,80.0
-138,4/1/2019,16:01:48,Computer Science,1,1,0,1,0,3,1994,9.0,0,100.0,0.0,05:10,Nice weather,slumberparties,1.0
-139,4/1/2019,16:01:48,Data Science,1,0,1,1,2,3,September 27 1994,470.0,0,5.0,7.0,1am,Nice weather,Friends,2.0
-140,4/1/2019,16:01:48,Artificial Intelligence,1,1,1,1,0,0,05 05 1993,1.0,0,5.0,4.570000171661377,0:00,Food,hot shower,99.0
-141,4/1/2019,16:01:48,Artificial Intelligence,1,1,1,0,0,0,07/10/1994,5.0,0,3.0,3.0,01:05,a dopamine rush,Nice weather,68.0
-142,4/1/2019,16:01:48,Business Analytics,1,0,1,1,1,2,14-07-1995,8.0,0,80.0,8.0,"22,3",Nice weather,Friends,10.0
-143,4/1/2019,16:01:48,Artificial Intelligence,1,1,1,0,0,3,1991,400.0,0,,2.0,23:00,kindness,Food,5.0
-144,4/1/2019,16:01:48,Finance,0,0,1,0,0,2,17-03-1994,3.0,0,0.25,7.0,1.40 AM,enough time in the morning,slow day,0.0
-145,4/1/2019,16:01:48,Artificial Intelligence,0,1,1,1,1,2,30-10-1994,1.0,0,100.0,7.0,1:30,when i see dogs and can pet them,Friends,15.0
-146,4/1/2019,16:01:49,Bioinformatics,1,0,1,0,1,0,0406,1.0,0,6.0,6.0,2,Nice weather,Friends,6.0
-147,4/1/2019,16:01:49,Computational Science,0,0,1,0,1,2,14-07,4.0,0,1.0,6.0,1:15,Friends,Nice weather,10.0
-148,4/1/2019,16:01:49,Artificial Intelligence,1,0,1,1,0,2,04/08/1993,1.0,0,12.0,8.0,2,no deadlines to work on ,Nice weather,20.0
-149,4/1/2019,16:01:49,Computational Science,0,1,2,0,0,0,20-12,400.0,0,,6.0,22:40,Nice weather,sailboat,40.0
-150,4/1/2019,16:01:49,Artificial Intelligence,1,1,0,1,1,2,30-04-1993,5.0,0,100.0,9.0,11.30 p.m,productive ,Food,0.0
-151,4/1/2019,16:01:49,Business Analytics,1,0,1,0,1,1,07/02/1995,2.0,0,1000.0,8.0,01:30,beach,Nice weather,10.0
-152,4/1/2019,16:01:50,QRM,0,0,1,1,0,0,27/08/1996,1.0,0,90.0,7.0,11:30 pm,Nice weather,fun,70.0
-153,4/1/2019,16:01:50,Artificial Intelligence,1,1,1,2,0,3,18-06/'92,20.0,1,,1.0,1:30,fun ,daan,2.0
-154,4/1/2019,16:01:50,Business Analytics,1,0,1,1,0,1,9-11-2001,471.0,0,5.0,1.0,2:00,no lectures,Food,10.0
-155,4/1/2019,16:01:50,Computer Science,1,0,1,1,0,3,11/08/1994,6.0,0,,3.1410000324249268,1:00,Alcohol,Nice weather,5.0
-156,4/1/2019,16:01:50,Artificial Intelligence,0,1,1,0,1,2,02-09-1995,2.0,0,1.0,5.0,23:50,succeeding in life,being well rested,60.0
-157,4/1/2019,16:01:51,Econometrics,0,0,1,0,0,3,09/10/1993,7.0,0,7.0,2.0,1,completing my thesis,passing this course,5.0
-158,4/1/2019,16:01:51,Computer Science,1,0,1,1,0,3,16/02/1989,10.0,0,1000.0,6.0,3:00,Nice weather,gangbangparty,100.0
-159,4/1/2019,16:01:51,Artificial Intelligence,1,0,1,1,0,3,1995,2.0,1,100.0,9.0,03:00,success,love,80.0
-160,4/1/2019,16:01:51,QRM,0,0,1,0,0,0,02-09-1994,8.0,0,0.0,1.0,0:00,having time to chill,still being productive,50.0
-161,4/1/2019,16:01:51,Computational Science,0,0,1,0,1,4,11/03/1996,1.0,0,16.0,6.0,00:30,everything,everything,100.0
-162,4/1/2019,16:01:52,Bioinformatics,0,0,1,1,0,2,02/13/1995,4.0,0,5.0,9.0,1:27,Sports,Friends,30.0
-163,4/1/2019,16:01:51,Artificial Intelligence,1,1,1,0,0,2,12-03-1997,8.0,0,5.0,8.0,0:15,productive,gezellig,50.0
-164,4/1/2019,16:01:52,Unknown,2,2,2,2,2,4,x,,2,,,x,x,x,
-165,4/1/2019,16:01:52,Artificial Intelligence,0,0,1,0,1,3,March 6th,469.0,0,,5.0,2 am,llamas,pungent paws,78.0
-166,4/1/2019,16:01:53,Bioinformatics,0,0,2,1,1,0,010596,250.0,1,10.0,84.0,2300,Sleep,Nice weather,50.0
-167,4/1/2019,16:01:53,Bioinformatics,1,1,1,0,2,2,8-7-1985,4.0,0,30.0,9.0,10,Food,Alcohol,50.0
-168,4/1/2019,16:01:53,Artificial Intelligence,1,1,1,0,0,3,1995,5.0,0,,2.0,00:30,Nice weather,Food,80.0
-169,4/1/2019,16:01:53,Computational Science,0,0,1,0,0,3,11-11-1995,8.0,0,99.0,7.0,00:30,Nice weather,Sports,10.0
-170,4/1/2019,16:01:53,Bioinformatics,1,0,2,1,0,3,19/12/1992,20.0,0,90.0,8.0,"0,3",weed,Sex,75.0
-171,4/1/2019,16:01:53,Health,0,0,0,0,0,0,10-08-1996,0.0,0,30.0,2.0,11:18,small things that go right ,Friends,80.0
-172,4/1/2019,16:01:56,Computational Science,0,0,1,0,0,0,13/07/1995,8.0,1,100.0,,2pm,being at the vu,living at the vu,50.0
-173,4/1/2019,16:01:54,Artificial Intelligence,1,0,1,0,0,3,22091993,22.0,1,100.0,7.0,0800,gf,weed,60.0
-174,4/1/2019,16:01:55,Computer Science,0,0,1,0,0,3,02,4.0,0,10.0,7.0,12,Food,dog,70.0
-175,4/1/2019,16:01:55,Business Analytics,1,1,1,1,0,0,15-10-1993,1.0,0,50.0,8.0,23:00,Sex,no school,75.0
-176,4/1/2019,16:01:55,QRM,0,0,1,0,0,2,22/11/1993,5.0,0,,12.0,22:30,slept well,ate well,0.0
-177,4/1/2019,16:01:55,Computational Science,1,0,0,1,0,3,December 4th,2.0,0,7.0,4.0,23:00,Nice weather,Nice weather,42.0
-178,4/1/2019,16:01:55,Artificial Intelligence,1,1,1,1,0,3,23-01-1996,6.0,0,40.0,7.0,24:00,Food,data mining lectures,5.0
-179,4/1/2019,16:01:55,Bioinformatics,1,0,1,0,1,0,30-07-1992,8.0,0,1.0,7.0,22,Sleep,working out,50.0
-180,4/1/2019,16:01:55,Bioinformatics,1,0,1,0,0,0,10,9.0,0,,2.0,23,coffee,Nice weather,25.0
-181,4/1/2019,16:01:56,QRM,0,0,2,0,2,0,02.09.1993,4.0,2,100.0,7.0,00:15,Nice weather,free of work,75.0
-182,4/1/2019,16:01:56,Artificial Intelligence,1,1,1,0,1,0,07-10-1993,2.0,0,0.25,9.0,22:30,Nice weather,Friends,5.0
-183,4/1/2019,16:01:56,Information Science,0,1,1,1,0,3,March,1.0,0,42.0,6.0,12,Nice weather,-,42.0
-184,4/1/2019,16:01:56,Computational Science,0,0,1,1,0,0,13-01-1994,5.0,0,10.0,1.0,23,Nice weather,Alcohol,15.0
-185,4/1/2019,16:01:57,Econometrics,0,0,1,0,1,1,15/06/1996,2.0,0,10.0,4.0,23:30,coffee,Nice weather,80.0
-186,4/1/2019,16:01:57,Artificial Intelligence,0,0,1,0,1,2,23-03-1994,5.0,0,2.0,8.0,1:30,chilling,Nice weather,70.0
-187,4/1/2019,16:01:57,Bioinformatics,1,1,1,1,0,0,28-12-1993,5.0,0,10.0,2.0,23:30,music,books,26.0
-188,4/1/2019,16:01:57,Computer Science,1,0,1,1,0,2,01/09/1995,3.0,0,0.25,42.0,01:30,Sex,eating out,65.0
-189,4/1/2019,16:01:57,Artificial Intelligence,0,0,0,1,0,2,16021990,5.0,0,0.10000000149011612,3.0,0300,waking up energized,fun things planned,100.0
-190,4/1/2019,16:01:57,Econometrics,1,0,1,1,0,2,25-12-1995,1.0,0,10.0,3.0,0,Nice weather,feyenoord,5.0
-191,4/1/2019,16:01:57,Computational Science,0,1,1,0,2,2,Tien December negentienhonderdtweeennegentig,,1,100.0,,ONWAAR,Nice weather,😎,
-192,4/1/2019,16:01:58,Business Analytics,1,0,1,1,0,3,24121993,0.0,0,220.0,6.0,7,Nice weather,round,92.0
-193,4/1/2019,16:01:58,Econometrics,0,0,0,1,1,0,30/12/1992,5.0,0,10.0,11.0,2,Nice weather,positive mood,50.0
-194,4/1/2019,16:01:58,Artificial Intelligence,1,1,1,1,2,3,19-02-1996,2.0,0,1.0,9.760000228881836,23:30,Nice weather,Sleep,10.0
-195,4/1/2019,16:01:58,Artificial Intelligence,1,1,1,0,1,2,23-09-1996,2.0,0,5.0,4.0,23:00,Nice weather,dinner,80.0
-196,4/1/2019,16:01:58,Bioinformatics,0,0,1,1,0,3,20/09/87,1.0,0,25.0,7.0,5am,peace everywhere,don't know,100.0
-197,4/1/2019,16:01:58,Artificial Intelligence,1,1,1,1,0,1,1995,2.0,1,,4.0,23:30,Nice weather,Sports,30.0
-198,4/1/2019,16:01:59,Artificial Intelligence,1,1,1,0,0,0,03-06,1.0,0,5.0,9.0,02:30,Food,waking up on time,20.0
-199,4/1/2019,16:01:59,Computer Science,0,1,2,1,0,2,15/06/1993,350.0,0,120.0,6.0,00:25,Sleep,empty to do list ,1.0
-200,4/1/2019,16:02:00,Artificial Intelligence,1,1,1,1,0,4,69-69-1969,8.0,0,100.0,3.0,03:00,¯\_(ツ)_/¯,¯\_(ツ)_/¯,100.0
-201,4/1/2019,16:02:00,Business Analytics,1,0,1,1,1,3,25-03,2.0,0,80.0,9.0,23u,Nice weather,soccer,20.0
-202,4/1/2019,16:02:00,Language Technology,1,0,1,0,1,2,19 April,6.0,0,80.0,9.0,00:00,Nice weather,not working,30.0
-203,4/1/2019,16:02:00,Artificial Intelligence,0,0,1,0,1,0,14-09,6.0,0,0.03999999910593033,4.0,"22,3",Nice weather,Friends,30.0
-204,4/1/2019,16:02:00,Business Administration,0,0,1,0,0,0,23-02,5.0,0,5.0,8.0,1:10AM,Alcohol,Nice weather,70.0
-205,4/1/2019,16:02:00,Artificial Intelligence,0,1,1,0,0,0,03051995,23.0,0,5.0,6.0,2230,Nice weather,no obligations,65.0
-206,4/1/2019,16:02:00,QRM,0,0,1,0,0,2,06-05,8.0,0,100.0,7.0,12:18,hookers,cocaine,0.0
-207,4/1/2019,16:02:00,Computer Science,0,1,1,1,0,2,13/0195,0.0,0,50.0,3.1415927410125732,3 am,if i accomplish all the goal i had prefixed for that day,if i don't have to postpone anything,20.0
-208,4/1/2019,16:02:00,Artificial Intelligence,1,1,1,0,1,1,3/7/1995,1.0,0,50.0,6674336765181952.0,12,Nice weather,Friends,40.0
-209,4/1/2019,16:02:00,Bioinformatics,1,0,0,0,1,0,26-08-1996,1.0,0,60.0,5.0,22:30,Nice weather,Friends,15.0
-210,4/1/2019,16:02:01,Econometrics,0,0,1,0,1,2,21/02/1996,0.0,0,20.0,1.0,00:00,Nice weather,Friends,50.0
-211,4/1/2019,16:01:59,Business Analytics,1,2,1,2,1,0,28-12-1994,1.0,0,0.0,3.3299999237060547,00:00,Nice weather,a smooth day,70.0
-212,4/1/2019,16:02:01,Health,0,0,1,0,1,1,05-11-1996,2.0,0,0.5,8.0,"1,3",Food,no studying,10.0
-213,4/1/2019,16:02:02,Computer Science,1,0,1,0,0,4,3rd of april,3.0,0,,7.0,23,Nice weather,weekend,100.0
-214,4/1/2019,16:02:02,Business Analytics,1,0,1,1,1,0,08,3.0,0,5.0,7.0,2,Nice weather,pet,0.0
-215,4/1/2019,16:02:02,Business Analytics,1,0,1,1,0,2,1995,400.0,0,80.0,3.140000104904175,11:30 PM,Food,Nice weather,70.44999694824219
-216,4/1/2019,16:02:03,Computer Science,1,1,1,1,0,2,That's classified,,0,,,Today,no class,no work,100.0
-217,4/1/2019,16:02:02,Business Analytics,1,1,1,1,0,2,1995-08-08,5.0,0,,1.0,twelve,nothing to do,o,0.0
-218,4/1/2019,16:02:02,Artificial Intelligence,1,1,1,1,0,0,13-01,7.0,0,,7.0,03:30,head,Food,34.0
-219,4/1/2019,16:02:02,Stochastics,1,0,1,0,0,2,28/11/——,1.0,0,,2.0,23,it being productive,having time to do everything,60.0
-220,4/1/2019,16:02:02,QRM,0,0,1,0,0,1,28-04-1996,3.0,0,0.0,7.0,12,get money,Food,30.0
-221,4/1/2019,16:02:03,Data Science,1,0,1,1,0,2,Kingsday,2.0,2,60.0,42.0,2200,board games,Alcohol,0.0
-222,4/1/2019,16:02:03,Artificial Intelligence,1,1,1,1,1,3,08-01-1997,2.0,0,100.0,3.0,01:00,Food,Nice weather,50.0
-223,4/1/2019,16:02:04,Data Science,1,1,1,1,0,0,1/1/1971,4.0,0,2.0,3736536350720.0,02:33,nobody bothers me,Nice weather,10.0
-224,4/1/2019,16:02:04,Business Analytics,1,1,1,1,0,0,1994,1.0,0,66.0,12.0,11,Alcohol,Sex,20.0
-225,4/1/2019,16:02:04,Computer Science,0,0,1,0,0,1,040995,8.0,0,80.0,4.0,0:00,money,Food,50.0
-226,4/1/2019,16:02:04,Business Analytics,1,0,1,1,0,3,31-10-1995,1.0,0,99.0,9.0,23:30,Sports,Food,0.0
-227,4/1/2019,16:02:04,Econometrics,0,0,2,0,0,0,17 july,4.0,0,10.0,313.0,"0,5",good relationships that day,having learned something usefull,50.0
-228,4/1/2019,16:02:04,Information Science,1,0,1,1,0,3,9.1.,8.0,0,0.0,9.0,4am,the number of tasks i was able to complete.,had a meaningful conversation ,42.0
-229,4/1/2019,16:02:04,Econometrics,0,1,1,0,0,0,01-10-1991,0.0,0,0.20000000298023224,8.0,20:45,Nice weather,working out,23.0
-230,4/1/2019,16:02:05,Computer Science,0,1,1,1,0,1,1995,2.0,0,100.0,6.0,2:00,Nice weather,shuqi,3.0
-231,4/1/2019,16:02:05,multiple programmes,1,1,1,1,0,2,00-00-0000,5.0,1,,3.0,02:30,having no exam,flipping tables,
-232,4/1/2019,16:02:05,Computer Science,0,1,1,1,1,2,26 Feb,2.0,0,1.0,2.0,2,relax,Food,50.0
-233,4/1/2019,16:02:06,Finance,0,0,1,0,0,1,24-04-1996,4.0,0,10.0,7.0,0030,Sports,thuis komen,0.0
-234,4/1/2019,16:02:06,Computational Science,0,0,1,0,1,3,30/11/1992,8.0,0,0.2199999988079071,7.0,02:00,not sitting in a room with 400 students,no 9 am lectures,30.0
-235,4/1/2019,16:02:06,Computational Science,0,0,0,0,0,2,11.06.93,1.0,0,1.0,9.0,1:00,Friends,Nice weather,5.0
-236,4/1/2019,16:02:06,Bioinformatics,0,0,0,1,0,4,April 2nd,8.0,0,10.0,7.0,12,Nice weather,nothing to worry about ,99.0
-237,4/1/2019,16:02:06,QRM,0,2,1,0,0,3,1-1-1993,2.0,0,1.0,1.0,23,data bitches,blow,100.0
-238,4/1/2019,16:02:07,Business Analytics,1,0,1,0,1,2,19-10-1995,2.0,0,0.25,4.0,23:00 uur,Food,hobby,20.0
-239,4/1/2019,16:02:07,Econometrics,1,1,1,1,0,3,21-08-1996,0.0,0,0.5,7.0,1:30,no obligations,games,75.0
-240,4/1/2019,16:02:07,Business Analytics,1,0,1,1,0,2,17-09-1996,2.0,0,30.0,8.0,23:45,Nice weather,no deadlines,60.0
-241,4/1/2019,16:02:07,Bioinformatics,1,0,0,1,1,3,1994,10.0,0,50.0,2.0,4,relaxing,family,90.0
-242,4/1/2019,16:02:08,Artificial Intelligence,1,1,1,1,0,0,11.4.1995,3.0,0,2.0,7.0,01:00,day at the beach,Nice weather,15.0
-243,4/1/2019,16:02:09,Business Analytics,1,0,1,0,1,0,13-11-1995,1.0,0,60.0,4.0,23:15,Nice weather,Food,25.0
-244,4/1/2019,16:02:09,Data Science,1,0,1,1,0,0,30/07,3.0,0,20.0,6.0,23:15,it being the weekend,Nice weather,20.0
-245,4/1/2019,16:02:08,Business Analytics,1,0,1,0,0,0,21-05-1996,8.0,0,2.0,1.0,23:00,no lecture,no deadlines in the near future,43.0
-246,4/1/2019,16:02:11,Econometrics,0,0,1,0,0,0,22+1/4.5*2/92,1.0,0,10.0,3.1415069103240967,23:10,zonnige dag,f1 race,67.0
-247,4/1/2019,16:02:12,Artificial Intelligence,1,0,1,0,0,2,19/10/1995,5.0,0,1.0,5.0,3:30,Nice weather,productivity,5.0
-248,4/1/2019,16:02:11,Linguistics,0,0,0,0,1,2,09-06-1989,2.0,0,17.0,9.0,2 am,Friends,Sleep,55.0
-249,4/1/2019,16:02:12,Computational Science,2,0,0,1,0,3,4 september 1995,2.0,0,1.0,491995.0,12,warmth,. ,90.0
-250,4/1/2019,16:02:13,Computer Science,0,1,1,0,0,3,10-08,3.0,0,,5.0,2 am,Nice weather,good grades,5.0
-251,4/1/2019,16:02:14,Artificial Intelligence,1,1,0,0,0,2,12-01-1995,0.0,0,99.0,1.0,12 pm,day off,Food,0.0
-252,4/1/2019,16:02:14,Computer Science,0,1,2,1,1,0,10/5,3.0,0,100.0,5.0,4,no class,Nice weather,20.0
-253,4/1/2019,16:02:15,Computational Science,1,1,1,1,0,0,July 1994,7.0,0,4.699999809265137,5.0,01:30,Nice weather,Sports,7.0
-254,4/1/2019,16:02:15,Computer Science,0,1,1,1,0,3,#,5.0,0,,7.0,1am,Nice weather,Food,100.0
-255,4/1/2019,16:02:16,Computer Science,0,1,1,1,0,2,21-09,6.0,0,20.0,7.0,"3,2",Nice weather,Food,10.0
-256,4/1/2019,16:02:16,Computational Science,1,0,1,0,0,1,17/07/1996,2.0,0,77.0,7.0,1:45,no lecture,Sports,17.0
-257,4/1/2019,16:02:16,Computer Science,1,1,1,1,1,0,20.03.1996.,2.0,0,,9.0,"it was actually today, 4am",Friends,Alcohol,
-258,4/1/2019,16:02:18,Artificial Intelligence,1,0,1,0,0,0,0704,3.0,0,40.0,3.0,02:00,not monday,yes,55.0
-259,4/1/2019,16:02:20,Computational Science,1,1,1,0,2,0,27-03-1992,35.0,0,101.0,9.999990463256836,01:30,time for: reading/music/training,being with a loved one,30.0
-260,4/1/2019,16:02:21,Bioinformatics,1,1,1,1,0,2,1994,6.0,0,1.0,8.0,02:00,Nice weather,Food,10.0
-261,4/1/2019,16:02:24,Computer Science,1,1,1,1,1,3,20.02.1996,7.0,0,50.0,8.0,Today at 3am,Alcohol,petting dog (preferably more than one),100.0
-262,4/1/2019,16:02:23,Computational Science,0,0,1,0,0,2,14-04-1996,8.0,0,1.0,5.0,22,goud,music,100.0
-263,4/1/2019,16:02:24,Computer Science,1,1,1,1,0,2,September 16,3.0,0,3.0,3.0,2am,Nice weather,Sports,15.0
-264,4/1/2019,16:02:25,Business Analytics,1,1,1,0,0,0,25-03,2.0,0,1.0,8.0,~1100 pm,Sleep,winning,10.0
-265,4/1/2019,16:02:25,Artificial Intelligence,1,1,0,1,0,3,25/07/1994,1.0,0,0.0,832795574272.0,3:00am,Sports,a lot of interesting work done ,15.0
-266,4/1/2019,16:02:29,Computer Science,0,0,0,1,0,1,1-1-2030,77.0,0,,7.0,0,Sports,mo money ,100.0
-267,4/1/2019,16:02:39,Business Administration,1,0,1,0,0,0,04/09/1994,10.0,0,0.5,3.0,1 AM,temperature,free time,50.0
-268,4/1/2019,16:02:40,Computational Science,0,0,1,0,0,0,14-04-1993,9.0,0,0.25,8.888799667358398,23:56,Friends,new experiences,34.0
-269,4/1/2019,16:02:44,Computational Science,0,0,1,0,1,3,08-04,5.0,0,0.25,3.0,23:30,Friends,laughing,60.0
-270,4/1/2019,16:02:45,Business Analytics,1,1,1,1,0,0,09041996,9.300000190734863,0,10.0,7.0,23:00,good data mining grade,Food,60.0
-271,4/1/2019,16:02:55,Business Analytics,1,0,1,1,0,1,First of october,,2,0.10000000149011612,,10 o clock,good coffee,italian vineyards,99.9000015258789
-272,4/1/2019,16:02:56,Computer Science,0,0,1,1,0,0,21/10/1995,80.0,0,100.0,10.0,2:00,arsenal wins,Sports,0.0
-273,4/1/2019,16:03:51,Artificial Intelligence,0,1,0,1,0,0,20-11-1990,,1,,42.0,02:00,Food,not being fat,80.0
-274,4/1/2019,16:31:16,Psychology,0,2,0,0,2,1,14/7/1998,50.0,2,100.0,79.0,1:30,Food,poepen,98.0
-275,4/1/2019,16:53:39,Artificial Intelligence,1,1,1,1,1,2,25-11-1994,5.0,0,100.0,5.0,00:30,Nice weather,coffee,55.0
+0,3/27/2019,10:16:11,0.0,1,1,1,1,2,1,unknown,3.0,0,100.0,6.0,23:00,Nice weather,lecture,
+1,4/1/2019,15:58:21,0.0,0,0,1,1,0,0,09071992,1.0,0,0.0,7.0,3,dm,ai,1.0
+2,4/1/2019,15:59:07,4.0,1,1,2,1,0,2,04/08/95,0.0,2,0.0,0.0,0,0,0,100.0
+3,4/1/2019,15:59:30,7.0,1,1,1,1,0,0,29-09-1993,2.0,0,42.0,1.6449999809265137,"0,3",winning,Food,0.0
+4,4/1/2019,15:59:58,4.0,0,1,1,1,0,2,0212,2.0,0,,66.0,20,kiss,love,100.0
+5,4/1/2019,16:00:01,0.0,1,1,1,1,0,4,31-12-1994,0.0,1,,420.0,0000,ganja,Nice weather,100.0
+6,4/1/2019,16:00:12,1.0,1,0,1,0,1,2,09-10-1995,,0,100.0,739.0,22:00,Food,Nice weather,80.0
+7,4/1/2019,16:00:16,1.0,1,1,1,1,0,3,22/07/1996,0.0,1,,5.0,"24,3",Friends,Nice weather,50.0
+8,4/1/2019,16:00:21,5.0,0,0,1,1,0,2,30-02-1945,0.0,0,0.0,31.0,03:30,done something useful,had fun,0.0
+9,4/1/2019,16:00:31,0.0,1,1,1,0,0,2,22,,0,,5.0,02:00,Nice weather,relax walks,80.0
+10,4/1/2019,16:00:52,1.0,1,0,1,0,0,2,10/06/1991,470.0,0,20.0,3851.0,11,Nice weather,Sleep,100.0
+11,4/1/2019,16:00:59,5.0,0,0,1,0,0,0,19,3.0,0,0.25,6.0,3,Nice weather,Food,20.0
+12,4/1/2019,16:00:59,0.0,1,1,1,0,0,3,18 March 1994,3.0,0,100000000.0,7.0,0:40,Sleep,good breakfast,10.0
+13,4/1/2019,16:01:02,3.0,1,1,1,1,0,0,02-08-1996,1.0,0,100.0,16.0,2330,girls,Alcohol,16.0
+14,4/1/2019,16:01:03,3.0,1,1,1,1,0,0,1 May,2.0,0,95.0,314.1520080566406,00:00,Nice weather,Food,50.0
+15,4/1/2019,16:01:04,7.0,1,0,1,0,0,2,1996,11.0,0,50.0,11.0,2:00,work,Sleep,10.0
+16,4/1/2019,16:01:04,7.0,0,0,1,0,0,0,03-03-1994,6.0,0,30.0,5.0,5 am,Sports,Food,0.0
+17,4/1/2019,16:01:06,3.0,1,1,1,1,0,0,17-05-1994,7.0,0,30.0,17.0,22,Nice weather,Sports,17.0
+18,4/1/2019,16:01:09,1.0,1,1,1,1,0,0,08-28,3.0,1,50.0,7.0,24:00,Nice weather,Food,40.0
+19,4/1/2019,16:01:13,3.0,1,0,1,1,1,2,27/12/1996,1.0,0,100.0,7.0,23:00,Nice weather,Food,20.0
+20,4/1/2019,16:01:13,1.0,1,0,1,1,1,0,18-10-1996,2.0,0,100.0,2.0,21,horses,Food,12.0
+21,4/1/2019,16:01:13,0.0,0,1,1,0,1,1,21-08-1995,,0,100.0,6.0,01:03,Nice weather,Food,2.0
+22,4/1/2019,16:01:13,0.0,0,0,1,1,0,0,"10th,June",4.0,0,0.0,888.0,18:00,good news,very good news,63.0
+23,4/1/2019,16:01:14,0.0,1,1,1,1,1,0,09/08/1996,1.0,0,10.0,2.0,00:00,Nice weather,Food,0.0
+24,4/1/2019,16:01:15,0.0,1,1,1,1,0,2,24-02-1994,1.0,0,,251656720.0,2:30 am,Nice weather,relaxing,0.0
+25,4/1/2019,16:01:16,1.0,1,0,1,0,0,2,04/06,0.0,0,0.009999999776482582,,01:00,sea,Nice weather,98.0
+26,4/1/2019,16:01:16,0.0,1,0,1,1,1,1,01-01-1993,5.0,0,5.0,6.0,1 AM,Nice weather,holiday,20.0
+27,4/1/2019,16:01:17,5.0,0,0,1,0,1,2,29/03,1.0,0,0.25,9.0,23:30,Nice weather,vacation,10.0
+28,4/1/2019,16:01:17,1.0,1,1,1,1,1,1,1996-11-06,2.0,0,100.0,5.79659987542868e+17,22:30,Food,cuddling with dogs ,3.0
+29,4/1/2019,16:01:17,3.0,1,0,1,0,0,3,11-08,2.0,0,50.0,9.0,22:00,Nice weather,summer,5.0
+30,4/1/2019,16:01:18,5.0,1,0,0,0,2,2,15/10/1990,4.0,0,0.0,8.0,23,Friends,figuring something out,99.0
+31,4/1/2019,16:01:18,6.0,1,1,1,1,0,0,03-11-1991,5.0,0,3.5,2.0,00:45,Friends,Food,22.0
+32,4/1/2019,16:01:24,1.0,1,0,1,0,2,2,15-07-1995,1.0,0,,,1.30 pm ,weed,Friends,0.0
+33,4/1/2019,16:01:25,16.0,0,0,1,0,0,3,1988,10.0,0,60.0,9.0,12,Sports,Sex,40.0
+34,4/1/2019,16:01:25,16.0,1,1,1,1,0,0,25-05-1995,2.0,0,1.0,9.0,1:00,Food,Sex,80.0
+35,4/1/2019,16:01:25,4.0,0,0,1,0,0,3,05 Dec,6.0,0,5.0,5.0,2,Food,Friends,60.0
+36,4/1/2019,16:01:27,1.0,1,0,1,0,1,3,12-12-1995,2.0,0,20.0,12.0,01:00,Nice weather,Food,0.0
+37,4/1/2019,16:01:28,7.0,0,0,1,0,0,3,02-05,469.0,0,100.0,7.0,01:00,Nice weather,no stress,0.0
+38,4/1/2019,16:01:29,3.0,1,1,1,1,1,0,03-01,10.0,0,10.0,8.0,21:00,no lectures and work,Food,20.0
+39,4/1/2019,16:01:29,0.0,0,0,1,0,1,1,13-07-1995,1.0,0,,5.0,2:00,Nice weather,Friends,100.0
+40,4/1/2019,16:01:29,5.0,0,1,1,1,1,0,03/12,4.0,0,0.0,5.829999923706055,01:30,good conversation,Friends,60.0
+41,4/1/2019,16:01:29,1.0,1,0,1,1,0,0,7-4-95,5.0,0,,7.0,1,laughing,smiling,15.0
+42,4/1/2019,16:01:29,3.0,1,1,1,1,0,2,23-02-1997,4.0,0,15.0,1.0,23:30,Sports,Sleep,30.0
+43,4/1/2019,16:01:29,0.0,1,1,1,1,1,2,30-3-1995,8.0,0,60.0,46743224.0,21,Nice weather,Sports,25.0
+44,4/1/2019,16:01:29,5.0,0,0,1,0,0,3,09/03/1994,4.0,0,0.20000000298023224,3.0,22:30,Food,Nice weather,33.0
+45,4/1/2019,16:01:29,4.0,1,1,1,0,0,2,27/04/1994,4.0,0,100.0,6483920551936.0,3:00,vim,emacs,10.0
+46,4/1/2019,16:01:30,1.0,1,0,1,0,0,2,11-05-1996,0.0,0,1.0,4.0,01:00,Sleep,coffee,
+47,4/1/2019,16:01:31,6.0,1,0,1,0,0,2,13-09-1995,6.0,0,85.0,3.140000104904175,23:00,Sleep,Nice weather,50.0
+48,4/1/2019,16:01:31,5.0,0,0,0,0,0,2,23/01/1994,3.0,0,3.0,3.0,11,Sports,Food,15.0
+49,4/1/2019,16:01:31,4.0,1,1,1,1,0,4,kuhbj,,0,,777777792.0,1:00,Food,Sex,0.0
+50,4/1/2019,16:01:31,0.0,1,1,1,1,0,2,Tomorrow ,,0,100.0,5587458783707136.0,I didnt,Nice weather,Food,
+51,4/1/2019,16:01:33,0.0,1,1,1,1,0,2,19-12-1995,1.0,0,15.0,8.5,02:40,Nice weather,amount of work needed to be done,0.0
+52,4/1/2019,16:01:33,4.0,1,1,0,1,1,2,DECEMBER 1993,7.0,0,90.0,7.0,1 am,travel,party,20.0
+53,4/1/2019,16:01:33,0.0,1,0,1,1,1,0,12.12.1995,6.0,0,5.0,1212.0,12:30,Friends,Sports,30.0
+54,4/1/2019,16:01:34,7.0,0,0,1,0,0,3,23-08-1992,3921.0,0,91.0,27.0,01:00,Nice weather,Food,99.9000015258789
+55,4/1/2019,16:01:34,7.0,0,0,1,0,0,0,04041996,0.0,2,2.0,,"2,03",Food,Nice weather,30.0
+56,4/1/2019,16:01:34,10.0,0,0,1,0,0,0,22-07-1995,2.0,0,33.33000183105469,9.0,23:00,Nice weather,Food,69.0
+57,4/1/2019,16:01:34,4.0,1,0,1,1,0,2,11-02-1996,2.0,0,100.0,69.0,23:30,Nice weather,Food,10.0
+58,4/1/2019,16:01:34,3.0,1,0,1,1,0,3,26-05-1997,7.0,0,100.0,7.0,24,Food,Sleep,0.0
+59,4/1/2019,16:01:35,0.0,1,0,0,0,0,3,02-12-1992,1.0,0,0.4000000059604645,6.0,23:30,activities,Friends,20.0
+60,4/1/2019,16:01:35,4.0,1,1,1,1,0,0,14,4.0,0,50.0,3.1415927410125732,4:25AM,surprise money,surprise presents,99.0
+61,4/1/2019,16:01:35,0.0,1,1,1,1,0,3,13/05,2.0,0,,7.0,1,no hangover,Sleep,15.0
+62,4/1/2019,16:01:36,,1,0,1,0,1,0,18-11-1995,2.0,0,10.0,8.0,23:00,working out,Friends,10.0
+63,4/1/2019,16:01:36,3.0,2,0,1,0,1,1,27/06/1991,1.0,0,100.0,3.0,2:30,Nice weather,vacation,100.0
+64,4/1/2019,16:01:36,1.0,0,0,1,1,1,3,25.02.1993,5.0,0,20.0,7.0,23:30,playing volleyball,Sleep,20.0
+65,4/1/2019,16:01:36,0.0,1,1,1,1,0,0,30.01.1996,1.0,0,10.0,7.0,3:00,Nice weather,Friends,7.0
+66,4/1/2019,16:01:36,4.0,1,1,1,1,0,4,05-02-1986,,0,50.0,1.0,23:30,no lectures,waking up early,0.0
+67,4/1/2019,16:01:36,0.0,1,1,1,1,0,2,03OCT1996,2.0,0,20.0,96.0,110305pm,Alcohol,Nice weather,10.0
+68,4/1/2019,16:01:37,3.0,1,0,1,1,1,0,31-10-1996,8.0,0,80.0,2.0,22:30,Nice weather,Food,75.0
+69,4/1/2019,16:01:37,14.0,1,0,1,1,0,2,10/05/1996,7.0,0,0.0,2.0,"22,3",Alcohol,Nice weather,20.0
+70,4/1/2019,16:01:37,19.0,1,0,1,1,2,3,0109,5.0,0,,8.0,3,Food,learning,37.0
+71,4/1/2019,16:01:38,1.0,1,0,0,1,0,0,18-07-95,2.0,0,101.0,8.0,01:00,Nice weather,Sex,10.0
+72,4/1/2019,16:01:38,10.0,0,0,1,1,1,0,14th March,2.0,0,80.0,7.0,00,Nice weather,Friends,30.0
+73,4/1/2019,16:01:38,3.0,1,1,1,1,0,2,15-02-1994,1.0,0,99.0,,22:30,music,Nice weather,99.0
+74,4/1/2019,16:01:39,0.0,1,1,1,1,0,2,19-01-1996,5.0,0,0.0,341.0,23h00,Sports,Alcohol,40.0
+75,4/1/2019,16:01:39,5.0,1,0,1,1,1,1,08/02/1997,400.0,0,50.0,8.0,9,Food,no lecture,100.0
+76,4/1/2019,16:01:39,0.0,1,1,1,0,0,2,26-10,5.0,0,80.0,3.0,23:34,Nice weather,Sleep,0.0
+77,4/1/2019,16:01:39,0.0,1,1,1,1,1,3,01-04-1997,3.0,0,10.0,7.0,00:00,Nice weather,Friends,60.0
+78,4/1/2019,16:01:39,0.0,1,1,1,0,1,4,14/11/1995,0.0,0,,1.0,23:00,Nice weather,big breakfast,0.0
+79,4/1/2019,16:01:40,0.0,0,0,1,1,1,2,17.10.1996.,5.0,0,200.0,7.0,23,Nice weather,Food,30.0
+80,4/1/2019,16:01:40,17.0,1,0,1,0,1,2,05.09:1993,2.0,0,10.0,7.0,02:00,no stress,Food,10.0
+81,4/1/2019,16:01:40,0.0,1,1,1,0,0,2,22.03.94,1.0,0,99.0,7.0,12,Friends,Food,5.0
+82,4/1/2019,16:01:40,7.0,0,0,1,1,0,1,06-12-1993,2.0,2,90.0,3.140000104904175,2359,Food,weekend,100.0
+83,4/1/2019,16:01:40,8.0,0,0,1,0,0,2,4-12-1995,2.0,0,1.0,3.0,02:00,Nice weather,Alcohol,68.0
+84,4/1/2019,16:01:40,0.0,1,1,1,1,0,2,04061997,3.0,0,5.0,7.0,3:30,mood,succes,60.0
+85,4/1/2019,16:01:40,5.0,0,0,1,0,1,1,13/08/1996,3.0,0,,3.5282626152038574,23:45,Nice weather,getting work done,
+86,4/1/2019,16:01:40,0.0,1,1,1,1,0,2,21-05-1995,2.0,1,25.0,7.0,23:00,Nice weather,don't have stress,10.0
+87,4/1/2019,16:01:40,3.0,1,1,1,1,1,3,07-06-1994,5.0,0,0.25,3.140000104904175,01:30,Nice weather,Friends,15.0
+88,4/1/2019,16:01:39,16.0,0,0,1,0,0,0,"15,05",2.0,0,0.0,7.0,1,Nice weather,no exams,50.0
+89,4/1/2019,16:01:40,1.0,0,0,1,1,0,3,26-06,10.0,0,50.0,7.0,13,no deadlines,no stress,99.0
+90,4/1/2019,16:01:40,1.0,1,0,1,1,0,2,03-11-1992,1.0,0,100.0,2.0,23:00,Alcohol,Sex,80.0
+91,4/1/2019,16:01:41,3.0,1,0,1,1,1,2,27/11/1996,7.0,0,1.0,5.0,00:57,Nice weather,Food,75.0
+92,4/1/2019,16:01:41,0.0,1,1,1,1,1,2,25-11-1994,5.0,0,100.0,5.0,00:30,Nice weather,coffee,55.0
+93,4/1/2019,16:01:41,8.0,0,0,1,0,0,0,27-01-1993,1.0,0,0.25,5.0,12,Nice weather,passing the data mining course,0.0
+94,4/1/2019,16:01:41,3.0,1,1,1,1,0,3,10-09-1995,1.0,0,2.5,9.0,23:55,Food,Sleep,53.0
+95,4/1/2019,16:01:41,3.0,1,0,1,0,0,2,15/4/1995,2.0,0,7.0,7.0,12,Nice weather,free,0.0
+96,4/1/2019,16:01:41,3.0,1,0,1,1,0,0,12-08-96,2.0,0,5.0,6.0,23:30,no deadline,party,4.0
+97,4/1/2019,16:01:41,3.0,1,0,1,0,0,0,October 8th ,0.0,0,,4.0,0:00,Food,mathematics ,42.0
+98,4/1/2019,16:01:41,7.0,0,0,1,0,0,0,3 juni 1995,2.0,0,100.0,9.0,23:30,weekend,fun,10.0
+99,4/1/2019,16:01:41,3.0,1,0,1,1,0,0,20-09-1995,3.0,2,50.0,25.0,12,Sex,Alcohol,100.0
+100,4/1/2019,16:01:42,0.0,1,1,1,1,1,2,14-01-1992,8.0,0,0.0,4.0,21:30,when i’m productive,when i feel good,20.0
+101,4/1/2019,16:01:42,7.0,1,0,1,0,0,2,13-10,2.0,0,70.0,4.0,23:30,fruitful day ,Nice weather,13.0
+102,4/1/2019,16:01:42,3.0,1,0,1,1,1,3,21-10-1996,2.0,0,100.0,8.0,23:00,Nice weather,Sports,0.0
+103,4/1/2019,16:01:42,10.0,0,0,1,0,1,0,25-08-1993,1.0,0,33.33000183105469,9.0,23:30,Nice weather,Alcohol,88.0
+104,4/1/2019,16:01:42,0.0,0,0,1,0,1,1,31-01-1995,6.0,0,10.0,3.0,0,Nice weather,Food,70.0
+105,4/1/2019,16:01:42,10.0,1,1,1,1,0,1,01-05-1996,7.0,0,2.0,5.0,"23,45",Nice weather,money,1.0
+106,4/1/2019,16:01:43,3.0,1,0,1,1,0,3,09/07,2.0,0,100.0,7.0,24:00,Food,Sleep,25.0
+107,4/1/2019,16:01:43,0.0,0,0,1,0,0,0,24th septembre,6.0,0,0.0,9.0,23:00,Food,Sex,70.0
+108,4/1/2019,16:01:43,0.0,0,0,1,0,1,2,15 09 1994,24.0,0,100.0,9.0,22:22,love,adventure,45.0
+109,4/1/2019,16:01:43,0.0,1,0,1,0,1,1,28-04-97,6.0,0,1.0,8.0,01:00,Nice weather,Friends,50.0
+110,4/1/2019,16:01:43,0.0,1,1,1,1,0,0,30.07.97,1.0,2,2.0,10.0,23:00,finishing all the tasks,Nice weather,30.0
+111,4/1/2019,16:01:43,4.0,0,2,1,1,0,2,10-06-1989,5.0,0,1.0,10.0,01:30,Nice weather,no work,1.0
+112,4/1/2019,16:01:43,5.0,1,1,1,1,0,0,1995,7.0,0,100.0,7.0,01:00,learning something,finishing work,0.0
+113,4/1/2019,16:01:43,0.0,1,0,1,0,0,2,15-09-1992,300.0,0,1.0,67.0,0:14,Sleep,Friends,60.0
+114,4/1/2019,16:01:44,5.0,0,1,1,1,1,0,1996-05-24,,1,10.0,1.25,1am,Nice weather,coffee,10.0
+115,4/1/2019,16:01:44,3.0,1,1,1,1,1,0,04-10-1995,2.0,0,1.0,7.0,"23,45",Nice weather,Friends,9.0
+116,4/1/2019,16:01:45,0.0,1,1,1,1,0,2,07AUG1993,8.0,0,100.0,2104.0,10:30:21 PM,birthday,trains on time,0.0
+117,4/1/2019,16:01:45,4.0,0,1,0,0,0,2,01,6.0,0,50.0,6.0,3 am,Food,weed,10.0
+118,4/1/2019,16:01:45,0.0,1,1,1,1,0,3,24 september,2.0,0,1.0,8.0,12,Nice weather,Alcohol,0.0
+119,4/1/2019,16:01:45,0.0,1,1,1,0,1,3,02/03,5.0,0,5.0,4.0,"23,45",Nice weather,spare time,50.0
+120,4/1/2019,16:01:45,16.0,0,0,1,0,0,0,16-01-1997,2.0,0,0.0,7.0,01:00,Food,Sports,0.0
+121,4/1/2019,16:01:45,1.0,1,1,0,1,1,3,11 june 1991,5.0,0,70.0,8.0,2:00am,Nice weather,good vibes,60.0
+122,4/1/2019,16:01:45,9.0,0,0,1,0,1,3,04-10-1994,4.0,0,3.0,6.78000020980835,22:12,Sex,Nice weather,10.0
+123,4/1/2019,16:01:45,0.0,0,0,1,0,1,2,1995,2.0,0,,1.0,00:30,Food,productive,50.0
+124,4/1/2019,16:01:45,3.0,1,1,1,1,0,0,06-03-1995,1.0,0,85.0,3.0,23:30,going to the vu,Alcohol,0.0
+125,4/1/2019,16:01:45,10.0,0,0,1,0,0,2,17/07/1995,2.0,0,50.0,8.0,03:00,Nice weather,euros,0.0
+126,4/1/2019,16:01:46,4.0,1,1,1,0,0,3,01-10-1996,3.0,0,100.0,8.0,6,Food,Alcohol,10.0
+127,4/1/2019,16:01:46,5.0,1,1,1,0,0,2,04-12-1991,5.0,1,35.0,7.0,01:30,no deadlines ,Nice weather,0.0
+128,4/1/2019,16:01:46,0.0,0,1,1,0,1,3,19-12-1993,2.0,0,0.20000000298023224,3.0,00:30,fnatic winning games in lec,Nice weather,10.0
+129,4/1/2019,16:01:46,5.0,0,0,1,0,0,3,16 dec,,2,1.0,3.141590118408203,12,Food,doing hobbies,57.0
+130,4/1/2019,16:01:46,5.0,1,1,1,1,0,2,24/09/1996,2.0,0,47100.0,2.0,didn't sleep,relaxing,Food,0.0
+131,4/1/2019,16:01:46,3.0,1,0,1,0,0,3,2-5-1975,6.0,0,50.0,1.0,0:30,Sleep,enough fysical excercise,40.0
+132,4/1/2019,16:01:46,7.0,1,0,1,0,0,0,03-1994,8.0,0,99.0,1.0,22:00,being productive,being social,0.0
+133,4/1/2019,16:01:47,1.0,1,0,2,0,2,2,09/09/96,5.0,2,25.0,666.0,1:00,serotonin,my frens,20.0
+134,4/1/2019,16:01:47,1.0,1,0,1,0,0,1,xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx,,0,5.0,,11,Food,Friends,0.019999999552965164
+135,4/1/2019,16:01:47,2.0,0,1,1,0,0,0,17-05-1993,6.0,0,27.0,5.0,22:00,Sleep,worker out,60.0
+136,4/1/2019,16:01:47,0.0,0,0,1,0,1,0,14-09-1996,8.0,0,100.0,9.0,00:00,Friends,Sports,30.0
+137,4/1/2019,16:01:47,7.0,0,0,1,0,1,1,22-3-1996,400.0,0,15.0,5.0,23:00,laughing,Food,80.0
+138,4/1/2019,16:01:48,4.0,1,1,0,1,0,3,1994,9.0,0,100.0,0.0,05:10,Nice weather,slumberparties,1.0
+139,4/1/2019,16:01:48,6.0,1,0,1,1,2,3,September 27 1994,470.0,0,5.0,7.0,1am,Nice weather,Friends,2.0
+140,4/1/2019,16:01:48,0.0,1,1,1,1,0,0,05 05 1993,1.0,0,5.0,4.570000171661377,0:00,Food,hot shower,99.0
+141,4/1/2019,16:01:48,0.0,1,1,1,0,0,0,07/10/1994,5.0,0,3.0,3.0,01:05,a dopamine rush,Nice weather,68.0
+142,4/1/2019,16:01:48,3.0,1,0,1,1,1,2,14-07-1995,8.0,0,80.0,8.0,"22,3",Nice weather,Friends,10.0
+143,4/1/2019,16:01:48,0.0,1,1,1,0,0,3,1991,400.0,0,,2.0,23:00,kindness,Food,5.0
+144,4/1/2019,16:01:48,8.0,0,0,1,0,0,2,17-03-1994,3.0,0,0.25,7.0,1.40 AM,enough time in the morning,slow day,0.0
+145,4/1/2019,16:01:48,0.0,0,1,1,1,1,2,30-10-1994,1.0,0,100.0,7.0,1:30,when i see dogs and can pet them,Friends,15.0
+146,4/1/2019,16:01:49,1.0,1,0,1,0,1,0,0406,1.0,0,6.0,6.0,2,Nice weather,Friends,6.0
+147,4/1/2019,16:01:49,5.0,0,0,1,0,1,2,14-07,4.0,0,1.0,6.0,1:15,Friends,Nice weather,10.0
+148,4/1/2019,16:01:49,0.0,1,0,1,1,0,2,04/08/1993,1.0,0,12.0,8.0,2,no deadlines to work on ,Nice weather,20.0
+149,4/1/2019,16:01:49,5.0,0,1,2,0,0,0,20-12,400.0,0,,6.0,22:40,Nice weather,sailboat,40.0
+150,4/1/2019,16:01:49,0.0,1,1,0,1,1,2,30-04-1993,5.0,0,100.0,9.0,11.30 p.m,productive ,Food,0.0
+151,4/1/2019,16:01:49,3.0,1,0,1,0,1,1,07/02/1995,2.0,0,1000.0,8.0,01:30,beach,Nice weather,10.0
+152,4/1/2019,16:01:50,16.0,0,0,1,1,0,0,27/08/1996,1.0,0,90.0,7.0,11:30 pm,Nice weather,fun,70.0
+153,4/1/2019,16:01:50,0.0,1,1,1,2,0,3,18-06/'92,20.0,1,,1.0,1:30,fun ,daan,2.0
+154,4/1/2019,16:01:50,3.0,1,0,1,1,0,1,9-11-2001,471.0,0,5.0,1.0,2:00,no lectures,Food,10.0
+155,4/1/2019,16:01:50,4.0,1,0,1,1,0,3,11/08/1994,6.0,0,,3.1410000324249268,1:00,Alcohol,Nice weather,5.0
+156,4/1/2019,16:01:50,0.0,0,1,1,0,1,2,02-09-1995,2.0,0,1.0,5.0,23:50,succeeding in life,being well rested,60.0
+157,4/1/2019,16:01:51,7.0,0,0,1,0,0,3,09/10/1993,7.0,0,7.0,2.0,1,completing my thesis,passing this course,5.0
+158,4/1/2019,16:01:51,4.0,1,0,1,1,0,3,16/02/1989,10.0,0,1000.0,6.0,3:00,Nice weather,gangbangparty,100.0
+159,4/1/2019,16:01:51,0.0,1,0,1,1,0,3,1995,2.0,1,100.0,9.0,03:00,success,love,80.0
+160,4/1/2019,16:01:51,16.0,0,0,1,0,0,0,02-09-1994,8.0,0,0.0,1.0,0:00,having time to chill,still being productive,50.0
+161,4/1/2019,16:01:51,5.0,0,0,1,0,1,4,11/03/1996,1.0,0,16.0,6.0,00:30,everything,everything,100.0
+162,4/1/2019,16:01:52,1.0,0,0,1,1,0,2,02/13/1995,4.0,0,5.0,9.0,1:27,Sports,Friends,30.0
+163,4/1/2019,16:01:51,0.0,1,1,1,0,0,2,12-03-1997,8.0,0,5.0,8.0,0:15,productive,gezellig,50.0
+164,4/1/2019,16:01:52,19.0,2,2,2,2,2,4,x,,2,,,x,x,x,
+165,4/1/2019,16:01:52,0.0,0,0,1,0,1,3,March 6th,469.0,0,,5.0,2 am,llamas,pungent paws,78.0
+166,4/1/2019,16:01:53,1.0,0,0,2,1,1,0,010596,250.0,1,10.0,84.0,2300,Sleep,Nice weather,50.0
+167,4/1/2019,16:01:53,1.0,1,1,1,0,2,2,8-7-1985,4.0,0,30.0,9.0,10,Food,Alcohol,50.0
+168,4/1/2019,16:01:53,0.0,1,1,1,0,0,3,1995,5.0,0,,2.0,00:30,Nice weather,Food,80.0
+169,4/1/2019,16:01:53,5.0,0,0,1,0,0,3,11-11-1995,8.0,0,99.0,7.0,00:30,Nice weather,Sports,10.0
+170,4/1/2019,16:01:53,1.0,1,0,2,1,0,3,19/12/1992,20.0,0,90.0,8.0,"0,3",weed,Sex,75.0
+171,4/1/2019,16:01:53,9.0,0,0,0,0,0,0,10-08-1996,0.0,0,30.0,2.0,11:18,small things that go right ,Friends,80.0
+172,4/1/2019,16:01:56,5.0,0,0,1,0,0,0,13/07/1995,8.0,1,100.0,,2pm,being at the vu,living at the vu,50.0
+173,4/1/2019,16:01:54,0.0,1,0,1,0,0,3,22091993,22.0,1,100.0,7.0,0800,gf,weed,60.0
+174,4/1/2019,16:01:55,4.0,0,0,1,0,0,3,02,4.0,0,10.0,7.0,12,Food,dog,70.0
+175,4/1/2019,16:01:55,3.0,1,1,1,1,0,0,15-10-1993,1.0,0,50.0,8.0,23:00,Sex,no school,75.0
+176,4/1/2019,16:01:55,16.0,0,0,1,0,0,2,22/11/1993,5.0,0,,12.0,22:30,slept well,ate well,0.0
+177,4/1/2019,16:01:55,5.0,1,0,0,1,0,3,December 4th,2.0,0,7.0,4.0,23:00,Nice weather,Nice weather,42.0
+178,4/1/2019,16:01:55,0.0,1,1,1,1,0,3,23-01-1996,6.0,0,40.0,7.0,24:00,Food,data mining lectures,5.0
+179,4/1/2019,16:01:55,1.0,1,0,1,0,1,0,30-07-1992,8.0,0,1.0,7.0,22,Sleep,working out,50.0
+180,4/1/2019,16:01:55,1.0,1,0,1,0,0,0,10,9.0,0,,2.0,23,coffee,Nice weather,25.0
+181,4/1/2019,16:01:56,16.0,0,0,2,0,2,0,02.09.1993,4.0,2,100.0,7.0,00:15,Nice weather,free of work,75.0
+182,4/1/2019,16:01:56,0.0,1,1,1,0,1,0,07-10-1993,2.0,0,0.25,9.0,22:30,Nice weather,Friends,5.0
+183,4/1/2019,16:01:56,11.0,0,1,1,1,0,3,March,1.0,0,42.0,6.0,12,Nice weather,-,42.0
+184,4/1/2019,16:01:56,5.0,0,0,1,1,0,0,13-01-1994,5.0,0,10.0,1.0,23,Nice weather,Alcohol,15.0
+185,4/1/2019,16:01:57,7.0,0,0,1,0,1,1,15/06/1996,2.0,0,10.0,4.0,23:30,coffee,Nice weather,80.0
+186,4/1/2019,16:01:57,0.0,0,0,1,0,1,2,23-03-1994,5.0,0,2.0,8.0,1:30,chilling,Nice weather,70.0
+187,4/1/2019,16:01:57,1.0,1,1,1,1,0,0,28-12-1993,5.0,0,10.0,2.0,23:30,music,books,26.0
+188,4/1/2019,16:01:57,4.0,1,0,1,1,0,2,01/09/1995,3.0,0,0.25,42.0,01:30,Sex,eating out,65.0
+189,4/1/2019,16:01:57,0.0,0,0,0,1,0,2,16021990,5.0,0,0.10000000149011612,3.0,0300,waking up energized,fun things planned,100.0
+190,4/1/2019,16:01:57,7.0,1,0,1,1,0,2,25-12-1995,1.0,0,10.0,3.0,0,Nice weather,feyenoord,5.0
+191,4/1/2019,16:01:57,5.0,0,1,1,0,2,2,Tien December negentienhonderdtweeennegentig,,1,100.0,,ONWAAR,Nice weather,😎,
+192,4/1/2019,16:01:58,3.0,1,0,1,1,0,3,24121993,0.0,0,220.0,6.0,7,Nice weather,round,92.0
+193,4/1/2019,16:01:58,7.0,0,0,0,1,1,0,30/12/1992,5.0,0,10.0,11.0,2,Nice weather,positive mood,50.0
+194,4/1/2019,16:01:58,0.0,1,1,1,1,2,3,19-02-1996,2.0,0,1.0,9.760000228881836,23:30,Nice weather,Sleep,10.0
+195,4/1/2019,16:01:58,0.0,1,1,1,0,1,2,23-09-1996,2.0,0,5.0,4.0,23:00,Nice weather,dinner,80.0
+196,4/1/2019,16:01:58,1.0,0,0,1,1,0,3,20/09/87,1.0,0,25.0,7.0,5am,peace everywhere,don't know,100.0
+197,4/1/2019,16:01:58,0.0,1,1,1,1,0,1,1995,2.0,1,,4.0,23:30,Nice weather,Sports,30.0
+198,4/1/2019,16:01:59,0.0,1,1,1,0,0,0,03-06,1.0,0,5.0,9.0,02:30,Food,waking up on time,20.0
+199,4/1/2019,16:01:59,4.0,0,1,2,1,0,2,15/06/1993,350.0,0,120.0,6.0,00:25,Sleep,empty to do list ,1.0
+200,4/1/2019,16:02:00,0.0,1,1,1,1,0,4,69-69-1969,8.0,0,100.0,3.0,03:00,¯\_(ツ)_/¯,¯\_(ツ)_/¯,100.0
+201,4/1/2019,16:02:00,3.0,1,0,1,1,1,3,25-03,2.0,0,80.0,9.0,23u,Nice weather,soccer,20.0
+202,4/1/2019,16:02:00,12.0,1,0,1,0,1,2,19 April,6.0,0,80.0,9.0,00:00,Nice weather,not working,30.0
+203,4/1/2019,16:02:00,0.0,0,0,1,0,1,0,14-09,6.0,0,0.03999999910593033,4.0,"22,3",Nice weather,Friends,30.0
+204,4/1/2019,16:02:00,2.0,0,0,1,0,0,0,23-02,5.0,0,5.0,8.0,1:10AM,Alcohol,Nice weather,70.0
+205,4/1/2019,16:02:00,0.0,0,1,1,0,0,0,03051995,23.0,0,5.0,6.0,2230,Nice weather,no obligations,65.0
+206,4/1/2019,16:02:00,16.0,0,0,1,0,0,2,06-05,8.0,0,100.0,7.0,12:18,hookers,cocaine,0.0
+207,4/1/2019,16:02:00,4.0,0,1,1,1,0,2,13/0195,0.0,0,50.0,3.1415927410125732,3 am,if i accomplish all the goal i had prefixed for that day,if i don't have to postpone anything,20.0
+208,4/1/2019,16:02:00,0.0,1,1,1,0,1,1,3/7/1995,1.0,0,50.0,6674336765181952.0,12,Nice weather,Friends,40.0
+209,4/1/2019,16:02:00,1.0,1,0,0,0,1,0,26-08-1996,1.0,0,60.0,5.0,22:30,Nice weather,Friends,15.0
+210,4/1/2019,16:02:01,7.0,0,0,1,0,1,2,21/02/1996,0.0,0,20.0,1.0,00:00,Nice weather,Friends,50.0
+211,4/1/2019,16:01:59,3.0,1,2,1,2,1,0,28-12-1994,1.0,0,0.0,3.3299999237060547,00:00,Nice weather,a smooth day,70.0
+212,4/1/2019,16:02:01,9.0,0,0,1,0,1,1,05-11-1996,2.0,0,0.5,8.0,"1,3",Food,no studying,10.0
+213,4/1/2019,16:02:02,4.0,1,0,1,0,0,4,3rd of april,3.0,0,,7.0,23,Nice weather,weekend,100.0
+214,4/1/2019,16:02:02,3.0,1,0,1,1,1,0,08,3.0,0,5.0,7.0,2,Nice weather,pet,0.0
+215,4/1/2019,16:02:02,3.0,1,0,1,1,0,2,1995,400.0,0,80.0,3.140000104904175,11:30 PM,Food,Nice weather,70.44999694824219
+216,4/1/2019,16:02:03,4.0,1,1,1,1,0,2,That's classified,,0,,,Today,no class,no work,100.0
+217,4/1/2019,16:02:02,3.0,1,1,1,1,0,2,1995-08-08,5.0,0,,1.0,twelve,nothing to do,o,0.0
+218,4/1/2019,16:02:02,0.0,1,1,1,1,0,0,13-01,7.0,0,,7.0,03:30,head,Food,34.0
+219,4/1/2019,16:02:02,18.0,1,0,1,0,0,2,28/11/——,1.0,0,,2.0,23,it being productive,having time to do everything,60.0
+220,4/1/2019,16:02:02,16.0,0,0,1,0,0,1,28-04-1996,3.0,0,0.0,7.0,12,get money,Food,30.0
+221,4/1/2019,16:02:03,6.0,1,0,1,1,0,2,Kingsday,2.0,2,60.0,42.0,2200,board games,Alcohol,0.0
+222,4/1/2019,16:02:03,0.0,1,1,1,1,1,3,08-01-1997,2.0,0,100.0,3.0,01:00,Food,Nice weather,50.0
+223,4/1/2019,16:02:04,6.0,1,1,1,1,0,0,1/1/1971,4.0,0,2.0,3736536350720.0,02:33,nobody bothers me,Nice weather,10.0
+224,4/1/2019,16:02:04,3.0,1,1,1,1,0,0,1994,1.0,0,66.0,12.0,11,Alcohol,Sex,20.0
+225,4/1/2019,16:02:04,4.0,0,0,1,0,0,1,040995,8.0,0,80.0,4.0,0:00,money,Food,50.0
+226,4/1/2019,16:02:04,3.0,1,0,1,1,0,3,31-10-1995,1.0,0,99.0,9.0,23:30,Sports,Food,0.0
+227,4/1/2019,16:02:04,7.0,0,0,2,0,0,0,17 july,4.0,0,10.0,313.0,"0,5",good relationships that day,having learned something usefull,50.0
+228,4/1/2019,16:02:04,11.0,1,0,1,1,0,3,9.1.,8.0,0,0.0,9.0,4am,the number of tasks i was able to complete.,had a meaningful conversation ,42.0
+229,4/1/2019,16:02:04,7.0,0,1,1,0,0,0,01-10-1991,0.0,0,0.20000000298023224,8.0,20:45,Nice weather,working out,23.0
+230,4/1/2019,16:02:05,4.0,0,1,1,1,0,1,1995,2.0,0,100.0,6.0,2:00,Nice weather,shuqi,3.0
+231,4/1/2019,16:02:05,,1,1,1,1,0,2,00-00-0000,5.0,1,,3.0,02:30,having no exam,flipping tables,
+232,4/1/2019,16:02:05,4.0,0,1,1,1,1,2,26 Feb,2.0,0,1.0,2.0,2,relax,Food,50.0
+233,4/1/2019,16:02:06,8.0,0,0,1,0,0,1,24-04-1996,4.0,0,10.0,7.0,0030,Sports,thuis komen,0.0
+234,4/1/2019,16:02:06,5.0,0,0,1,0,1,3,30/11/1992,8.0,0,0.2199999988079071,7.0,02:00,not sitting in a room with 400 students,no 9 am lectures,30.0
+235,4/1/2019,16:02:06,5.0,0,0,0,0,0,2,11.06.93,1.0,0,1.0,9.0,1:00,Friends,Nice weather,5.0
+236,4/1/2019,16:02:06,1.0,0,0,0,1,0,4,April 2nd,8.0,0,10.0,7.0,12,Nice weather,nothing to worry about ,99.0
+237,4/1/2019,16:02:06,16.0,0,2,1,0,0,3,1-1-1993,2.0,0,1.0,1.0,23,data bitches,blow,100.0
+238,4/1/2019,16:02:07,3.0,1,0,1,0,1,2,19-10-1995,2.0,0,0.25,4.0,23:00 uur,Food,hobby,20.0
+239,4/1/2019,16:02:07,7.0,1,1,1,1,0,3,21-08-1996,0.0,0,0.5,7.0,1:30,no obligations,games,75.0
+240,4/1/2019,16:02:07,3.0,1,0,1,1,0,2,17-09-1996,2.0,0,30.0,8.0,23:45,Nice weather,no deadlines,60.0
+241,4/1/2019,16:02:07,1.0,1,0,0,1,1,3,1994,10.0,0,50.0,2.0,4,relaxing,family,90.0
+242,4/1/2019,16:02:08,0.0,1,1,1,1,0,0,11.4.1995,3.0,0,2.0,7.0,01:00,day at the beach,Nice weather,15.0
+243,4/1/2019,16:02:09,3.0,1,0,1,0,1,0,13-11-1995,1.0,0,60.0,4.0,23:15,Nice weather,Food,25.0
+244,4/1/2019,16:02:09,6.0,1,0,1,1,0,0,30/07,3.0,0,20.0,6.0,23:15,it being the weekend,Nice weather,20.0
+245,4/1/2019,16:02:08,3.0,1,0,1,0,0,0,21-05-1996,8.0,0,2.0,1.0,23:00,no lecture,no deadlines in the near future,43.0
+246,4/1/2019,16:02:11,7.0,0,0,1,0,0,0,22+1/4.5*2/92,1.0,0,10.0,3.1415069103240967,23:10,zonnige dag,f1 race,67.0
+247,4/1/2019,16:02:12,0.0,1,0,1,0,0,2,19/10/1995,5.0,0,1.0,5.0,3:30,Nice weather,productivity,5.0
+248,4/1/2019,16:02:11,13.0,0,0,0,0,1,2,09-06-1989,2.0,0,17.0,9.0,2 am,Friends,Sleep,55.0
+249,4/1/2019,16:02:12,5.0,2,0,0,1,0,3,4 september 1995,2.0,0,1.0,491995.0,12,warmth,. ,90.0
+250,4/1/2019,16:02:13,4.0,0,1,1,0,0,3,10-08,3.0,0,,5.0,2 am,Nice weather,good grades,5.0
+251,4/1/2019,16:02:14,0.0,1,1,0,0,0,2,12-01-1995,0.0,0,99.0,1.0,12 pm,day off,Food,0.0
+252,4/1/2019,16:02:14,4.0,0,1,2,1,1,0,10/5,3.0,0,100.0,5.0,4,no class,Nice weather,20.0
+253,4/1/2019,16:02:15,5.0,1,1,1,1,0,0,July 1994,7.0,0,4.699999809265137,5.0,01:30,Nice weather,Sports,7.0
+254,4/1/2019,16:02:15,4.0,0,1,1,1,0,3,#,5.0,0,,7.0,1am,Nice weather,Food,100.0
+255,4/1/2019,16:02:16,4.0,0,1,1,1,0,2,21-09,6.0,0,20.0,7.0,"3,2",Nice weather,Food,10.0
+256,4/1/2019,16:02:16,5.0,1,0,1,0,0,1,17/07/1996,2.0,0,77.0,7.0,1:45,no lecture,Sports,17.0
+257,4/1/2019,16:02:16,4.0,1,1,1,1,1,0,20.03.1996.,2.0,0,,9.0,"it was actually today, 4am",Friends,Alcohol,
+258,4/1/2019,16:02:18,0.0,1,0,1,0,0,0,0704,3.0,0,40.0,3.0,02:00,not monday,yes,55.0
+259,4/1/2019,16:02:20,5.0,1,1,1,0,2,0,27-03-1992,35.0,0,101.0,9.999990463256836,01:30,time for: reading/music/training,being with a loved one,30.0
+260,4/1/2019,16:02:21,1.0,1,1,1,1,0,2,1994,6.0,0,1.0,8.0,02:00,Nice weather,Food,10.0
+261,4/1/2019,16:02:24,4.0,1,1,1,1,1,3,20.02.1996,7.0,0,50.0,8.0,Today at 3am,Alcohol,petting dog (preferably more than one),100.0
+262,4/1/2019,16:02:23,5.0,0,0,1,0,0,2,14-04-1996,8.0,0,1.0,5.0,22,goud,music,100.0
+263,4/1/2019,16:02:24,4.0,1,1,1,1,0,2,September 16,3.0,0,3.0,3.0,2am,Nice weather,Sports,15.0
+264,4/1/2019,16:02:25,3.0,1,1,1,0,0,0,25-03,2.0,0,1.0,8.0,~1100 pm,Sleep,winning,10.0
+265,4/1/2019,16:02:25,0.0,1,1,0,1,0,3,25/07/1994,1.0,0,0.0,832795574272.0,3:00am,Sports,a lot of interesting work done ,15.0
+266,4/1/2019,16:02:29,4.0,0,0,0,1,0,1,1-1-2030,77.0,0,,7.0,0,Sports,mo money ,100.0
+267,4/1/2019,16:02:39,2.0,1,0,1,0,0,0,04/09/1994,10.0,0,0.5,3.0,1 AM,temperature,free time,50.0
+268,4/1/2019,16:02:40,5.0,0,0,1,0,0,0,14-04-1993,9.0,0,0.25,8.888799667358398,23:56,Friends,new experiences,34.0
+269,4/1/2019,16:02:44,5.0,0,0,1,0,1,3,08-04,5.0,0,0.25,3.0,23:30,Friends,laughing,60.0
+270,4/1/2019,16:02:45,3.0,1,1,1,1,0,0,09041996,9.300000190734863,0,10.0,7.0,23:00,good data mining grade,Food,60.0
+271,4/1/2019,16:02:55,3.0,1,0,1,1,0,1,First of october,,2,0.10000000149011612,,10 o clock,good coffee,italian vineyards,99.9000015258789
+272,4/1/2019,16:02:56,4.0,0,0,1,1,0,0,21/10/1995,80.0,0,100.0,10.0,2:00,arsenal wins,Sports,0.0
+273,4/1/2019,16:03:51,0.0,0,1,0,1,0,0,20-11-1990,,1,,42.0,02:00,Food,not being fat,80.0
+274,4/1/2019,16:31:16,15.0,0,2,0,0,2,1,14/7/1998,50.0,2,100.0,79.0,1:30,Food,poepen,98.0
+275,4/1/2019,16:53:39,0.0,1,1,1,1,1,2,25-11-1994,5.0,0,100.0,5.0,00:30,Nice weather,coffee,55.0
