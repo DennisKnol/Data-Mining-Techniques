@@ -14,8 +14,8 @@ def remove_outlier(data):
         iqr = q3-q1
         lower_bound = q1-1.5*iqr
         upper_bound = q3+1.5*iqr
-        # outliers.extend(data[(data[col_name] < lower_bound) | data[col_name] > upper_bound][col_name].index)
-        print(data[(data[col_name] < lower_bound) | data[col_name] > upper_bound][col_name].index)
+        outliers.extend(data[(data[col_name] < lower_bound) | data[col_name] > upper_bound].index)
+    print(len(outliers))
     data.drop(outliers, axis=0).reset_index(drop=True)
     return data
 
@@ -113,11 +113,12 @@ def prep_data(data):
     return data
 
 
-# train_data_outlier_removed = remove_outlier(train_data)
+train_data_outlier_removed = remove_outlier(train_data)
 # print(train_data_outlier_removed.shape)
+# print(train_data.shape)
 
-# train_data_prepped = prep_data(train_data)
-# train_data_prepped.to_csv("train_prep.csv")
+train_data_prepped = prep_data(train_data_outlier_removed)
+train_data_prepped.to_csv("train_prep.csv")
 
-test_data_prepped = prep_data(test_data)
-test_data_prepped.to_csv("test_prep.csv")
+# test_data_prepped = prep_data(test_data)
+# test_data_prepped.to_csv("test_prep.csv")
