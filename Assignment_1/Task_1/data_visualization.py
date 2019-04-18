@@ -124,17 +124,25 @@ odi["number_of_neighbors"] = odi["number_of_neighbors"].drop(
     odi["number_of_neighbors"][odi["number_of_neighbors"] > 342].index
 )
 
+number_of_neighbors_mode = odi["number_of_neighbors"].mode()
+number_of_neighbors_mean = odi["number_of_neighbors"].mean()
+
 # random number was supposed to be between 0 and 10
 odi["random_number"] = odi["random_number"].dropna()
 odi["random_number"] = odi["random_number"].drop(
     odi["random_number"][odi["random_number"] > 10].index
 )
 
+random_number_mode = odi["random_number"].mode()
+random_number_mean = odi["random_number"].mean()
+
 # 100 euro is the limit
 odi["deserve_money"] = odi["deserve_money"].dropna()
 odi["deserve_money"] = odi["deserve_money"].drop(
     odi["deserve_money"][odi["deserve_money"] > 100].index
 )
+
+money_mean = odi["deserve_money"].mean()
 
 # Density plot and bar plots
 plt.figure(figsize=(18, 8))
@@ -256,5 +264,8 @@ df_good_day_cat = df_good_day[df_good_day["good_day"].isin(categories)]
 df_good_day = df_good_day[df_good_day.gender < 2]
 
 plt.figure(figsize=(18, 6))
-sns.barplot(x='good_day', y='gender', data=df_good_day_cat, alpha=0.8)
+colors = ["pink", "lightblue"]
+sns.barplot(x='good_day', y='gender', data=df_good_day_cat, alpha=0.8,
+            palette=sns.diverging_palette(10, 220, sep=80, n=7),
+            order=["Friends", "Nice weather", "Food", "Sleep", "Alcohol", "Sports", "Sex"])
 plt.show()
