@@ -34,7 +34,7 @@ for model in models:
 
 X = test_data_prepped[["Pclass", "Sex", "SibSp", "Parch", "Cabin", "Embarked", "FareBins", "AgeCategories", "Title"]]
 
-knn = KNeighborsClassifier()
+knn = RandomForestClassifier()
 knn.fit(X_train, y_train)
 prediction_survived = pd.DataFrame(knn.predict(X))
 submission = pd.concat([test_data["PassengerId"], prediction_survived], axis=1)
