@@ -56,12 +56,6 @@ def data_prep(data):
     prog = replace_name(ArtInt, now, prog)
     prog = replace_name(AI, now, prog)
 
-    now = 'Business Analytics'
-    BA = prog_cat.categories.str.contains('ba')
-    Busi_anal = prog_cat.categories.str.contains('business analytics')
-    prog = replace_name(BA, now, prog)
-    prog = replace_name(Busi_anal, now, prog)
-
     now = 'Bioinformatics'
     BI1 = prog_cat.categories.str.contains('bioinf')
     BI2 = prog_cat.categories.str.contains('biosb')
@@ -69,6 +63,16 @@ def data_prep(data):
     prog = replace_name(BI1, now, prog)
     prog = replace_name(BI2, now, prog)
     prog = replace_name(BI3, now, prog)
+
+    now = 'Business Administration'
+    BAM = prog_cat.categories.str.contains('business administration')
+    prog = replace_name(BAM, now, prog)
+
+    now = 'Business Analytics'
+    BA = prog_cat.categories.str.contains('ba')
+    Busi_anal = prog_cat.categories.str.contains('business analytics')
+    prog = replace_name(BA, now, prog)
+    prog = replace_name(Busi_anal, now, prog)
 
     now = 'Computer Science'
     CS1 = prog_cat.categories.str.contains('computer')
@@ -93,10 +97,6 @@ def data_prep(data):
     DS_dir = prog_cat.categories.str.match('ds')
     prog = replace_name(DS, now, prog)
     prog = replace_name(DS_dir, now, prog)
-
-    now = 'Business Administration'
-    BAM = prog_cat.categories.str.contains('business administration')
-    prog = replace_name(BAM, now, prog)
 
     now = 'Econometrics'
     EC1 = prog_cat.categories.str.contains('economet')
@@ -179,8 +179,35 @@ def data_prep(data):
         'unknown': 4
     }
 
-    mapping_list = [ml_mapping, ir_mapping, st_mapping, db_mapping, gender_mapping, stand_mapping, chocolate_mapping]
-    cols = ["machine_learning", "information_retrieval", "statistics", "databases", "gender", "stand_up", "chocolate"]
+    program_mapping = {
+        'Artificial Intelligence': 0,
+        'Bioinformatics': 1,
+        'Business Administration': 2,
+        'Business Analytics': 3,
+        'Computer Science': 4,
+        'Computational Science': 5,
+        'Data Science': 6,
+        'Econometrics': 7,
+        "Finance": 8,
+        'Health': 9,
+        'Innovation': 10,
+        'Information Science': 11,
+        "Language Technology": 12,
+        "Linguistics": 13,
+        "Operations Research": 14,
+        "Psychology": 15,
+        'QRM': 16,
+        "Sociology": 17,
+        "Stochastics": 18,
+        "Unknown": 19,
+    }
+
+    mapping_list = [
+        program_mapping, ml_mapping, ir_mapping, st_mapping, db_mapping, gender_mapping, stand_mapping, chocolate_mapping
+    ]
+    cols = [
+        "programme", "machine_learning", "information_retrieval", "statistics", "databases", "gender", "stand_up", "chocolate"
+    ]
 
     for col in cols:
         data[col] = data[col].map(mapping_list[cols.index(col)])
@@ -191,8 +218,15 @@ def data_prep(data):
         data[col] = data[col].apply(lambda x: x.replace(',', '.'))
         data[col] = data[col].apply(pd.to_numeric, errors='coerce', downcast='float')
 
+    # stress level from 0 to 100
     data["stress_level"][data["stress_level"] > 100] = 100
     data["stress_level"][data["stress_level"] < 0] = 0
+
+    # room capacity is 343, https://www.vu.nl/nl/Images/Zaalfaciliteiten_aug2018_tcm289-257362.pdf)
+    # odi["number_of_neighbors"] = odi["number_of_neighbors"].dropna()
+    # odi["number_of_neighbors"] = odi["number_of_neighbors"].drop(
+    #     odi["number_of_neighbors"][odi["number_of_neighbors"] > 343].index
+    # )
 
     # good day 1
     good_1 = pd.DataFrame({'good_day_1': data["good_day_1"].str.lower()}, dtype='category')
