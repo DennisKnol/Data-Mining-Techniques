@@ -4,7 +4,7 @@ import matplotlib.pylab as plt
 
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression, Ridge, LogisticRegression
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, explained_variance_score
 
 df = pd.read_csv('Consumo_cerveja.csv')
 df = df.dropna()
@@ -81,6 +81,14 @@ score_linear = lin_regr.score(X_train, y_train)
 y_pred_linear = lin_regr.predict(X_test)
 pred_score_linear = r2_score(y_test, y_pred_linear)
 
+plt.figure(figsize=(18, 4))
+
+plt.subplot2grid((1, 2), (0, 0))
+error_linear = y_test - y_pred_linear
+sns.distplot(error_linear, hist=True, kde=False)
+plt.xlabel("Error")
+plt.title("Error distribution of the linear model")
+
 mse_linear = mean_squared_error(y_test, y_pred_linear)
 mae_linear = mean_absolute_error(y_test, y_pred_linear)
 
@@ -96,26 +104,21 @@ score_log = log_regr.score(X_train, y_train)
 y_pred_log = log_regr.predict(X_test)
 pred_score_log = r2_score(y_test, y_pred_log)
 
+plt.subplot2grid((1, 2), (0, 1))
+error_log = y_test - y_pred_log
+sns.distplot(error_log, hist=True, kde=False)
+plt.xlabel("Error")
+plt.title("Error distribution of the logarithmic model")
+plt.show()
+
 mse_log = mean_squared_error(y_test, y_pred_log)
 mae_log = mean_absolute_error(y_test, y_pred_log)
 
 # results
 print("MSE of linear regression = ", round(mse_linear, 4), '\n')
-print("MAE of linear regression = ", round(mae_linear, 4), '\n')
+print("MAE of linear regression =  ", round(mae_linear, 4), '\n')
 print("MSE of logistic regression = ", round(mse_log, 4), '\n')
 print("MAE of logistic regression = ", round(mae_log, 4))
 
-# # define different set of explanatory variables for the ridge regression
-# y = df["consumption"]
-# X = df[["min_temp", "max_temp", "precipitation", "weekend"]]
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
-#
-# ridge_regr = Ridge()
-# ridge_regr.fit(X_train, y_train)
-#
-# score_ridge = ridge_regr.score(X_train, y_train)
-# y_pred_ridge = ridge_regr.predict(X_test)
-# pred_score_ridge = r2_score(y_test, y_pred_ridge)
-#
-# mse_ridge = mean_squared_error(y_test, y_pred_ridge)
-# mae_ridge = mean_absolute_error(y_test, y_pred_ridge)
+
+
