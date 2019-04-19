@@ -9,12 +9,6 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import r2_score
-from sklearn import datasets, linear_model
-from sklearn.metrics.scorer import make_scorer
-from sklearn.metrics import confusion_matrix
-from sklearn.svm import LinearSVC
 
 
 df = pd.read_csv(
