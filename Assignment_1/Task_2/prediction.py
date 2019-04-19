@@ -32,23 +32,10 @@ for model in models:
 
 X = test_data_prepped[["Pclass", "Sex", "SibSp", "Parch", "Cabin", "Embarked", "FareBins", "AgeCategories", "Title"]]
 
+# create submission file
 rfc = RandomForestClassifier()
 rfc.fit(X_train, y_train)
 prediction_survived = pd.DataFrame(rfc.predict(X))
 submission = pd.concat([test_data_prepped["PassengerId"], prediction_survived], axis=1)
 submission.columns = ["PassengerId", "Survived"]
 submission.to_csv('survived_submission.csv', index=False)
-
-# knn = KNeighborsClassifier()
-# knn.fit(X_train, y_train)
-# prediction_survived = pd.DataFrame(knn.predict(X))
-# submission = pd.concat([test_data_prepped["PassengerId"], prediction_survived], axis=1)
-# submission.columns = ["PassengerId", "Survived"]
-# submission.to_csv('survived_submission.csv', index=False)
-
-# gbk = GradientBoostingClassifier()
-# gbk.fit(X_train, y_train)
-# prediction_survived = pd.DataFrame(gbk.predict(X))
-# submission = pd.concat([test_data_prepped["PassengerId"], prediction_survived], axis=1)
-# submission.columns = ["PassengerId", "Survived"]
-# submission.to_csv('survived_submission.csv', index=False)
