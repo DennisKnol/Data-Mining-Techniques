@@ -1,7 +1,6 @@
 import pandas as pd
 
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
@@ -36,20 +35,20 @@ X = test_data_prepped[["Pclass", "Sex", "SibSp", "Parch", "Cabin", "Embarked", "
 rfc = RandomForestClassifier()
 rfc.fit(X_train, y_train)
 prediction_survived = pd.DataFrame(rfc.predict(X))
-submission = pd.concat([test_data["PassengerId"], prediction_survived], axis=1)
+submission = pd.concat([test_data_prepped["PassengerId"], prediction_survived], axis=1)
 submission.columns = ["PassengerId", "Survived"]
 submission.to_csv('survived_submission.csv', index=False)
 
 # knn = KNeighborsClassifier()
 # knn.fit(X_train, y_train)
 # prediction_survived = pd.DataFrame(knn.predict(X))
-# submission = pd.concat([test_data["PassengerId"], prediction_survived], axis=1)
+# submission = pd.concat([test_data_prepped["PassengerId"], prediction_survived], axis=1)
 # submission.columns = ["PassengerId", "Survived"]
 # submission.to_csv('survived_submission.csv', index=False)
 
 # gbk = GradientBoostingClassifier()
 # gbk.fit(X_train, y_train)
 # prediction_survived = pd.DataFrame(gbk.predict(X))
-# submission = pd.concat([test_data["PassengerId"], prediction_survived], axis=1)
+# submission = pd.concat([test_data_prepped["PassengerId"], prediction_survived], axis=1)
 # submission.columns = ["PassengerId", "Survived"]
 # submission.to_csv('survived_submission.csv', index=False)
