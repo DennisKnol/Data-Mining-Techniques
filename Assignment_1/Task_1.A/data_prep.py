@@ -4,7 +4,7 @@ import pandas as pd
 pd.options.mode.chained_assignment = None
 
 odi = pd.read_csv(
-    "/Users/DennisK/PycharmProjects/Data-Mining-Techniques/Assignment_1/Task_1/ODI-2019-csv.csv",
+    "/Users/DennisK/PycharmProjects/Data-Mining-Techniques/Assignment_1/Task_1.A/ODI-2019-csv.csv",
     sep=';'
 )
 

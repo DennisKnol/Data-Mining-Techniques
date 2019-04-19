@@ -6,7 +6,7 @@ from sklearn.metrics import r2_score
 
 
 odi = pd.read_csv(
-    "/Users/DennisK/PycharmProjects/Data-Mining-Techniques/Assignment_1/Task_1/ODI_2019_clean.csv",
+    "/Users/DennisK/PycharmProjects/Data-Mining-Techniques/Assignment_1/Task_1.A/ODI_2019_clean.csv",
     sep=','
 )
 

@@ -4,7 +4,7 @@ import seaborn as sns
 
 
 odi_raw = pd.read_csv(
-    "/Users/DennisK/PycharmProjects/Data-Mining-Techniques/Assignment_1/Task_1/ODI-2019-csv.csv",
+    "/Users/DennisK/PycharmProjects/Data-Mining-Techniques/Assignment_1/Task_1.A/ODI-2019-csv.csv",
     sep=';'
 )
 
@@ -12,7 +12,7 @@ shape_odi_raw = odi_raw.shape
 print(odi_raw.info())
 
 odi = pd.read_csv(
-    "/Users/DennisK/PycharmProjects/Data-Mining-Techniques/Assignment_1/Task_1/ODI_2019_clean.csv",
+    "/Users/DennisK/PycharmProjects/Data-Mining-Techniques/Assignment_1/Task_1.A/ODI_2019_clean.csv",
     sep=','
 )
 
