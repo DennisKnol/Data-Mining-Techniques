@@ -1,27 +1,48 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pylab as plt
+from collections import Counter
 
 
 train_data = pd.read_csv("train.csv")
 test_data = pd.read_csv("test.csv")
 
 
-def remove_outlier(data):
+def find_outlier(data):
+    """
+    Function finding outliers with the IQR method.
+
+    Returns a list of all rows that contain 3 or more outliers
+
+    """
+
     outliers = []
-    for col_name in ["Age", "Parch", "SibSp", "Fare"]:
+    for col_name in ["Age", "SibSp", "Parch", "Fare"]:
         q1 = data[col_name].quantile(0.25)
         q3 = data[col_name].quantile(0.75)
         iqr = q3-q1
-        lower_bound = q1-1.5*iqr
-        upper_bound = q3+1.5*iqr
-        outliers.extend(data[(data[col_name] < lower_bound) | data[col_name] > upper_bound].index)
-    print(len(outliers))
-    data.drop(outliers, axis=0).reset_index(drop=True)
+        lower_bound = q1 - (1.5*iqr)
+        upper_bound = q3 + (1.5*iqr)
+        outliers.extend(data[(data[col_name] < lower_bound) | (data[col_name] > upper_bound)].index)
+    rows = list(k for k, v in Counter(outliers).items() if v > 2)
+    return rows
+
+
+def remove_outlier(data, outliers):
+    """
+    Function removing the outliers found by the function find_outlier()
+
+    """
+    data = data.drop(outliers, axis=0).reset_index(drop=True)
+    print(len(outliers), " rows have been deleted")
     return data
 
 
 def prep_data(data):
+    """
+    Function preparing the dataset for classification
+
+    """
     # convert sex: male is 0, female is 1
     data.loc[data["Sex"] == "male", "Sex"] = 0
     data.loc[data["Sex"] == "female", "Sex"] = 1
@@ -107,34 +128,38 @@ def prep_data(data):
     data["AgeCategories"] = data["AgeCategories"].map(age_mapping)
 
     # drop Age, Name and Ticket
-    # data = data.drop(["Age"], axis=1)
+    data = data.drop(["Age"], axis=1)
     data = data.drop(["Fare"], axis=1)
     data = data.drop(["Name"], axis=1)
     data = data.drop(["Ticket"], axis=1)
     return data
 
 
-train_data_outlier_removed = remove_outlier(train_data)
+# find and remove outliers
+train_data = remove_outlier(train_data, find_outlier(train_data))
 
-train_data_prepped = prep_data(train_data_outlier_removed)
+# prepare train data and test data
+train_data_prep = prep_data(train_data)
+test_data_prepped = prep_data(test_data)
 
-plt.figure(figsize=(18, 6))
-colors = ["lightblue", "pink", "teal", "wheat", "grey", "lavender"]
-labels = ['Mr', "Miss", "Mrs", "Master", "Rare", "Capt"]
-[train_data_prepped.Age[train_data_prepped.Title == i].plot.kde(
-    bw_method=0.3,
-    color=colors[i-1],
-    label=labels[i-1]
-)
-    for i in [1, 2, 3, 5]
-]
-plt.legend()
-plt.xlabel("Age")
-plt.xlim((-5, 85))
-plt.title("Density plot Age wrt Title")
-plt.show()
+# prepared saved in csv file
+train_data_prep.to_csv("train_prep.csv")
+test_data_prepped.to_csv("test_prep.csv")
 
-# train_data_prepped.to_csv("train_prepp.csv")
 
-# test_data_prepped = prep_data(test_data)
-# test_data_prepped.to_csv("test_prep.csv")
+# # Density plot Age wrt Title
+# plt.figure(figsize=(18, 6))
+# colors = ["lightblue", "pink", "teal", "wheat", "grey", "lavender"]
+# labels = ['Mr', "Miss", "Mrs", "Master", "Rare", "Capt"]
+# [train_data_prepped.Age[train_data_prepped.Title == i].plot.kde(
+#     bw_method=0.3,
+#     color=colors[i-1],
+#     label=labels[i-1]
+# )
+#     for i in [1, 2, 3, 5]
+# ]
+# plt.legend()
+# plt.xlabel("Age")
+# plt.xlim((-5, 85))
+# plt.title("Density plot Age wrt Title")
+# plt.show()

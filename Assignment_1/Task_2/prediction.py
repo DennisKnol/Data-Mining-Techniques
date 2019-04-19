@@ -9,9 +9,8 @@ from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
 
 
-train_data_prepped = pd.read_csv("train_prepp.csv")
+train_data_prepped = pd.read_csv("train_prep.csv")
 test_data_prepped = pd.read_csv("test_prep.csv")
-test_data = pd.read_csv("test.csv")
 
 y = train_data_prepped["Survived"]
 X = train_data_prepped[["Pclass", "Sex", "SibSp", "Parch", "Cabin", "Embarked", "FareBins", "AgeCategories", "Title"]]
