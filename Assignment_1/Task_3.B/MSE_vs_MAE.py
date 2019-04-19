@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import seaborn as sns
 import matplotlib.pylab as plt
 
@@ -39,7 +40,15 @@ for col in ["mean_temp", "min_temp", "max_temp", "precipitation"]:
     df[col] = df[col].apply(pd.to_numeric, errors='coerce', downcast='float')
 
 # create correlation matrix
-corr_mat = df.corr().round(4)
+cor_mat = df[[
+    "mean_temp", "min_temp", "max_temp", "precipitation", "weekend", "consumption"]
+].corr().round(4)
+mask = np.array(cor_mat)
+mask[np.tril_indices_from(mask)] = False
+fig=plt.gcf()
+# fig.set_size_inches(18, 6)
+sns.heatmap(data=cor_mat,mask=mask,square=True,annot=True,cbar=True)
+plt.show()
 
 # visualize the prepared data
 cols = ["consumption", "mean_temp", "min_temp", "max_temp", "precipitation", "weekend"]
@@ -47,7 +56,7 @@ sns.set()
 sns.pairplot(df, y_vars=cols[0], x_vars=cols[1:6], kind='reg')
 plt.show()
 
-plt.figure(figsize=(18, 5))
+plt.figure(figsize=(18, 4))
 plt.subplot2grid((1, 3), (0, 0))
 sns.boxplot(x='weekend', y='consumption', data=df, orient='v', width=0.5)
 plt.title("Beer Consumption")
