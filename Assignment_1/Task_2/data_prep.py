@@ -107,9 +107,9 @@ def prep_data(data):
     data["Title"] = data["Title"].fillna(0)
 
     # fill empty Age with mean age in the corresponding Title
-    mean_age_per_class = data.groupby("Title")["Age"].mean()
+    mean_age_per_title = data.groupby("Title")["Age"].mean()
     data["Age"] = data[["Age", "Title"]].apply(
-        lambda x: mean_age_per_class[x["Title"]] if pd.isnull(x["Age"]) else x["Age"], axis=1
+        lambda x: mean_age_per_title[x["Title"]] if pd.isnull(x["Age"]) else x["Age"], axis=1
     )
 
     # categorize age in
