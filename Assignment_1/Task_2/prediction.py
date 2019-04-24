@@ -39,3 +39,5 @@ prediction_survived = pd.DataFrame(rfc.predict(X))
 submission = pd.concat([test_data_prepped["PassengerId"], prediction_survived], axis=1)
 submission.columns = ["PassengerId", "Survived"]
 submission.to_csv('survived_submission.csv', index=False)
+
+
