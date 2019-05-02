@@ -5,9 +5,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-df = pd.read_csv("training_set_VU_DM.csv")
-
-df.sample(1000).to_csv("df_sample.csv")
+df = pd.read_csv("df_sample.csv")
 
 print(df.info())
 print("Shape of the dataframe: ", df.shape, "\n")  # (4958347, 54)
@@ -16,7 +14,3 @@ print("Sum of NaN values:\n ", df.isna().sum())
 
 df[["date", "time"]] = df["date_time"].str.split(" ", expand=True)
 df[["year", "month", "day"]] = df["date"].str.split("-", expand=True)
-# df["date"] = pd.to_date(df['date'], format='%d%b%Y:%H:%M:%S.%f')
-# df = df.drop(["date"], axis=1)
-
-# seaborn correlation heatmap
