@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 
 df = pd.read_csv("df_sample.csv")
+df = df.drop(df.columns[0], axis=1)
 
 print(df.info())
 print("Shape of the dataframe: ", df.shape, "\n")  # (4958347, 54)
