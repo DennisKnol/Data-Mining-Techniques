@@ -41,7 +41,7 @@ def combine_competitors(data):
 def find_outlier(data):
     """
     Function finding outliers with the IQR method.
-    Returns a list of all rows that contain 1 or more outliers
+    Returns a list of all rows that contain 2 or more outliers
 
     """
     columns = ["visitor_hist_adr_usd", "price_usd", "srch_length_of_stay", "srch_booking_window"]
@@ -53,7 +53,7 @@ def find_outlier(data):
         lower_bound = q1 - (1.5*iqr)
         upper_bound = q3 + (1.5*iqr)
         outliers.extend(data[(data[col_name] < lower_bound) | (data[col_name] > upper_bound)].index)
-    rows = list(k for k, v in Counter(outliers).items() if v > 0)
+    rows = list(k for k, v in Counter(outliers).items() if v > 1)
     return rows
 
 

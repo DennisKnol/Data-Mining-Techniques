@@ -4,7 +4,8 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from functions import missing_values, convert_date_time, combine_competitors
+from functions import missing_values, convert_date_time, combine_competitors, find_outlier, remove_outlier
+
 
 """
 This file is to explore a small fraction of the data to reduce the run time.
@@ -155,5 +156,8 @@ for y in y_list:
     sns.boxplot(x="booking_bool", y=y, data=df)
     plt.show()
 
-# from correlation matrix: when booked,
+
+# Find outliers
+outlier_rows = find_outlier(df)
+number_of_outlier_row = len(outlier_rows)
 

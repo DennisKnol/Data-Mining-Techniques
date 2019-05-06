@@ -10,4 +10,4 @@ Process Report
 
 06-05:
 - more exploration: added plots and correlation heat maps
- 
+- added functions for the detection and removal of outliers 

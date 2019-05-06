@@ -4,10 +4,13 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from functions import missing_values, convert_date_time, combine_competitors
+from functions import *
 
 
 df = pd.read_csv("training_set_VU_DM.csv")
+
+outlier_rows = find_outlier(df)
+number_of_outlier_row = len(outlier_rows)
 
 # sample = df.sample(1000)
 # sample.to_csv("df_sample.csv")
