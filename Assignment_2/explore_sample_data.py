@@ -48,6 +48,7 @@ plt.show()
 df["delta_price"] = np.abs(df["price_usd"] - df["visitor_hist_adr_usd"])
 sns.distplot(df["delta_price"][df["booking_bool"] == 1].dropna())
 plt.show()
+# TODO: relatief verschil plotten
 
 
 # df = combine_competitors(df)

@@ -32,10 +32,23 @@ def convert_date_time(data):
 
 
 def combine_competitors(data):
+    """
+    WIP
+    :param data:
+    :return:
+    """
     data["comp_rate"] = [data["comp{}_rate".format(i)] for i in range(1, 9)]
     data["comp_inv"] = [data["comp{}_inv".format(i)] for i in range(1, 9)]
     data["comp_rate_percent_diff"] = [data["comp{}_rate_percent_diff".format(i)] for i in range(1, 9)]
     return data
+
+
+def competitor_count(data):
+    for i in range(1, 9):
+        data["comp{}_rate_abs".format(i)] = np.abs(data["comp{}_rate".format(i)])
+
+    data["competitor_count"] = data[[["comp{}_rate".format(i)] for i in range(1, 9)]].sum(axis=1)
+    return
 
 
 def find_outlier(data):

@@ -23,6 +23,8 @@ print("Count and percentage of is null values: \n", missing_values(df))
 
 print("Number of unique search IDs:\n ", len(df["srch_id"].unique()))
 print("Number of unique hotel IDs:\n ", len(df["prop_id"].unique()))
+# TODO: divide in bins, might be relevant if properties appear often in searches
+
 
 booking_percentage = 100 * (df["booking_bool"].sum()/df.shape[0])
 clicking_percentage = 100 * (df["click_bool"].sum()/df.shape[0])
@@ -156,5 +158,7 @@ for y in y_list:
 
 # from correlation matrix: when booked,
 
+outlier_rows = find_outlier(df)
+number_of_outlier_row = len(outlier_rows)
 
-
+corr_prop_score = df[["prop_location_score1", "prop_location_score2"]].corr()
