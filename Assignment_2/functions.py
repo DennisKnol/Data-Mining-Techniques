@@ -44,11 +44,13 @@ def combine_competitors(data):
 
 
 def competitor_count(data):
-    for i in range(1, 9):
-        data["comp{}_rate_abs".format(i)] = np.abs(data["comp{}_rate".format(i)])
-
-    data["competitor_count"] = data[[["comp{}_rate".format(i)] for i in range(1, 9)]].sum(axis=1)
-    return
+    """
+    Function creating a column with the number of competitors
+    :param data:
+    :return:
+    """
+    data["competitor_count"] = data[["comp{}_rate".format(i) for i in range(1, 9)]].abs.sum(axis=1)
+    return data
 
 
 def find_outlier(data):

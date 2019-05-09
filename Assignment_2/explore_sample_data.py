@@ -4,7 +4,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from functions import missing_values, convert_date_time, combine_competitors, find_outlier, remove_outlier
+from functions import *
 
 
 """
@@ -162,3 +162,4 @@ for y in y_list:
 outlier_rows = find_outlier(df)
 number_of_outlier_row = len(outlier_rows)
 
+df = competitor_count(df)
