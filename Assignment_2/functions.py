@@ -32,6 +32,7 @@ def fill_missing_values(data):
 
     # transform and fill srch_query_affinity_score
     data['srch_query_affinity_score'] = np.exp(data['srch_query_affinity_score']).fillna(0)
+    # or drop?
 
     return data
 
@@ -74,7 +75,6 @@ def fill_orig_destination_distance(data):
             "orig_destination_distance"], axis=1
     )
 
-
     mean_distance_2 = data.groupby(["srch_destination_id", "visitor_location_country_id"])["orig_destination_distance"].mean()
     mean_distance_2 = mean_distance_2.dropna()
     print(mean_distance_2)
@@ -87,7 +87,6 @@ def fill_orig_destination_distance(data):
         lambda x: mean_distance_3[x["visitor_location_country_id"]] if pd.isnull(x["orig_destination_distance"]) else x["orig_destination_distance"], axis=1
     )
 
-    # mean_age_per_title = data.groupby("Title")["Age"].mean()
     # data["Age"] = data[["Age", "Title"]].apply(
     #     lambda x: mean_age_per_title[x["Title"]] if pd.isnull(x["Age"]) else x["Age"], axis=1
     # )
@@ -102,6 +101,9 @@ def drop_missing_values(data):
     """
     # drop gross_bookings_usd, too many missing values
     data = data.drop(columns=["gross_bookings_usd"], axis=1)
+
+
+
     return data
 
 
