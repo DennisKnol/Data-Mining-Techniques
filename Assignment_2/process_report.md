@@ -13,10 +13,15 @@ Process Report
 - added functions for the detection and removal of outliers 
 
 09-05 (Dennis + Niels):
-- first meetup
+- first meet-up
 - more exploration
 - ideas for fields that could be used
 - ideas for feature engineering
 
 19-05 (Dennis):
-- deal with missing values
+- deal with missing values:
+    - created prepare_data.py
+    - function to fill missing prop_review_score
+    - function to fill missing prop_location_score2
+    
+    
