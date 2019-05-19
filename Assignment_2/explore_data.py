@@ -19,7 +19,7 @@ number_of_outlier_row = len(outlier_rows)
 print(df.info())
 print(df.columns)
 print("Shape of the dataframe: ", df.shape, "\n")  # (1000, 54)
-print("Count and percentage of is null values: \n", missing_values(df))
+print("Count and percentage of is null values: \n", missing_value_count(df))
 
 print("Number of unique search IDs:\n ", len(df["srch_id"].unique()))
 print("Number of unique hotel IDs:\n ", len(df["prop_id"].unique()))
@@ -159,6 +159,6 @@ for y in y_list:
 # from correlation matrix: when booked,
 
 outlier_rows = find_outlier(df)
-number_of_outlier_row = len(outlier_rows)
+number_of_outlier_rows = len(outlier_rows)
 
 corr_prop_score = df[["prop_location_score1", "prop_location_score2"]].corr()

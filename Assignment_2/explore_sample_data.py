@@ -160,6 +160,6 @@ for y in y_list:
 
 # Find outliers
 outlier_rows = find_outlier(df)
-number_of_outlier_row = len(outlier_rows)
+number_of_outlier_rows = len(outlier_rows)
 
 df = competitor_count(df)
