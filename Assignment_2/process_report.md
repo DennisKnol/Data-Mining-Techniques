@@ -24,4 +24,12 @@ Process Report
     - function to fill missing prop_review_score
     - function to fill missing prop_location_score2
     
+21-05 (Niels):
+- Business understanding
     
+22-05 (Dennis + Niels):
+- continue with data prep:
+    - create function to fill empty orig_destination_distance values with means
+    - create function to extract useful information from competitor data
+    
+- XGB file, make first predictions

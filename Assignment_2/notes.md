@@ -46,3 +46,19 @@ comp_inv
 
 rate_percent_diff:
 - tells something about how much cheaper/more expensive expedia is.
+
+##  notes per column / checklist
+srch_id: OK
+date_time: split, subsequently drop date_time
+site_id: OK
+visitor_location_country_id: OK
+visitor_hist_starrating: 94.92% missing values, what to do? new column with (absolute) diff prop_starrating
+visitor_hist_adr_usd (94.9% missing values): what to do? new column with relative diff with price_usd
+prop_country_id: OK
+prop_id: OK
+prop_starrating: OK, created bool
+prop_review_score: OK, filled nan and created bool
+prop_brand_bool: OK
+prop_location_score1: OK
+prop_location_score2: 
+
