@@ -9,6 +9,8 @@ from sklearn import linear_model
 from collections import Counter
 
 
+# TODO: price_usd: in some case price very large because is represents the price over the full stay
+
 def missing_value_count(data):
     """
     Function returning a column with a count of missing values
@@ -63,6 +65,37 @@ def fill_prop_location_score_2(data):
     return data
 
 
+def prep_prop_log_historical_price(data):
+    """
+
+    A 0 will occur if the hotel was not sold in that period: create boolean, sold / not sold
+
+    """
+
+    # data["prop_log_historical_price"] = np.exp(data["prop_log_historical_price"])
+
+    mean_prop_price = data.groupby("prop_id")["prop_log_historical_price"].mean()
+    print(mean_prop_price)
+
+    # data["prop_mean_hist_price"] = data[["prop_log_historical_price", "prop_id"]].apply(
+    #     lambda x: mean_prop_price[x["prop_id"]], axis=1
+    # )
+
+
+    # data.loc[data["prop_log_historical_price"] == 0]['prop_log_historical_price'] = data[data.loc[data["prop_log_historical_price"] == 0]]
+    data["prop_log_historical_price"] = data[["prop_log_historical_price", "prop_id"]].apply(
+        lambda x: mean_prop_price[x["prop_id"]] if data["prop_log_historical_price"] == 0 else x["prop_log_historical_price"], axis=1
+    )
+
+    # # fill empty Age with mean age in the corresponding Title
+    # mean_age_per_title = data.groupby("Title")["Age"].mean()
+    # data["Age"] = data[["Age", "Title"]].apply(
+    #     lambda x: mean_age_per_title[x["Title"]] if pd.isnull(x["Age"]) else x["Age"], axis=1
+    # )
+
+    return data
+
+
 def fill_orig_destination_distance(data):
 
     # initially, fill with average with mean age in the corresponding property country id and visitors location
@@ -94,7 +127,13 @@ def fill_orig_destination_distance(data):
     return data
 
 
-def drop_missing_values(data):
+def create_bool(data):
+    # sold / not sold in previous period based on data["prop_log_historical_price"]
+
+    # reviewed / not reviewed based on data["prop_review_score"]
+    pass
+
+def drop_data(data):
     """
     Function dropping columns
 
