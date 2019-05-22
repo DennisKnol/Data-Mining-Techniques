@@ -1,6 +1,7 @@
 import xgboost as xgb
 import pandas as pd
 
+import matplotlib.pyplot as plt
 
 df = pd.read_csv("prepped_training_set_VU_DM.csv")
 df_test = pd.read_csv("prepped_test_set_VU_DM.csv")
@@ -58,7 +59,8 @@ xgb_rank = xgb.XGBRanker(objective='rank:ndcg')
 xgb_rank.fit(X, y, group_size(df))
 preds = xgb_rank.predict(X_test)
 
-# xgb.plot_importance() !!!!!!!
+xgb.plot_importance(xgb_rank) #!!!!!!!
+plt.show()
 
 # make submission
 dataset = pd.DataFrame(preds, columns=['preds'])
