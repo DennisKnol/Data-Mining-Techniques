@@ -25,6 +25,8 @@ df = drop_data(df)
 
 df = create_srch_columns(df)
 
+df = bin_price_data(df)
+
 print(len(df["visitor_location_country_id"].unique()))
 
 print(missing_value_count(df))

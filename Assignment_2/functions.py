@@ -189,13 +189,14 @@ def fill_orig_destination_distance(data):
 
 
 def bin_price_data(data):
-    """Create bins for the price data based on predefined bin size
+    """
+    Create bins for the price data based on predefined bin size
 
     """
     bin_size = 20
     bins = list(range(0, math.ceil(max(data['price_usd'])), bin_size))
     print(bins)
-    print(pd.cut(data, bins))
+    print(pd.cut(data["price_usd"], bins))
     return data
 
 
@@ -227,10 +228,6 @@ def competitor_count(data):
     data.loc[~np.isfinite(data["competitor_fraction_lower"]), 'competitor_fraction_lower'] = 0
 
     return data
-
-
-def create_bins(data):
-    pass
 
 
 def create_srch_columns(data):
