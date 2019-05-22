@@ -140,7 +140,10 @@ for i in attributes:
 # Density plots
 attributes = [
     "price_usd", "prop_review_score", "prop_location_score1",
-    "prop_location_score2", "position", "orig_destination_distance"
+    "prop_location_score2", "position", "orig_destination_distance",
+    "srch_booking_window", "srch_adults_count ", "srch_children_count",
+    "srch_room_count",
+
 ]
 
 for i in attributes:
@@ -148,6 +151,8 @@ for i in attributes:
     sns.distplot(df[i][df["booking_bool"] == 0].dropna(), label="not booked", kde=False, norm_hist=True)
     plt.legend()
     plt.show()
+
+
 
 
 # box plots

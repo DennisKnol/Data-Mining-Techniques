@@ -245,9 +245,9 @@ def find_outlier(data):
 
     """
     columns = [
-        "visitor_hist_adr_usd",
+        # "visitor_hist_adr_usd",
         "price_usd",
-        "srch_length_of_stay",
+        # "srch_length_of_stay",
         "srch_booking_window",
     ]
     outliers = []
@@ -273,6 +273,7 @@ def remove_outlier(data, outliers):
     print(len(outliers), " rows have been deleted")
     return data
 
+
 def drop_data(data):
     """
     Function dropping columns
@@ -281,6 +282,6 @@ def drop_data(data):
     # drop gross_bookings_usd, too many missing values
     data = data.drop(columns=["gross_bookings_usd"], axis=1)
 
-    # alles comp droppennnnnnn
-
+    # drop all comp data for competitors 1 - 8
+    data = data.drop([col for col in data.columns if 'comp' in col])
     return data

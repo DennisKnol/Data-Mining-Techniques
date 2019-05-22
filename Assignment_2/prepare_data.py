@@ -12,6 +12,7 @@ df = pd.read_csv("training_set_VU_DM.csv")
 # detect and remove outliers
 outlier_rows = find_outlier(df)
 number_of_outlier_row = len(outlier_rows)
+df = remove_outlier(df, outlier_rows)
 
 # handle missing values
 df = fill_missing_values(df)

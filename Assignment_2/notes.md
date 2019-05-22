@@ -60,5 +60,18 @@ prop_starrating: OK, created bool
 prop_review_score: OK, filled nan and created bool
 prop_brand_bool: OK
 prop_location_score1: OK
-prop_location_score2: 
-
+prop_location_score2: OK, missing values predicted with linear regression. Negative values set to zero
+prop_log_historical_price: OK, created bool. Filled empty with mean per prop_id
+price_usd: OK, removed outliers with function and cut into bins
+promotion_flag: OK
+srch_destination_id: OK
+srch_length_of_stay: NOT DONE, remove outliers?
+srch_booking_window: NOT DONE, remove outliers?
+srch_adults_count: NOT DONE, combine with children count? to create something like: "family size"
+srch_children_count: NOT DONE, 
+srch_room_count: NOT DONE, 
+srch_saturday_night_bool: OK
+srch_query_affinity_score:  
+orig_destination_distance: WIP
+random_bool: OK
+competitors:
