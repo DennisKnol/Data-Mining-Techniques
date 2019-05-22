@@ -31,5 +31,5 @@ Process Report
 - continue with data prep:
     - create function to fill empty orig_destination_distance values with means
     - create function to extract useful information from competitor data
-    
 - XGB file, make first predictions
+- submit first predictions

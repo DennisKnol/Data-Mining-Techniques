@@ -5,6 +5,9 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 from sklearn import linear_model
+from sklearn.model_selection import train_test_split
+
+import xgboost as xgb
 
 from collections import Counter
 
@@ -55,12 +58,14 @@ def fill_prop_location_score_2(data):
     Function filling the missing values for the property location score 2. Missing values are predicted
     using a linear regression model with the following explanatory variables:
 
-    'prop_review_score', 'prop_starrating', 'prop_brand_bool' & 'prop_location_score1'
+    "prop_review_score", "prop_starrating", "prop_brand_bool" & "prop_location_score1"
+
+    SCORE VERY LOW, ESTIMATE IS 0.24
 
     """
-    # consider all the rows where 'prop_location_score2' is not null training data
+    # consider all the rows where "prop_location_score2" is not null training data
     train_data = data.loc[pd.notnull(data["prop_location_score2"])]
-    X_train = train_data[
+    X = train_data[
         [
             "prop_review_score",
             "prop_starrating",
@@ -68,27 +73,33 @@ def fill_prop_location_score_2(data):
             "prop_location_score1",
         ]
     ].values
-    y_train = train_data["prop_location_score1"].values
+    y = train_data["prop_location_score1"].values
 
-    # fit model
-    model = linear_model.LinearRegression()
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=0)
+
+    model = xgb.XGBRegressor(objective='reg:linear', colsample_bytree=0.3, learning_rate=0.1,
+                             max_depth=5, alpha=10, n_estimators=10)
+
     model.fit(X_train, y_train)
 
-    X = data.loc[pd.isnull(data["prop_location_score2"])][
-        [
-            "prop_review_score",
-            "prop_starrating",
-            "prop_brand_bool",
-            "prop_location_score1",
-        ]
-    ].values
+    score = round(model.score(X_test, y_test), 2)
+    print(score)
 
-    # fill empty scores with predicted values
-    data.loc[
-        pd.isnull(data["prop_location_score2"]), "prop_location_score2"
-    ] = model.predict(X)
-
-    data.loc[data["prop_location_score2"] < 0, "prop_location_score2"] = 0
+    # X = data.loc[pd.isnull(data["prop_location_score2"])][
+    #     [
+    #         "prop_review_score",
+    #         "prop_starrating",
+    #         "prop_brand_bool",
+    #         "prop_location_score1",
+    #     ]
+    # ].values
+    #
+    # # fill empty scores with predicted values
+    # data.loc[
+    #     pd.isnull(data["prop_location_score2"]), "prop_location_score2"
+    # ] = model.predict(X)
+    #
+    # data.loc[data["prop_location_score2"] < 0, "prop_location_score2"] = 0
     return data
 
 
@@ -194,17 +205,16 @@ def bin_price_data(data):
 
     """
     bin_size = 20
-    bins = list(range(0, math.ceil(max(data['price_usd'])), bin_size))
+    bins = list(range(0, math.ceil(max(data["price_usd"])), bin_size))
     print(bins)
     print(pd.cut(data["price_usd"], bins))
     return data
 
 
-
 def convert_date_time(data):
     """
-    Function splitting the 'date_time' column in 'date' and 'time'
-    Subsequently splitting 'date' in 'year', 'month' and 'day'
+    Function splitting the "date_time" column in "date" and "time"
+    Subsequently splitting "date" in "year", "month" and "day"
 
     """
     data[["date", "time"]] = data["date_time"].str.split(" ", expand=True)
@@ -225,7 +235,7 @@ def competitor_count(data):
     data["competitor_count"] = data[columns_rate].count(axis=1)
     data["competitor_lower_percent"] = (data[columns_rate] < 0).sum(axis=1)
     data["competitor_fraction_lower"] = data.competitor_lower_percent.div(data.competitor_count)
-    data.loc[~np.isfinite(data["competitor_fraction_lower"]), 'competitor_fraction_lower'] = 0
+    data.loc[~np.isfinite(data["competitor_fraction_lower"]), "competitor_fraction_lower"] = 0
 
     return data
 
@@ -281,9 +291,14 @@ def drop_data(data):
     Function dropping columns
 
     """
-    # drop gross_bookings_usd, too many missing values
-    data = data.drop(columns=["gross_bookings_usd"], axis=1)
+    columns_to_drop_list = []
+    # columns_to_drop_list.append("gross_bookings_usd")
+    for i in range(1, 9):
+        columns_to_drop_list.append("comp{}_rate".format(i))
+        columns_to_drop_list.append("comp{}_inv".format(i))
+        columns_to_drop_list.append("comp{}_rate_percent_diff".format(i))
 
-    # drop all comp data for competitors 1 - 8
-    # data = data.drop([col for col in data.columns if 'comp' in col])
+    print(columns_to_drop_list)
+    data = data.drop(columns=columns_to_drop_list)
+
     return data
