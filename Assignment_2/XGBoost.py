@@ -2,8 +2,8 @@ import xgboost as xgb
 import pandas as pd
 
 
-df = pd.read_csv("training_set_VU_DM.csv")
-df_test = pd.read_csv("test_set_VU_DM.csv")
+df = pd.read_csv("prepped_training_set_VU_DM.csv")
+df_test = pd.read_csv("prepped_test_set_VU_DM.csv")
 
 
 def group_size(data):
@@ -57,6 +57,8 @@ X_test = df_test[['srch_id', 'site_id', 'visitor_location_country_id',
 xgb_rank = xgb.XGBRanker(objective='rank:ndcg')
 xgb_rank.fit(X, y, group_size(df))
 preds = xgb_rank.predict(X_test)
+
+# xgb.plot_importance() !!!!!!!
 
 # make submission
 dataset = pd.DataFrame(preds, columns=['preds'])

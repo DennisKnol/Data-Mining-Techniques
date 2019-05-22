@@ -33,3 +33,5 @@ Process Report
     - create function to extract useful information from competitor data
 - XGB file, make first predictions
 - submit first predictions
+
+- created cleaner prep_data.py, making function.py unneeded

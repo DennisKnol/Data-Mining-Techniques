@@ -6,9 +6,7 @@ from collections import Counter
 
 def prep_data(data):
     """
-    Function preparing the data
-
-    Every change to the data is mentioned before execution
+    Function preparing the data, every change to the data is mentioned before execution
 
     """
 
@@ -105,7 +103,6 @@ def prep_data(data):
     data["competitor_lower_percent"] = (data[columns_rate] < 0).sum(axis=1)
     data["competitor_fraction_lower"] = data.competitor_lower_percent.div(data.competitor_count)
     data.loc[~np.isfinite(data["competitor_fraction_lower"]), "competitor_fraction_lower"] = 0
-
 
     # drop data
     columns_to_drop_list = []
