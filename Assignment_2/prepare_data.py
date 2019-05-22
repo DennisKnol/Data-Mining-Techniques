@@ -23,7 +23,8 @@ df = fill_orig_destination_distance(df)
 
 df = drop_data(df)
 
-print(len(df["visitor_location_country_id"].unique()))
+df = create_srch_columns(df)
 
+print(len(df["visitor_location_country_id"].unique()))
 
 print(missing_value_count(df))

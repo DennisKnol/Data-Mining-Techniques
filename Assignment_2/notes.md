@@ -75,3 +75,8 @@ srch_query_affinity_score:
 orig_destination_distance: WIP
 random_bool: OK
 competitors:
+
+## Random Ideas:
+Ratio between count of guest and srch room count. Maybe some hotels are booked more often when people book a room for a groups. 
+For example, people probably wont book a room in the Hilton if they want a family room. Hilton guests are, I think, more likely to 
+be business travellers or couples.

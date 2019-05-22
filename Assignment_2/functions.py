@@ -188,10 +188,6 @@ def fill_orig_destination_distance(data):
     return data
 
 
-
-
-
-
 def convert_date_time(data):
     """
     Function splitting the 'date_time' column in 'date' and 'time'
@@ -214,27 +210,24 @@ def competitor_count(data):
 
     columns_rate = ["comp{}_rate".format(i) for i in range(1, 9)]
     data["competitor_count"] = data[columns_rate].count(axis=1)
-    data["competitor_lower_count"] = (data[columns_rate] < 0).sum(axis=1)
-
-    data["competitor_fraction_lower"] = data["competitor_lower_count"] / data["competitor_count"]
-    return data
-
-
-def competitor_count(data):
-    """
-    Function creating a column with the number of competitors
-    Competitors that do not have availability will be removed from statistics
-
-    """
-    for i in range(1, 9):
-        data.loc[data[f"comp{i}_inv"] != 0, f"comp{i}_rate"] = np.nan
-
-    columns_rate = ["comp{}_rate".format(i) for i in range(1, 9)]
-    data["competitor_count"] = data[columns_rate].count(axis=1)
     data["competitor_lower_percent"] = (data[columns_rate] < 0).sum(axis=1)
     data["competitor_fraction_lower"] = data.competitor_lower_percent.div(data.competitor_count)
     data.loc[~np.isfinite(data["competitor_fraction_lower"]), 'competitor_fraction_lower'] = 0
 
+    return data
+
+
+def create_bins(data):
+    pass
+
+
+def create_srch_columns(data):
+    """
+    Function creating a column with the total count of travelers and a column with the ratio guests per room
+
+    """
+    data["srch_travelers_count"] = data["srch_adults_count"] + data["srch_children_count"]
+    data["guests_per_room"] = data["srch_travelers_count"] / data["srch_room_count"]
     return data
 
 
@@ -247,13 +240,13 @@ def find_outlier(data):
     columns = [
         # "visitor_hist_adr_usd",
         "price_usd",
-        # "srch_length_of_stay",
+        "srch_length_of_stay",
         "srch_booking_window",
     ]
     outliers = []
     for col_name in columns:
-        q1 = data[col_name].quantile(0.1)
-        q3 = data[col_name].quantile(0.9)
+        q1 = data[col_name].quantile(0.05)
+        q3 = data[col_name].quantile(0.95)
         iqr = q3 - q1
         lower_bound = q1 - (1.5 * iqr)
         upper_bound = q3 + (1.5 * iqr)
@@ -283,5 +276,5 @@ def drop_data(data):
     data = data.drop(columns=["gross_bookings_usd"], axis=1)
 
     # drop all comp data for competitors 1 - 8
-    data = data.drop([col for col in data.columns if 'comp' in col])
+    # data = data.drop([col for col in data.columns if 'comp' in col])
     return data
