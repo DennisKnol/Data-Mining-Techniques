@@ -9,7 +9,7 @@ from sklearn import linear_model
 from collections import Counter
 
 
-# TODO: price_usd: in some case price very large because is represents the price over the full stay
+# TODO: price_usd: drop outlier
 
 def missing_value_count(data):
     """
@@ -71,28 +71,14 @@ def prep_prop_log_historical_price(data):
     A 0 will occur if the hotel was not sold in that period: create boolean, sold / not sold
 
     """
-
-    # data["prop_log_historical_price"] = np.exp(data["prop_log_historical_price"])
+    data["sold_prev_period_bool"] = np.where(data["prop_log_historical_price"] == 0, 1, 0)
 
     mean_prop_price = data.groupby("prop_id")["prop_log_historical_price"].mean()
-    print(mean_prop_price)
-
-    # data["prop_mean_hist_price"] = data[["prop_log_historical_price", "prop_id"]].apply(
-    #     lambda x: mean_prop_price[x["prop_id"]], axis=1
-    # )
-
-
-    # data.loc[data["prop_log_historical_price"] == 0]['prop_log_historical_price'] = data[data.loc[data["prop_log_historical_price"] == 0]]
-    data["prop_log_historical_price"] = data[["prop_log_historical_price", "prop_id"]].apply(
-        lambda x: mean_prop_price[x["prop_id"]] if data["prop_log_historical_price"] == 0 else x["prop_log_historical_price"], axis=1
+    data.loc[data["prop_log_historical_price"] == 0, 'prop_log_historical_price'] = data.loc[data["prop_log_historical_price"] == 0, ['prop_id', 'prop_log_historical_price']].apply(
+        lambda x: mean_prop_price[x["prop_id"]], axis=1
     )
 
-    # # fill empty Age with mean age in the corresponding Title
-    # mean_age_per_title = data.groupby("Title")["Age"].mean()
-    # data["Age"] = data[["Age", "Title"]].apply(
-    #     lambda x: mean_age_per_title[x["Title"]] if pd.isnull(x["Age"]) else x["Age"], axis=1
-    # )
-
+    # data["prop_log_historical_price"] = np.exp(data["prop_log_historical_price"])
     return data
 
 
@@ -100,8 +86,6 @@ def fill_orig_destination_distance(data):
 
     # initially, fill with average with mean age in the corresponding property country id and visitors location
     mean_distance_1 = data.groupby(["prop_country_id", "visitor_location_country_id"])["orig_destination_distance"].mean()
-    mean_distance_1 = mean_distance_1.dropna()
-    print(mean_distance_1)
 
     data["orig_destination_distance"] = data[["orig_destination_distance", "prop_country_id", "visitor_location_country_id"]].apply(
         lambda x: mean_distance_1[x[["prop_country_id", "visitor_location_country_id"]]] if pd.isnull(x["orig_destination_distance"]) else x[
@@ -109,20 +93,20 @@ def fill_orig_destination_distance(data):
     )
 
     mean_distance_2 = data.groupby(["srch_destination_id", "visitor_location_country_id"])["orig_destination_distance"].mean()
-    mean_distance_2 = mean_distance_2.dropna()
     print(mean_distance_2)
 
     mean_distance_3 = data.groupby("visitor_location_country_id")["orig_destination_distance"].mean()
-    mean_distance_3 = mean_distance_3.dropna()
     print(mean_distance_3)
+    print(data.loc[data["orig_destination_distance"].isna(), 'orig_destination_distance'])
 
-    data["orig_destination_distance"] = data[["orig_destination_distance", "visitor_location_country_id"]].apply(
-        lambda x: mean_distance_3[x["visitor_location_country_id"]] if pd.isnull(x["orig_destination_distance"]) else x["orig_destination_distance"], axis=1
+    data.loc[data["orig_destination_distance"].isna(), 'orig_destination_distance'] = data.loc[data["orig_destination_distance"].isna(), ['orig_destination_distance', "visitor_location_country_id"]].apply(
+        lambda x: mean_distance_3[x["visitor_location_country_id"]], axis=1
     )
 
-    # data["Age"] = data[["Age", "Title"]].apply(
-    #     lambda x: mean_age_per_title[x["Title"]] if pd.isnull(x["Age"]) else x["Age"], axis=1
+    # data["orig_destination_distance"] = data[["orig_destination_distance", "visitor_location_country_id"]].apply(
+    #     lambda x: mean_distance_3[x["visitor_location_country_id"]] if pd.isnull(x["orig_destination_distance"]) else x["orig_destination_distance"], axis=1
     # )
+
 
     return data
 
