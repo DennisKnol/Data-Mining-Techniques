@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-
+import math
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -186,6 +186,18 @@ def fill_orig_destination_distance(data):
     # print(mean_distance_1)
     # print(mean_distance_1.shape)
     return data
+
+
+def bin_price_data(data):
+    """Create bins for the price data based on predefined bin size
+
+    """
+    bin_size = 20
+    bins = list(range(0, math.ceil(max(data['price_usd'])), bin_size))
+    print(bins)
+    print(pd.cut(data, bins))
+    return data
+
 
 
 def convert_date_time(data):
