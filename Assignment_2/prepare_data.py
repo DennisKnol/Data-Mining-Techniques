@@ -43,7 +43,8 @@ print("checkpoint 7")
 
 
 def new_prep(data):
-    data["score1ma"] = data["srch_query_affinity_score"] * data["prop_location_score1"]
+    mean_destination_distance = data.groupby("srch_id")["orig_destination_distance"].mean()
+    data["mean_destination_distance"] = data["srch_id"].apply(lambda x: mean_destination_distance[x])
 
     data = data.drop(columns="norm_prop_review_score_wrt_prop_id")
     data = data.drop(columns="norm_prop_location_score1_wrt_prop_id")

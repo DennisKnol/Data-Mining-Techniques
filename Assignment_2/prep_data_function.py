@@ -186,6 +186,9 @@ def prep_data(data):
     # TODO: improve
     data['orig_destination_distance'] = data['orig_destination_distance'].fillna(data.orig_destination_distance.median())
 
+    mean_destination_distance = data.groupby("srch_id")["orig_destination_distance"].mean()
+    data["mean_destination_distance"] = data["srch_id"].apply(lambda x: mean_destination_distance[x])
+
     # mean_distance_01 = data.groupby("srch_id")["orig_destination_distance"].mean()
     # data.loc[data["orig_destination_distance"].isna(), "orig_destination_distance"] = data.loc[
     #     data["orig_destination_distance"].isna(),
