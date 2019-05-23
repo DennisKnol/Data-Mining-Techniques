@@ -10,6 +10,14 @@ def group_size(data):
     return srch_count["srch_id"]
 
 
+def make_submission(combined_ranking):
+    submission = combined_ranking.sort_values(['srch_id','comb_rank'], ascending=[True, True])[['srch_id', 'prop_id']]
+    print(submission.head())
+    submission.to_csv('submission.csv', index=False)
+    print("submission file done")
+    return
+
+
 def rank_rf(X, y, X_test, df_test):
     """ Makes RF classifier ranking"""
 
