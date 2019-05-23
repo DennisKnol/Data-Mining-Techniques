@@ -22,6 +22,10 @@ print("checkpoint 3")
 df_test = prep_data(df_test)        # 22026  rows have been deleted
 print("checkpoint 4")
 
+# check missing values
+print(missing_value_count(df))
+print(missing_value_count(df_test))
+
 normalize_features = ["price_usd", "prop_location_score1", "prop_location_score2", "prop_review_score"]
 wrt_features = ["srch_id", "prop_id", "srch_booking_window", "srch_destination_id", "site_id"]
 
@@ -35,17 +39,28 @@ print("checkpoint 5")
 # check missing values
 print(missing_value_count(df))
 print(missing_value_count(df_test))
+#
+# df.to_csv("prepped_training_set_VU_DM.csv", index=False)
+# print("checkpoint 6")
+# df_test.to_csv("prepped_test_set_VU_DM.csv", index=False)
+# print("checkpoint 7")
+
+
+def new_prep(data):
+    data = data.drop(columns="norm_prop_review_score_wrt_prop_id")
+    data = data.drop(columns="norm_prop_location_score1_wrt_prop_id")
+    return data
+
+df = new_prep(df)
+df_test = new_prep(df_test)
 
 df.to_csv("prepped_training_set_VU_DM.csv", index=False)
 print("checkpoint 6")
 df_test.to_csv("prepped_test_set_VU_DM.csv", index=False)
 print("checkpoint 7")
 
-
-def new_prep(data):
-    mean_destination_distance = data.groupby("srch_id")["orig_destination_distance"].mean()
-    data["mean_destination_distance"] = data["srch_id"].apply(lambda x: mean_destination_distance[x])
-
-    data = data.drop(columns="norm_prop_review_score_wrt_prop_id")
-    data = data.drop(columns="norm_prop_location_score1_wrt_prop_id")
-    return data
+# for col in df.columns:
+#
+#     if len(df[col]) != 4936449:
+#         print(col)
+#         print(len(df[col]) != 4936449)

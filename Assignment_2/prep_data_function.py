@@ -63,7 +63,7 @@ def prep_data(data):
     """
     outliers = find_outlier(data)
     data = remove_outlier(data, outliers)
-
+    print("outlier")
     data[["date", "time"]] = data["date_time"].str.split(" ", expand=True)
     data[["year", "month", "day"]] = data["date"].str.split("-", expand=True)
 
@@ -77,7 +77,7 @@ def prep_data(data):
 
     data["visitor_hist_starrating"] = data["visitor_hist_starrating"].fillna(0)
     data["visitor_hist_adr_usd"] = data["visitor_hist_adr_usd"].fillna(0)
-
+    print("history")
     data["diff_starrating"] = np.abs(data["visitor_hist_starrating"] - data["prop_starrating"])
     data["abs_diff_price_usd"] = np.abs(data["visitor_hist_adr_usd"] - data["price_usd"])
     data["abs_diff_price_usd_perc"] = np.abs(data["visitor_hist_adr_usd"] / data["price_usd"])
@@ -99,10 +99,8 @@ def prep_data(data):
     # prop_location_score1
     mean_prop_location_score1 = data.groupby("prop_id")["prop_location_score1"].mean()
     data["mean_prop_location_score1"] = data["prop_id"].apply(lambda x: mean_prop_location_score1[x])
-
+    print("prop_loc1")
     # prop_location_score2
-
-    #############                 DIFFERENT APPROACH FOR FILLING EMPTY LOCATION SCORE 2                  ##############
     first_quartile_loc_score2_per_prop_country = data.groupby("prop_country_id")["prop_location_score2"].quantile(0.25)
     first_quartile_fill = data.loc[data["prop_location_score2"].isna(), ["prop_location_score2", "prop_country_id"]
     ].apply(
@@ -111,7 +109,7 @@ def prep_data(data):
     data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = first_quartile_fill
 
     data["prop_location_score2"] = data["prop_location_score2"].fillna(data["prop_location_score2"].mean())
-    ##################################################################################################################
+    print("prop_loc2")
 
     # mean_loc_score2_per_srch_destination = data.groupby("srch_destination_id")["prop_location_score2"].mean()
     # mean_per_srch_dest = data.loc[data["prop_location_score2"].isna(), ["prop_location_score2", "srch_destination_id"]
@@ -172,10 +170,7 @@ def prep_data(data):
 
     data["score1ma"] = data["srch_query_affinity_score"] * data["prop_location_score1"]
     data["score2ma"] = data["srch_query_affinity_score"] * data["prop_location_score2"]
-
-    # means per property
-    mean_prop_price = data.groupby("prop_id")["price_usd"].mean()
-    data["mean_prop_price"] = data["prop_id"].apply(lambda x: mean_prop_price[x])
+    print("scorema")
 
     # cut price_usd into bins
     bin_size = 20
@@ -183,7 +178,6 @@ def prep_data(data):
     pd.cut(data["price_usd"], bins)
 
     # fill orig_destination_distance
-    # TODO: improve
     data['orig_destination_distance'] = data['orig_destination_distance'].fillna(data.orig_destination_distance.median())
 
     mean_destination_distance = data.groupby("srch_id")["orig_destination_distance"].mean()
@@ -219,16 +213,15 @@ def prep_data(data):
     # Competitors that do not have availability will be removed from statistics
     # https://www.kaggle.com/c/expedia-personalized-sort/discussion/5774
 
-    for i in range(1, 9):
-        data.loc[data["comp{}_inv".format(i)] == -1] = np.nan
-        data.loc[data[f"comp{i}_inv"] != 0, f"comp{i}_rate"] = np.nan
-
-    columns_rate = ["comp{}_rate".format(i) for i in range(1, 9)]
-    data["competitor_count"] = data[columns_rate].count(axis=1)
-    data["competitor_lower_percent"] = (data[columns_rate] < 0).sum(axis=1)
-    data["competitor_fraction_lower"] = data.competitor_lower_percent.div(data.competitor_count)
-    data.loc[~np.isfinite(data["competitor_fraction_lower"]), "competitor_fraction_lower"] = 0
-
+    # for i in range(1, 9):
+    #     data.loc[data[f"comp{i}_inv"] != 0, f"comp{i}_rate"] = np.nan
+    #
+    # columns_rate = ["comp{}_rate".format(i) for i in range(1, 9)]
+    # data["competitor_count"] = data[columns_rate].count(axis=1)
+    # data["competitor_lower_percent"] = (data[columns_rate] < 0).sum(axis=1)
+    # data["competitor_fraction_lower"] = data.competitor_lower_percent.div(data.competitor_count)
+    # data.loc[~np.isfinite(data["competitor_fraction_lower"]), "competitor_fraction_lower"] = 0
+    print("drop")
     # drop data
     columns_to_drop_list = ["date_time"]
 
