@@ -6,11 +6,24 @@ import matplotlib.pyplot as plt
 df = pd.read_csv("prepped_training_set_VU_DM.csv")
 df_test = pd.read_csv("prepped_test_set_VU_DM.csv")
 
+df = df[:500000]
+df_test = df_test[:500000]
+
+
+def make_submission(df_test, predictions):
+    df = pd.DataFrame(predictions, columns=['preds'])
+    merge = pd.concat([df_test, df], axis=1, sort=False)
+    sorted_df = merge.sort_values(['srch_id', 'preds'], ascending=[True, False])
+    submission = sorted_df[['srch_id', 'prop_id']]
+    submission.to_csv('submission.csv', index=False)
+    return print("submission file done")
+
 
 def group_size(data):
     srch_value_counts = data["srch_id"].value_counts()
     srch_count = pd.DataFrame([srch_value_counts]).T.sort_index()
     return srch_count["srch_id"]
+
 
 
 X = df[['srch_id', 'site_id', 'visitor_location_country_id',
@@ -59,13 +72,7 @@ xgb_rank = xgb.XGBRanker(objective='rank:ndcg')
 xgb_rank.fit(X, y, group_size(df))
 preds = xgb_rank.predict(X_test)
 
+make_submission(df_test, preds)
+
 xgb.plot_importance(xgb_rank) #!!!!!!!
 plt.show()
-
-# make submission
-dataset = pd.DataFrame(preds, columns=['preds'])
-
-merged = pd.concat([df_test, dataset], axis=1, sort=False)
-sorted_df = merged.sort_values(['srch_id', 'preds'], ascending=[True, False])
-submission = sorted_df[['srch_id', 'prop_id']]
-submission.to_csv('submission.csv', index=False)

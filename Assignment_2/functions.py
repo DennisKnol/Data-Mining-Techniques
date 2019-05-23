@@ -120,6 +120,16 @@ def prep_prop_log_historical_price(data):
         lambda x: mean_prop_price[x["prop_id"]], axis=1
     )
 
+    # # fill empty prop_log_historical_price with mean prop price per prop id
+    # mean_prop_price = data.groupby("prop_id")["prop_log_historical_price"].mean()
+    #
+    # data.loc[data["prop_log_historical_price"] == 0, "prop_log_historical_price"] = data.loc[
+    #     data["prop_log_historical_price"] == 0,
+    #     ["prop_id", "prop_log_historical_price"]
+    # ].apply(
+    #     lambda x: mean_prop_price[x["prop_id"]], axis=1
+    # )
+
     # data["prop_log_historical_price"] = np.exp(data["prop_log_historical_price"])
     return data
 

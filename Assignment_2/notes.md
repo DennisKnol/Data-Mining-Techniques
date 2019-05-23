@@ -47,34 +47,111 @@ comp_inv
 rate_percent_diff:
 - tells something about how much cheaper/more expensive expedia is.
 
-##  notes per column / checklist
-srch_id: OK
-date_time: split, subsequently drop date_time
-site_id: OK
-visitor_location_country_id: OK
-visitor_hist_starrating: 94.92% missing values, what to do? new column with (absolute) diff prop_starrating
-visitor_hist_adr_usd (94.9% missing values): what to do? new column with relative diff with price_usd
-prop_country_id: OK
-prop_id: OK
-prop_starrating: OK, created bool
-prop_review_score: OK, filled nan and created bool
-prop_brand_bool: OK
-prop_location_score1: OK
-prop_location_score2: OK, missing values predicted with linear regression. Negative values set to zero
-prop_log_historical_price: OK, created bool. Filled empty with mean per prop_id
-price_usd: OK, removed outliers with function and cut into bins
-promotion_flag: OK
-srch_destination_id: OK
+##  notes per feature / checklist
+srch_id: 
+- OK
+
+date_time: 
+- split, subsequently drop date_time
+
+site_id: 
+- OK
+
+visitor_location_country_id: 
+- OK
+
+visitor_hist_starrating: 
+- we use the first quartile calculated by the country which the data point located in to represent the missing data
+- new column with (absolute) diff prop_starrating
+- OK
+
+visitor_hist_adr_usd:
+- we use the first quartile calculated by the country which the data point located in to represent the missing data
+- new column with relative diff with price_usd
+- new column with absolute diff with price_usd
+- OK
+
+prop_country_id: 
+- OK
+
+prop_id: 
+- OK
+
+prop_starrating: 
+- created bool
+- OK FOR NOW, room for improvement
+
+prop_review_score: 
+- filled nan
+- created bool
+- new feature: average prop review score per prop_id
+- OK
+
+prop_brand_bool: 
+- OK
+
+prop_location_score1: 
+- new feature: average score per prop_id
+- OK
+
+prop_location_score2: 
+- we use the first quartile calculated by the country which the data point located in to represent the missing data
+- new feature: average score per prop_id
+
+prop_location_score COMBINED
+- data["prop_location_score2"] + 0.0001) / (data["prop_location_score1"] + 0.0001
+- OK
+
+prop_log_historical_price: 
+- created bool: sold / not sold in previous period
+- new feature: np.exp 
+- new feature: data["prop_price_diff"] = data["prop_historical_price"] - data["price_usd"]
+- OK
+
+price_usd: 
+- new feature: data["total_price"] = data["price_usd"] * data["srch_room_count"]
+- removed outliers with function  
+- cut into bins
+
+promotion_flag: 
+- OK
+
+srch_destination_id: 
+- OK
+
 srch_length_of_stay: NOT DONE, remove outliers?
+
 srch_booking_window: NOT DONE, remove outliers?
-srch_adults_count: NOT DONE, combine with children count? to create something like: "family size"
-srch_children_count: NOT DONE, 
-srch_room_count: NOT DONE, 
-srch_saturday_night_bool: OK
+
+srch_adults_count:
+combine with children count? to create something like: "person count"
+
+srch_children_count & srch_room_count:
+- new feature: data["srch_person_count"] = data["srch_adults_count"] + data["srch_children_count"] 
+- new feature: data["fee_per_person"] = data["total_price"] / data["srch_person_count"]
+- new feature: data["guests_per_room"] = data["srch_travelers_count"] / data["srch_room_count"]
+
+srch_saturday_night_bool: 
+- OK
+
 srch_query_affinity_score:  
-orig_destination_distance: WIP
-random_bool: OK
+- we use the first quartile calculated by the country which the data point located in to represent the missing data
+- new feature: data["score2ma"] = data["srch_query_affinity_score"] * data["prop_location_score2"]
+
+orig_destination_distance: 
+- WIP
+
+random_bool: 
+- OK
+
 competitors:
+
+## Normalization
+- price_usd
+- prop_location_score1
+- prop_location_score2
+_ prop_review_score
+
 
 ## Random Ideas:
 Ratio between count of guest and srch room count. Maybe some hotels are booked more often when people book a room for a groups. 
