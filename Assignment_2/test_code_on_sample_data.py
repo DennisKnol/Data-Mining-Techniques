@@ -36,3 +36,6 @@ for feature in normalize_features:
 #     sns.distplot(data[i][data["booking_bool"] == 0].dropna(), label="not booked", kde=False, norm_hist=True)
 #     plt.legend()
 #     plt.show()
+
+for i in range(1,9):
+    data["comp{}_inv"] = np.nan

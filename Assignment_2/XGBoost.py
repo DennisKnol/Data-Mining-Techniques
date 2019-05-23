@@ -6,20 +6,20 @@ from RankingAlgorithms import *
 
 df = pd.read_csv("prepped_training_set_VU_DM.csv")
 df_test = pd.read_csv("prepped_test_set_VU_DM.csv")
-df_test_whole = pd.read_csv("prepped_test_set_VU_DM.csv")
+df_test_whole = df_test
 
 df = df[:500000]
 df_test = df_test[:500000]
-
-normalize_features = ["price_usd", "prop_location_score1", "prop_location_score2", "prop_review_score"]
-wrt_features = ["srch_id", "srch_booking_window", "srch_destination_id"] #, "prop_id"
-
-for feature in normalize_features:
-    for wrt_feature in wrt_features:
-        df = normalize_feature(df, feature=feature, wrt_feature=wrt_feature)
-        df_test = normalize_feature(df_test, feature=feature, wrt_feature=wrt_feature)
-        df_test_whole = normalize_feature(df_test_whole, feature=feature, wrt_feature=wrt_feature)
-
+#
+# normalize_features = ["price_usd", "prop_location_score1", "prop_location_score2", "prop_review_score"]
+# wrt_features = ["srch_id", "prop_id", "srch_booking_window", "srch_destination_id"]
+#
+# for feature in normalize_features:
+#     for wrt_feature in wrt_features:
+#         df = normalize_feature(df, feature=feature, wrt_feature=wrt_feature)
+#         df_test = normalize_feature(df_test, feature=feature, wrt_feature=wrt_feature)
+#         df_test_whole = normalize_feature(df_test_whole, feature=feature, wrt_feature=wrt_feature)
+#
 
 def make_submission(df_test, predictions):
     df = pd.DataFrame(predictions, columns=['preds'])
@@ -36,7 +36,7 @@ def group_size(data):
     return srch_count["srch_id"]
 
 
-X = df[['srch_id', 'site_id', 'visitor_location_country_id',
+X = df[['visitor_location_country_id',
         'visitor_hist_starrating', 'visitor_hist_adr_usd', 'prop_country_id',
         'prop_id', 'prop_starrating', 'prop_review_score', 'prop_brand_bool',
         'prop_location_score1', 'prop_location_score2',
@@ -44,67 +44,72 @@ X = df[['srch_id', 'site_id', 'visitor_location_country_id',
         'srch_destination_id', 'srch_length_of_stay', 'srch_booking_window',
         'srch_adults_count', 'srch_children_count', 'srch_room_count',
         'srch_saturday_night_bool', 'srch_query_affinity_score',
-        'orig_destination_distance', 'random_bool', 'year', 'month', 'day',
+        'orig_destination_distance', 'random_bool',
+        'year', 'month', 'day',
         'diff_starrating', 'abs_diff_price_usd', 'abs_diff_price_usd_perc',
         'diff_price_usd', 'diff_price_usd_perc', 'prop_starrating_bool',
-        'prop_review_score_bool', 'mean_prop_review_score',
-        'mean_prop_location_score1', 'mean_prop_location_score2',
-        'prop_location_score_combined', 'sold_prev_period_bool',
+        'mean_prop_starrating', 'prop_review_score_bool',
+        'mean_prop_review_score', 'mean_prop_location_score1',
+        'mean_prop_location_score2', 'prop_location_score_combined',
+        'mean_prop_location_score_combined', 'sold_prev_period_bool',
         'prop_historical_price', 'prop_price_diff', 'total_price',
-        'srch_person_count', 'fee_per_person', 'guests_per_room', 'score2ma',
-        'competitor_count', 'competitor_lower_percent',
-        'competitor_fraction_lower', 'norm_price_usd_wrt_srch_id',
+        'mean_prop_price', 'srch_person_count', 'fee_per_person',
+        'guests_per_room', 'score2ma', 'norm_price_usd_wrt_srch_id',
         'norm_price_usd_wrt_prop_id', 'norm_price_usd_wrt_srch_booking_window',
-        'norm_price_usd_wrt_srch_destination_id',
+        'norm_price_usd_wrt_srch_destination_id', 'norm_price_usd_wrt_site_id',
         'norm_prop_location_score1_wrt_srch_id',
         'norm_prop_location_score1_wrt_srch_booking_window',
         'norm_prop_location_score1_wrt_srch_destination_id',
+        'norm_prop_location_score1_wrt_site_id',
         'norm_prop_location_score2_wrt_srch_id',
+        'norm_prop_location_score2_wrt_prop_id',
         'norm_prop_location_score2_wrt_srch_booking_window',
         'norm_prop_location_score2_wrt_srch_destination_id',
+        'norm_prop_location_score2_wrt_site_id',
         'norm_prop_review_score_wrt_srch_id',
         'norm_prop_review_score_wrt_srch_booking_window',
-        'norm_prop_review_score_wrt_srch_destination_id'
+        'norm_prop_review_score_wrt_srch_destination_id',
+        'norm_prop_review_score_wrt_site_id'
         ]
 ]
 
-
 y = df["booking_bool"]
+
 # y_forest = df["booking_bool"] + df["click_bool"]
+#
+# X_test = df_test[['srch_id', 'site_id', 'visitor_location_country_id',
+#                   'visitor_hist_starrating', 'visitor_hist_adr_usd', 'prop_country_id',
+#                   'prop_id', 'prop_starrating', 'prop_review_score', 'prop_brand_bool',
+#                   'prop_location_score1', 'prop_location_score2',
+#                   'prop_log_historical_price', 'price_usd', 'promotion_flag',
+#                   'srch_destination_id', 'srch_length_of_stay', 'srch_booking_window',
+#                   'srch_adults_count', 'srch_children_count', 'srch_room_count',
+#                   'srch_saturday_night_bool', 'srch_query_affinity_score',
+#                   'orig_destination_distance', 'random_bool', 'year', 'month', 'day',
+#                   'diff_starrating', 'abs_diff_price_usd', 'abs_diff_price_usd_perc',
+#                   'diff_price_usd', 'diff_price_usd_perc', 'prop_starrating_bool',
+#                   'prop_review_score_bool', 'mean_prop_review_score',
+#                   'mean_prop_location_score1', 'mean_prop_location_score2',
+#                   'prop_location_score_combined', 'sold_prev_period_bool',
+#                   'prop_historical_price', 'prop_price_diff', 'total_price',
+#                   'srch_person_count', 'fee_per_person', 'guests_per_room', 'score2ma',
+#                   'competitor_count', 'competitor_lower_percent',
+#                   'competitor_fraction_lower', 'norm_price_usd_wrt_srch_id',
+#                   'norm_price_usd_wrt_prop_id', 'norm_price_usd_wrt_srch_booking_window',
+#                   'norm_price_usd_wrt_srch_destination_id',
+#                   'norm_prop_location_score1_wrt_srch_id',
+#                   'norm_prop_location_score1_wrt_srch_booking_window',
+#                   'norm_prop_location_score1_wrt_srch_destination_id',
+#                   'norm_prop_location_score2_wrt_srch_id',
+#                   'norm_prop_location_score2_wrt_srch_booking_window',
+#                   'norm_prop_location_score2_wrt_srch_destination_id',
+#                   'norm_prop_review_score_wrt_srch_id',
+#                   'norm_prop_review_score_wrt_srch_booking_window',
+#                   'norm_prop_review_score_wrt_srch_destination_id'
+#                   ]
+# ]
 
-X_test = df_test[['srch_id', 'site_id', 'visitor_location_country_id',
-                  'visitor_hist_starrating', 'visitor_hist_adr_usd', 'prop_country_id',
-                  'prop_id', 'prop_starrating', 'prop_review_score', 'prop_brand_bool',
-                  'prop_location_score1', 'prop_location_score2',
-                  'prop_log_historical_price', 'price_usd', 'promotion_flag',
-                  'srch_destination_id', 'srch_length_of_stay', 'srch_booking_window',
-                  'srch_adults_count', 'srch_children_count', 'srch_room_count',
-                  'srch_saturday_night_bool', 'srch_query_affinity_score',
-                  'orig_destination_distance', 'random_bool', 'year', 'month', 'day',
-                  'diff_starrating', 'abs_diff_price_usd', 'abs_diff_price_usd_perc',
-                  'diff_price_usd', 'diff_price_usd_perc', 'prop_starrating_bool',
-                  'prop_review_score_bool', 'mean_prop_review_score',
-                  'mean_prop_location_score1', 'mean_prop_location_score2',
-                  'prop_location_score_combined', 'sold_prev_period_bool',
-                  'prop_historical_price', 'prop_price_diff', 'total_price',
-                  'srch_person_count', 'fee_per_person', 'guests_per_room', 'score2ma',
-                  'competitor_count', 'competitor_lower_percent',
-                  'competitor_fraction_lower', 'norm_price_usd_wrt_srch_id',
-                  'norm_price_usd_wrt_prop_id', 'norm_price_usd_wrt_srch_booking_window',
-                  'norm_price_usd_wrt_srch_destination_id',
-                  'norm_prop_location_score1_wrt_srch_id',
-                  'norm_prop_location_score1_wrt_srch_booking_window',
-                  'norm_prop_location_score1_wrt_srch_destination_id',
-                  'norm_prop_location_score2_wrt_srch_id',
-                  'norm_prop_location_score2_wrt_srch_booking_window',
-                  'norm_prop_location_score2_wrt_srch_destination_id',
-                  'norm_prop_review_score_wrt_srch_id',
-                  'norm_prop_review_score_wrt_srch_booking_window',
-                  'norm_prop_review_score_wrt_srch_destination_id'
-                  ]
-]
-
-X_test = df_test_whole[['srch_id', 'site_id', 'visitor_location_country_id',
+X_test = df_test_whole[['visitor_location_country_id',
                         'visitor_hist_starrating', 'visitor_hist_adr_usd', 'prop_country_id',
                         'prop_id', 'prop_starrating', 'prop_review_score', 'prop_brand_bool',
                         'prop_location_score1', 'prop_location_score2',
@@ -112,27 +117,32 @@ X_test = df_test_whole[['srch_id', 'site_id', 'visitor_location_country_id',
                         'srch_destination_id', 'srch_length_of_stay', 'srch_booking_window',
                         'srch_adults_count', 'srch_children_count', 'srch_room_count',
                         'srch_saturday_night_bool', 'srch_query_affinity_score',
-                        'orig_destination_distance', 'random_bool', 'year', 'month', 'day',
+                        'orig_destination_distance', 'random_bool',
+                        'year', 'month', 'day',
                         'diff_starrating', 'abs_diff_price_usd', 'abs_diff_price_usd_perc',
                         'diff_price_usd', 'diff_price_usd_perc', 'prop_starrating_bool',
-                        'prop_review_score_bool', 'mean_prop_review_score',
-                        'mean_prop_location_score1', 'mean_prop_location_score2',
-                        'prop_location_score_combined', 'sold_prev_period_bool',
+                        'mean_prop_starrating', 'prop_review_score_bool',
+                        'mean_prop_review_score', 'mean_prop_location_score1',
+                        'mean_prop_location_score2', 'prop_location_score_combined',
+                        'mean_prop_location_score_combined', 'sold_prev_period_bool',
                         'prop_historical_price', 'prop_price_diff', 'total_price',
-                        'srch_person_count', 'fee_per_person', 'guests_per_room', 'score2ma',
-                        'competitor_count', 'competitor_lower_percent',
-                        'competitor_fraction_lower', 'norm_price_usd_wrt_srch_id',
+                        'mean_prop_price', 'srch_person_count', 'fee_per_person',
+                        'guests_per_room', 'score2ma', 'norm_price_usd_wrt_srch_id',
                         'norm_price_usd_wrt_prop_id', 'norm_price_usd_wrt_srch_booking_window',
-                        'norm_price_usd_wrt_srch_destination_id',
+                        'norm_price_usd_wrt_srch_destination_id', 'norm_price_usd_wrt_site_id',
                         'norm_prop_location_score1_wrt_srch_id',
                         'norm_prop_location_score1_wrt_srch_booking_window',
                         'norm_prop_location_score1_wrt_srch_destination_id',
+                        'norm_prop_location_score1_wrt_site_id',
                         'norm_prop_location_score2_wrt_srch_id',
+                        'norm_prop_location_score2_wrt_prop_id',
                         'norm_prop_location_score2_wrt_srch_booking_window',
                         'norm_prop_location_score2_wrt_srch_destination_id',
+                        'norm_prop_location_score2_wrt_site_id',
                         'norm_prop_review_score_wrt_srch_id',
                         'norm_prop_review_score_wrt_srch_booking_window',
-                        'norm_prop_review_score_wrt_srch_destination_id'
+                        'norm_prop_review_score_wrt_srch_destination_id',
+                        'norm_prop_review_score_wrt_site_id'
                         ]
 ]
 
@@ -163,7 +173,8 @@ preds = xgb_rank.predict(X_test)
 
 make_submission(df_test_whole, preds)
 
-xgb.plot_importance(xgb_rank) #!!!!!!!
+fig, ax = plt.subplots(figsize=(14, 7))
+xgb.plot_importance(xgb_rank, ax=ax)
 plt.show()
 
 pd.read_csv("submission.csv")

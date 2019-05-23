@@ -38,7 +38,8 @@ Process Report
 
 23-05 (Dennis + Niels)
 - finish data prep:
-    -
+    - created new features
     - Normalize features
+- new predictions, much better than first
 - Different ranking strategies
 - Combined rankings

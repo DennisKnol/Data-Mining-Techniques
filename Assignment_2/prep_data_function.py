@@ -102,40 +102,40 @@ def prep_data(data):
 
     # prop_location_score2
 
-    ##############                 DIFFERENT APPROACH FOR FILLING EMPTY LOCATION SCORE 2                  ##############
-    # first_quartile_loc_score2_per_prop_country = data.groupby("prop_country_id")["prop_location_score2"].quantile(0.25)
-    # first_quartile_fill = data.loc[data["prop_location_score2"].isna(), ["prop_location_score2", "prop_country_id"]
+    #############                 DIFFERENT APPROACH FOR FILLING EMPTY LOCATION SCORE 2                  ##############
+    first_quartile_loc_score2_per_prop_country = data.groupby("prop_country_id")["prop_location_score2"].quantile(0.25)
+    first_quartile_fill = data.loc[data["prop_location_score2"].isna(), ["prop_location_score2", "prop_country_id"]
+    ].apply(
+        lambda x: first_quartile_loc_score2_per_prop_country[x["prop_country_id"]], axis=1
+    )
+    data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = first_quartile_fill
+
+    data["prop_location_score2"] = data["prop_location_score2"].fillna(data["prop_location_score2"].mean())
+    ##################################################################################################################
+
+    # mean_loc_score2_per_srch_destination = data.groupby("srch_destination_id")["prop_location_score2"].mean()
+    # mean_per_srch_dest = data.loc[data["prop_location_score2"].isna(), ["prop_location_score2", "srch_destination_id"]
     # ].apply(
-    #     lambda x: first_quartile_loc_score2_per_prop_country[x["prop_country_id"]], axis=1
+    #     lambda x: mean_loc_score2_per_srch_destination[x["srch_destination_id"]], axis=1
     # )
-    # data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = first_quartile_fill
+    # data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = mean_per_srch_dest
     #
-    # data["prop_location_score2"] = data["prop_location_score2"].fillna(data["prop_location_score2"].mean())
-    ###################################################################################################################
-
-    mean_loc_score2_per_srch_destination = data.groupby("srch_destination_id")["prop_location_score2"].mean()
-    mean_per_srch_dest = data.loc[data["prop_location_score2"].isna(), ["prop_location_score2", "srch_destination_id"]
-    ].apply(
-        lambda x: mean_loc_score2_per_srch_destination[x["srch_destination_id"]], axis=1
-    )
-    data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = mean_per_srch_dest
-
-    mean_loc_score2_per_prop_country_id = data.groupby("prop_country_id")["prop_location_score2"].mean()
-    mean_per_prop_country_id = data.loc[data["prop_location_score2"].isna(), ["prop_location_score2", "prop_country_id"]
-    ].apply(
-        lambda x: mean_loc_score2_per_prop_country_id[x["prop_country_id"]], axis=1
-    )
-    data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = mean_per_prop_country_id
-
-    mean_location_score = data.groupby("srch_id")["prop_location_score2"].mean()
-    mean_location_score.loc[mean_location_score.isna()] = 0.5
-
-    data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = data.loc[
-        data["prop_location_score2"].isna(),
-        ["prop_location_score2", "srch_id"]
-    ].apply(
-        lambda x: mean_location_score[x["srch_id"]], axis=1
-    )
+    # mean_loc_score2_per_prop_country_id = data.groupby("prop_country_id")["prop_location_score2"].mean()
+    # mean_per_prop_country_id = data.loc[data["prop_location_score2"].isna(), ["prop_location_score2", "prop_country_id"]
+    # ].apply(
+    #     lambda x: mean_loc_score2_per_prop_country_id[x["prop_country_id"]], axis=1
+    # )
+    # data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = mean_per_prop_country_id
+    #
+    # mean_location_score = data.groupby("srch_id")["prop_location_score2"].mean()
+    # mean_location_score.loc[mean_location_score.isna()] = 0.5
+    #
+    # data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = data.loc[
+    #     data["prop_location_score2"].isna(),
+    #     ["prop_location_score2", "srch_id"]
+    # ].apply(
+    #     lambda x: mean_location_score[x["srch_id"]], axis=1
+    # )
 
     mean_prop_location_score2 = data.groupby("prop_id")["prop_location_score2"].mean()
     data["mean_prop_location_score2"] = data["prop_id"].apply(lambda x: mean_prop_location_score2[x])
@@ -184,46 +184,50 @@ def prep_data(data):
 
     # fill orig_destination_distance
     # TODO: improve
-    mean_distance_01 = data.groupby("srch_id")["orig_destination_distance"].mean()
-    data.loc[data["orig_destination_distance"].isna(), "orig_destination_distance"] = data.loc[
-        data["orig_destination_distance"].isna(),
-        ["orig_destination_distance", "srch_id"],
-    ].apply(
-        lambda x: mean_distance_01[x["srch_id"]], axis=1
-    )
+    data['orig_destination_distance'] = data['orig_destination_distance'].fillna(data.orig_destination_distance.median())
 
-    mean_distance_02 = data.groupby("visitor_location_country_id")["orig_destination_distance"].mean()
-    data.loc[data["orig_destination_distance"].isna(), "orig_destination_distance"] = data.loc[
-        data["orig_destination_distance"].isna(),
-        ["orig_destination_distance", "visitor_location_country_id"],
-    ].apply(
-        lambda x: mean_distance_02[x["visitor_location_country_id"]], axis=1
-    )
-
-    mean_distance_03 = data.groupby("srch_destination_id")["orig_destination_distance"].mean()
-    data.loc[data["orig_destination_distance"].isna(), "orig_destination_distance"] = data.loc[
-        data["orig_destination_distance"].isna(),
-        ["orig_destination_distance", "srch_destination_id"],
-    ].apply(
-        lambda x: mean_distance_03[x["srch_destination_id"]], axis=1
-    )
-
-    data["orig_destination_distance"].fillna((data["orig_destination_distance"].mean()), inplace=True)
+    # mean_distance_01 = data.groupby("srch_id")["orig_destination_distance"].mean()
+    # data.loc[data["orig_destination_distance"].isna(), "orig_destination_distance"] = data.loc[
+    #     data["orig_destination_distance"].isna(),
+    #     ["orig_destination_distance", "srch_id"],
+    # ].apply(
+    #     lambda x: mean_distance_01[x["srch_id"]], axis=1
+    # )
+    #
+    # mean_distance_02 = data.groupby("visitor_location_country_id")["orig_destination_distance"].mean()
+    # data.loc[data["orig_destination_distance"].isna(), "orig_destination_distance"] = data.loc[
+    #     data["orig_destination_distance"].isna(),
+    #     ["orig_destination_distance", "visitor_location_country_id"],
+    # ].apply(
+    #     lambda x: mean_distance_02[x["visitor_location_country_id"]], axis=1
+    # )
+    #
+    # mean_distance_03 = data.groupby("srch_destination_id")["orig_destination_distance"].mean()
+    # data.loc[data["orig_destination_distance"].isna(), "orig_destination_distance"] = data.loc[
+    #     data["orig_destination_distance"].isna(),
+    #     ["orig_destination_distance", "srch_destination_id"],
+    # ].apply(
+    #     lambda x: mean_distance_03[x["srch_destination_id"]], axis=1
+    # )
+    #
+    # data["orig_destination_distance"].fillna((data["orig_destination_distance"].mean()), inplace=True)
 
     # create a column with the number of competitors
     # Competitors that do not have availability will be removed from statistics
-    #
-    # for i in range(1, 9):
-    #     data.loc[data[f"comp{i}_inv"] != 0, f"comp{i}_rate"] = np.nan
-    #
-    # columns_rate = ["comp{}_rate".format(i) for i in range(1, 9)]
-    # data["competitor_count"] = data[columns_rate].count(axis=1)
-    # data["competitor_lower_percent"] = (data[columns_rate] < 0).sum(axis=1)
-    # data["competitor_fraction_lower"] = data.competitor_lower_percent.div(data.competitor_count)
-    # data.loc[~np.isfinite(data["competitor_fraction_lower"]), "competitor_fraction_lower"] = 0
+    # https://www.kaggle.com/c/expedia-personalized-sort/discussion/5774
+
+    for i in range(1, 9):
+        data.loc[data["comp{}_inv".format(i)] == -1] = np.nan
+        data.loc[data[f"comp{i}_inv"] != 0, f"comp{i}_rate"] = np.nan
+
+    columns_rate = ["comp{}_rate".format(i) for i in range(1, 9)]
+    data["competitor_count"] = data[columns_rate].count(axis=1)
+    data["competitor_lower_percent"] = (data[columns_rate] < 0).sum(axis=1)
+    data["competitor_fraction_lower"] = data.competitor_lower_percent.div(data.competitor_count)
+    data.loc[~np.isfinite(data["competitor_fraction_lower"]), "competitor_fraction_lower"] = 0
 
     # drop data
-    columns_to_drop_list = []
+    columns_to_drop_list = ["date_time"]
 
     if "gross_bookings_usd" in data.columns:
         columns_to_drop_list.append("gross_bookings_usd")

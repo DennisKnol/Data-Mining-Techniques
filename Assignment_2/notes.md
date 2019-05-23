@@ -95,7 +95,7 @@ prop_location_score1:
 - OK
 
 prop_location_score2: 
-- we use the first quartile calculated by the country which the data point located in to represent the missing data
+- 
 - new feature: average score per prop_id
 
 prop_location_score COMBINED
