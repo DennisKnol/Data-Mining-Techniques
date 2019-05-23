@@ -21,7 +21,7 @@ wrt_features = ["srch_id", "prop_id", "srch_booking_window", "srch_destination_i
 
 for feature in normalize_features:
     for wrt_feature in wrt_features:
-        data = normalize_feature(data, feature=feature, wrt_feature=wrt_feature)
+        normalize_feature(data, feature=feature, wrt_feature=wrt_feature)
 
 
 # # Density plots

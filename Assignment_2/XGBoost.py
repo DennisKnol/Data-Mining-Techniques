@@ -1,5 +1,7 @@
 import xgboost as xgb
 import matplotlib.pyplot as plt
+
+from prep_data_function import *
 from RankingAlgorithms import *
 
 df = pd.read_csv("prepped_training_set_VU_DM.csv")
@@ -7,6 +9,14 @@ df_test = pd.read_csv("prepped_test_set_VU_DM.csv")
 
 df = df[:500000]
 df_test = df_test[:500000]
+
+normalize_features = ["price_usd", "prop_location_score1", "prop_location_score2", "prop_review_score"]
+wrt_features = ["srch_id", "prop_id", "srch_booking_window", "srch_destination_id"]
+
+for feature in normalize_features:
+    for wrt_feature in wrt_features:
+        df = normalize_feature(df, feature=feature, wrt_feature=wrt_feature)
+        df_test = normalize_feature(df_test, feature=feature, wrt_feature=wrt_feature)
 
 
 def make_submission(df_test, predictions):
