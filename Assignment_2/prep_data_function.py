@@ -48,6 +48,11 @@ def normalize_feature(data, feature, wrt_feature):
     data["norm_"+feature+"_wrt_"+wrt_feature] = data.groupby(wrt_feature)[feature].transform(
         lambda x: (x - x.mean()) / x.std()
     )
+
+    data["norm_" + feature + "_wrt_" + wrt_feature] = data["norm_"+feature+"_wrt_"+wrt_feature].fillna(
+        data["norm_" + feature + "_wrt_" + wrt_feature].mean()
+    )
+
     return data
 
 
@@ -82,6 +87,9 @@ def prep_data(data):
 
     data["prop_starrating_bool"] = np.where(data["prop_starrating"] == 0, 0, 1)
 
+    mean_prop_starrating = data.groupby("prop_id")["prop_starrating"].mean()
+    data["mean_prop_starrating"] = data["prop_id"].apply(lambda x: mean_prop_starrating[x])
+
     data["prop_review_score"] = data["prop_review_score"].fillna(0)
     data["prop_review_score_bool"] = np.where(data["prop_review_score"] == 0, 0, 1)
 
@@ -93,41 +101,41 @@ def prep_data(data):
     data["mean_prop_location_score1"] = data["prop_id"].apply(lambda x: mean_prop_location_score1[x])
 
     # prop_location_score2
-    first_quartile_loc_score2_per_prop_country = data.groupby("prop_country_id")["prop_location_score2"].quantile(0.25)
-    first_quartile_fill = data.loc[data["prop_location_score2"].isna(), ["prop_location_score2", "prop_country_id"]
-    ].apply(
-        lambda x: first_quartile_loc_score2_per_prop_country[x["prop_country_id"]], axis=1
-    )
-    data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = first_quartile_fill
-
-    data["prop_location_score2"] = data["prop_location_score2"].fillna(data["prop_location_score2"].mean())
 
     ##############                 DIFFERENT APPROACH FOR FILLING EMPTY LOCATION SCORE 2                  ##############
-    #
-    # mean_loc_score2_per_srch_destination = data.groupby("srch_destination_id")["prop_location_score2"].mean()
-    # mean_per_srch_dest = data.loc[data["prop_location_score2"].isna(), ["prop_location_score2", "srch_destination_id"]
+    # first_quartile_loc_score2_per_prop_country = data.groupby("prop_country_id")["prop_location_score2"].quantile(0.25)
+    # first_quartile_fill = data.loc[data["prop_location_score2"].isna(), ["prop_location_score2", "prop_country_id"]
     # ].apply(
-    #     lambda x: mean_loc_score2_per_srch_destination[x["srch_destination_id"]], axis=1
+    #     lambda x: first_quartile_loc_score2_per_prop_country[x["prop_country_id"]], axis=1
     # )
-    # data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = mean_per_srch_dest
+    # data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = first_quartile_fill
     #
-    # mean_loc_score2_per_prop_country_id = data.groupby("prop_country_id")["prop_location_score2"].mean()
-    # mean_per_prop_country_id = data.loc[data["prop_location_score2"].isna(), ["prop_location_score2", "prop_country_id"]
-    # ].apply(
-    #     lambda x: mean_loc_score2_per_prop_country_id[x["prop_country_id"]], axis=1
-    # )
-    # data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = mean_per_prop_country_id
-    #
-    # mean_location_score = data.groupby("srch_id")["prop_location_score2"].mean()
-    # mean_location_score.loc[mean_location_score.isna()] = 0.5
-    #
-    # data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = data.loc[
-    #     data["prop_location_score2"].isna(),
-    #     ["prop_location_score2", "srch_id"]
-    # ].apply(
-    #     lambda x: mean_location_score[x["srch_id"]], axis=1
-    # )
+    # data["prop_location_score2"] = data["prop_location_score2"].fillna(data["prop_location_score2"].mean())
     ###################################################################################################################
+
+    mean_loc_score2_per_srch_destination = data.groupby("srch_destination_id")["prop_location_score2"].mean()
+    mean_per_srch_dest = data.loc[data["prop_location_score2"].isna(), ["prop_location_score2", "srch_destination_id"]
+    ].apply(
+        lambda x: mean_loc_score2_per_srch_destination[x["srch_destination_id"]], axis=1
+    )
+    data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = mean_per_srch_dest
+
+    mean_loc_score2_per_prop_country_id = data.groupby("prop_country_id")["prop_location_score2"].mean()
+    mean_per_prop_country_id = data.loc[data["prop_location_score2"].isna(), ["prop_location_score2", "prop_country_id"]
+    ].apply(
+        lambda x: mean_loc_score2_per_prop_country_id[x["prop_country_id"]], axis=1
+    )
+    data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = mean_per_prop_country_id
+
+    mean_location_score = data.groupby("srch_id")["prop_location_score2"].mean()
+    mean_location_score.loc[mean_location_score.isna()] = 0.5
+
+    data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = data.loc[
+        data["prop_location_score2"].isna(),
+        ["prop_location_score2", "srch_id"]
+    ].apply(
+        lambda x: mean_location_score[x["srch_id"]], axis=1
+    )
 
     mean_prop_location_score2 = data.groupby("prop_id")["prop_location_score2"].mean()
     data["mean_prop_location_score2"] = data["prop_id"].apply(lambda x: mean_prop_location_score2[x])
@@ -135,6 +143,9 @@ def prep_data(data):
     data["prop_location_score_combined"] = (
             (data["prop_location_score2"] + 0.0001) / (data["prop_location_score1"] + 0.0001)
     )
+
+    mean_prop_location_score_comb = data.groupby("prop_id")["prop_location_score_combined"].mean()
+    data["mean_prop_location_score_combined"] = data["prop_id"].apply(lambda x: mean_prop_location_score_comb[x])
 
     # create boolean: 0 will occur if the hotel was not sold in that period
     data["sold_prev_period_bool"] = np.where(data["prop_log_historical_price"] == 0, 0, 1)
@@ -145,6 +156,9 @@ def prep_data(data):
 
     data["total_price"] = data["price_usd"] * data["srch_room_count"]
 
+    mean_prop_price = data.groupby("prop_id")["price_usd"].mean()
+    data["mean_prop_price"] = data["prop_id"].apply(lambda x: mean_prop_price[x])
+
     # creating a column with the total person count
     data["srch_person_count"] = data["srch_adults_count"] + data["srch_children_count"]
 
@@ -154,28 +168,19 @@ def prep_data(data):
     data["guests_per_room"] = data["srch_person_count"] / data["srch_room_count"]
 
     # fill "srch_query_affinity_score"
-    first_quartile_affinity = data.groupby("prop_country_id")["srch_query_affinity_score"].quantile(0.25)
-
-    first_quartile_fill = data.loc[data["srch_query_affinity_score"].isna(), ["srch_query_affinity_score", "prop_country_id"]
-    ].apply(
-        lambda x: first_quartile_affinity[x["prop_country_id"]], axis=1
-    )
-    data.loc[data["srch_query_affinity_score"].isna(), "srch_query_affinity_score"] = first_quartile_fill
-
     data["srch_query_affinity_score"] = np.exp(data["srch_query_affinity_score"]).fillna(0)
 
+    data["score1ma"] = data["srch_query_affinity_score"] * data["prop_location_score1"]
     data["score2ma"] = data["srch_query_affinity_score"] * data["prop_location_score2"]
+
+    # means per property
+    mean_prop_price = data.groupby("prop_id")["price_usd"].mean()
+    data["mean_prop_price"] = data["prop_id"].apply(lambda x: mean_prop_price[x])
 
     # cut price_usd into bins
     bin_size = 20
     bins = list(range(0, math.ceil(max(data["price_usd"])), bin_size))
     pd.cut(data["price_usd"], bins)
-
-    # TODO: cut
-    #  - srch_query_affinity_score
-    #  - diff_starrating  ?
-    #  - diff_price_usd   ?
-
 
     # fill orig_destination_distance
     # TODO: improve
@@ -207,15 +212,15 @@ def prep_data(data):
 
     # create a column with the number of competitors
     # Competitors that do not have availability will be removed from statistics
-
-    for i in range(1, 9):
-        data.loc[data[f"comp{i}_inv"] != 0, f"comp{i}_rate"] = np.nan
-
-    columns_rate = ["comp{}_rate".format(i) for i in range(1, 9)]
-    data["competitor_count"] = data[columns_rate].count(axis=1)
-    data["competitor_lower_percent"] = (data[columns_rate] < 0).sum(axis=1)
-    data["competitor_fraction_lower"] = data.competitor_lower_percent.div(data.competitor_count)
-    data.loc[~np.isfinite(data["competitor_fraction_lower"]), "competitor_fraction_lower"] = 0
+    #
+    # for i in range(1, 9):
+    #     data.loc[data[f"comp{i}_inv"] != 0, f"comp{i}_rate"] = np.nan
+    #
+    # columns_rate = ["comp{}_rate".format(i) for i in range(1, 9)]
+    # data["competitor_count"] = data[columns_rate].count(axis=1)
+    # data["competitor_lower_percent"] = (data[columns_rate] < 0).sum(axis=1)
+    # data["competitor_fraction_lower"] = data.competitor_lower_percent.div(data.competitor_count)
+    # data.loc[~np.isfinite(data["competitor_fraction_lower"]), "competitor_fraction_lower"] = 0
 
     # drop data
     columns_to_drop_list = []
