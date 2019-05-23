@@ -1,7 +1,6 @@
 import xgboost as xgb
-import pandas as pd
-
 import matplotlib.pyplot as plt
+from RankingAlgorithms import *
 
 df = pd.read_csv("prepped_training_set_VU_DM.csv")
 df_test = pd.read_csv("prepped_test_set_VU_DM.csv")
@@ -14,7 +13,7 @@ def group_size(data):
 
 
 X = df[['srch_id', 'site_id', 'visitor_location_country_id',
-        'visitor_hist_starrating', 'visitor_hist_adr_usd', 'prop_country_id',
+        'prop_country_id',
         'prop_id', 'prop_starrating', 'prop_review_score', 'prop_brand_bool',
         'prop_location_score1', 'prop_location_score2',
         'prop_log_historical_price', 'price_usd', 'promotion_flag',
@@ -30,9 +29,10 @@ X = df[['srch_id', 'site_id', 'visitor_location_country_id',
 
 
 y = df["booking_bool"]
+y_forest = df["booking_bool"] + df["click_bool"]
 
 X_test = df_test[['srch_id', 'site_id', 'visitor_location_country_id',
-                  'visitor_hist_starrating', 'visitor_hist_adr_usd', 'prop_country_id',
+                  'prop_country_id',
                   'prop_id', 'prop_starrating', 'prop_review_score', 'prop_brand_bool',
                   'prop_location_score1', 'prop_location_score2',
                   'prop_log_historical_price', 'price_usd', 'promotion_flag',
@@ -54,6 +54,8 @@ X_test = df_test[['srch_id', 'site_id', 'visitor_location_country_id',
 # xg_reg.fit(X_train, y_train)
 #
 # preds = xg_reg.predict(X_test)
+
+rf_ranking = rank_rf(X, y_forest, X_test)
 
 xgb_rank = xgb.XGBRanker(objective='rank:ndcg')
 xgb_rank.fit(X, y, group_size(df))
