@@ -35,3 +35,10 @@ Process Report
 - submit first predictions
 
 - created cleaner prep_data.py, making function.py unneeded
+
+23-05 (Dennis + Niels)
+- finish data prep:
+    -
+    - Normalize features
+- Different ranking strategies
+- Combined rankings
