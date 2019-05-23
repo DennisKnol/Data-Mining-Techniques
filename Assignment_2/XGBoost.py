@@ -68,7 +68,13 @@ X_test = df_test[['srch_id', 'site_id', 'visitor_location_country_id',
 #
 # preds = xg_reg.predict(X_test)
 
-rf_ranking = rank_rf(X, y_forest, X_test)
+ranking_split = [0.8, 0.2]
+xgb_ranking = rank_XGBoost(X, y, X_test, group_size(df), df_test)
+rf_ranking = rank_rf(X, y, X_test, df_test)
+
+
+combined_ranking = rf_ranking.join(xgb_ranking[['xgb_rank', 'xgb_preds']])
+combined_ranking['comb_rank'] = combined_ranking[['xgb_rank', 'rf_rank']].dot(ranking_split)
 
 xgb_rank = xgb.XGBRanker(objective='rank:ndcg')
 xgb_rank.fit(X, y, group_size(df))
