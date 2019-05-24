@@ -9,17 +9,8 @@ df_test = pd.read_csv("prepped_test_set_VU_DM.csv")
 df_test_whole = df_test
 
 df = df[:1000000]
-# df_test = df_test[:1000000]
-#
-# normalize_features = ["price_usd", "prop_location_score1", "prop_location_score2", "prop_review_score"]
-# wrt_features = ["srch_id", "prop_id", "srch_booking_window", "srch_destination_id"]
-#
-# for feature in normalize_features:
-#     for wrt_feature in wrt_features:
-#         df = normalize_feature(df, feature=feature, wrt_feature=wrt_feature)
-#         df_test = normalize_feature(df_test, feature=feature, wrt_feature=wrt_feature)
-#         df_test_whole = normalize_feature(df_test_whole, feature=feature, wrt_feature=wrt_feature)
-#
+# df_test = df_test[:1000000]#
+
 
 def make_submission(df_test, predictions):
     df = pd.DataFrame(predictions, columns=['preds'])
@@ -35,10 +26,6 @@ def group_size(data):
     srch_count = pd.DataFrame([srch_value_counts]).T.sort_index()
     return srch_count["srch_id"]
 
-# dr uit: visitor_hist_adr_usd, date time alles, srch id, site id, abs_diff_price_usd,
-# diff_price_usd_perc, srch_person_count, score1ma, prop_country_id, prop_id, visitor_location_country_id
-# price_usd, srch_length_of_stay, srch_booking_window
-# 'srch_adults_count', 'srch_children_count', 'srch_room_count',
 
 columns_for_X = [
     'visitor_hist_starrating',
