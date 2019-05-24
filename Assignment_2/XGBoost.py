@@ -8,7 +8,7 @@ df = pd.read_csv("prepped_training_set_VU_DM.csv")
 df_test = pd.read_csv("prepped_test_set_VU_DM.csv")
 df_test_whole = df_test
 
-df = df[:1000000]
+df = df[:2000000]
 # df_test = df_test[:1000000]#
 
 
