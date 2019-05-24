@@ -39,17 +39,13 @@ print("checkpoint 5")
 # check missing values
 print(missing_value_count(df))
 print(missing_value_count(df_test))
-#
-# df.to_csv("prepped_training_set_VU_DM.csv", index=False)
-# print("checkpoint 6")
-# df_test.to_csv("prepped_test_set_VU_DM.csv", index=False)
-# print("checkpoint 7")
 
 
 def new_prep(data):
     data = data.drop(columns="norm_prop_review_score_wrt_prop_id")
     data = data.drop(columns="norm_prop_location_score1_wrt_prop_id")
     return data
+
 
 df = new_prep(df)
 df_test = new_prep(df_test)
@@ -58,9 +54,3 @@ df.to_csv("prepped_training_set_VU_DM.csv", index=False)
 print("checkpoint 6")
 df_test.to_csv("prepped_test_set_VU_DM.csv", index=False)
 print("checkpoint 7")
-
-# for col in df.columns:
-#
-#     if len(df[col]) != 4936449:
-#         print(col)
-#         print(len(df[col]) != 4936449)
