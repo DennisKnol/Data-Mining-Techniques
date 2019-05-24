@@ -8,23 +8,16 @@ from functions import *
 
 
 df = pd.read_csv("training_set_VU_DM.csv")
-
-outlier_rows = find_outlier(df)
-number_of_outlier_row = len(outlier_rows)
-
-# sample = df.sample(1000)
-# sample.to_csv("df_sample.csv")
-
+df_prepped = pd.read_csv("prepped_training_set_VU_DM.csv")
 
 print(df.info())
 print(df.columns)
-print("Shape of the dataframe: ", df.shape, "\n")  # (1000, 54)
+print("Shape of the dataframe: ", df.shape, "\n")
 print("Count and percentage of is null values: \n", missing_value_count(df))
 
 print("Number of unique search IDs:\n ", len(df["srch_id"].unique()))
 print("Number of unique hotel IDs:\n ", len(df["prop_id"].unique()))
 # TODO: divide in bins, might be relevant if properties appear often in searches
-
 
 booking_percentage = 100 * (df["booking_bool"].sum()/df.shape[0])
 clicking_percentage = 100 * (df["click_bool"].sum()/df.shape[0])
@@ -36,7 +29,8 @@ plt.show()
 df["position"][df["booking_bool"] == 1].value_counts(normalize=True).sort_index().plot(kind='bar')
 plt.show()
 
-df["position"][df["click_bool"] == 1].value_counts(normalize=True).sort_index().plot(kind='bar')
+df["position"][df["click_bool"] == 1].value_counts(normalize=True).sort_index().plot(kind='bar', color='blue')
+df["position"][df["click_bool"] == 0].value_counts(normalize=True).sort_index().plot(kind='bar', color='red')
 plt.show()
 
 # create and plot new column with the total number of individuals in family / group
@@ -154,7 +148,7 @@ for i in attributes:
 
 # Density plots
 attributes = [
-    "srch_travelers_count", "guests_per_room"
+    "guests_per_room"
 
 ]
 
