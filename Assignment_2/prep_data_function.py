@@ -79,11 +79,9 @@ def prep_data(data):
     data["visitor_hist_adr_usd"] = data["visitor_hist_adr_usd"].fillna(0)
     print("history")
     data["diff_starrating"] = np.abs(data["visitor_hist_starrating"] - data["prop_starrating"])
-    data["abs_diff_price_usd"] = np.abs(data["visitor_hist_adr_usd"] - data["price_usd"])
     data["abs_diff_price_usd_perc"] = np.abs(data["visitor_hist_adr_usd"] / data["price_usd"])
 
     data["diff_price_usd"] = data["visitor_hist_adr_usd"] - data["price_usd"]
-    data["diff_price_usd_perc"] = data["visitor_hist_adr_usd"] / data["price_usd"]
 
     data["prop_starrating_bool"] = np.where(data["prop_starrating"] == 0, 0, 1)
 
@@ -110,30 +108,6 @@ def prep_data(data):
 
     data["prop_location_score2"] = data["prop_location_score2"].fillna(data["prop_location_score2"].mean())
     print("prop_loc2")
-
-    # mean_loc_score2_per_srch_destination = data.groupby("srch_destination_id")["prop_location_score2"].mean()
-    # mean_per_srch_dest = data.loc[data["prop_location_score2"].isna(), ["prop_location_score2", "srch_destination_id"]
-    # ].apply(
-    #     lambda x: mean_loc_score2_per_srch_destination[x["srch_destination_id"]], axis=1
-    # )
-    # data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = mean_per_srch_dest
-    #
-    # mean_loc_score2_per_prop_country_id = data.groupby("prop_country_id")["prop_location_score2"].mean()
-    # mean_per_prop_country_id = data.loc[data["prop_location_score2"].isna(), ["prop_location_score2", "prop_country_id"]
-    # ].apply(
-    #     lambda x: mean_loc_score2_per_prop_country_id[x["prop_country_id"]], axis=1
-    # )
-    # data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = mean_per_prop_country_id
-    #
-    # mean_location_score = data.groupby("srch_id")["prop_location_score2"].mean()
-    # mean_location_score.loc[mean_location_score.isna()] = 0.5
-    #
-    # data.loc[data["prop_location_score2"].isna(), "prop_location_score2"] = data.loc[
-    #     data["prop_location_score2"].isna(),
-    #     ["prop_location_score2", "srch_id"]
-    # ].apply(
-    #     lambda x: mean_location_score[x["srch_id"]], axis=1
-    # )
 
     mean_prop_location_score2 = data.groupby("prop_id")["prop_location_score2"].mean()
     data["mean_prop_location_score2"] = data["prop_id"].apply(lambda x: mean_prop_location_score2[x])
@@ -183,32 +157,6 @@ def prep_data(data):
     mean_destination_distance = data.groupby("srch_id")["orig_destination_distance"].mean()
     data["mean_destination_distance"] = data["srch_id"].apply(lambda x: mean_destination_distance[x])
 
-    # mean_distance_01 = data.groupby("srch_id")["orig_destination_distance"].mean()
-    # data.loc[data["orig_destination_distance"].isna(), "orig_destination_distance"] = data.loc[
-    #     data["orig_destination_distance"].isna(),
-    #     ["orig_destination_distance", "srch_id"],
-    # ].apply(
-    #     lambda x: mean_distance_01[x["srch_id"]], axis=1
-    # )
-    #
-    # mean_distance_02 = data.groupby("visitor_location_country_id")["orig_destination_distance"].mean()
-    # data.loc[data["orig_destination_distance"].isna(), "orig_destination_distance"] = data.loc[
-    #     data["orig_destination_distance"].isna(),
-    #     ["orig_destination_distance", "visitor_location_country_id"],
-    # ].apply(
-    #     lambda x: mean_distance_02[x["visitor_location_country_id"]], axis=1
-    # )
-    #
-    # mean_distance_03 = data.groupby("srch_destination_id")["orig_destination_distance"].mean()
-    # data.loc[data["orig_destination_distance"].isna(), "orig_destination_distance"] = data.loc[
-    #     data["orig_destination_distance"].isna(),
-    #     ["orig_destination_distance", "srch_destination_id"],
-    # ].apply(
-    #     lambda x: mean_distance_03[x["srch_destination_id"]], axis=1
-    # )
-    #
-    # data["orig_destination_distance"].fillna((data["orig_destination_distance"].mean()), inplace=True)
-
     # create a column with the number of competitors
     # Competitors that do not have availability will be removed from statistics
     # https://www.kaggle.com/c/expedia-personalized-sort/discussion/5774
@@ -221,8 +169,18 @@ def prep_data(data):
     # data["competitor_lower_percent"] = (data[columns_rate] < 0).sum(axis=1)
     # data["competitor_fraction_lower"] = data.competitor_lower_percent.div(data.competitor_count)
     # data.loc[~np.isfinite(data["competitor_fraction_lower"]), "competitor_fraction_lower"] = 0
-    print("drop")
+
+    print("normalize")
+    # normalize data
+    normalize_features = ["price_usd", "prop_location_score1", "prop_location_score2", "prop_review_score"]
+    wrt_features = ["srch_id", "prop_id", "srch_booking_window", "srch_destination_id", "site_id"]
+
+    for feature in normalize_features:
+        for wrt_feature in wrt_features:
+            data = normalize_feature(data, feature=feature, wrt_feature=wrt_feature)
+
     # drop data
+    print("drop")
     columns_to_drop_list = ["date_time"]
 
     if "gross_bookings_usd" in data.columns:
